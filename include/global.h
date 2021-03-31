@@ -13,6 +13,9 @@
 #include <SPI.h>
 #include "Adafruit_GFX.h" 
 #include "Adafruit_HX8357.h"
+#include <Fonts/FreeMonoBoldOblique12pt7b.h>
+#include <Fonts/FreeSans18pt7b.h>
+
 
 // defs for Adafruit 3.5" 480x320 TFT Featherwing - https://learn.adafruit.com/adafruit-3-5-tft-featherwing?view=all
 // I have removed the pin defs for other boards.  See original example "graphicstest_featherwing.ino" for them.
