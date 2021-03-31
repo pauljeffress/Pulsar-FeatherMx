@@ -15,7 +15,8 @@
 #include "Adafruit_HX8357.h"
 #include <Fonts/FreeMonoBoldOblique12pt7b.h>
 #include <Fonts/FreeSans18pt7b.h>
-
+//#include <DFRobot_SHT3x.h>    // for my DFRobot weatherproof Temp & Humidity I2C sensor
+#include "Adafruit_SHT31.h"
 
 // defs for Adafruit 3.5" 480x320 TFT Featherwing - https://learn.adafruit.com/adafruit-3-5-tft-featherwing?view=all
 // I have removed the pin defs for other boards.  See original example "graphicstest_featherwing.ino" for them.
@@ -34,6 +35,7 @@ defined(ARDUINO_SAMD_ZERO) || defined(__SAMD51__) || defined(__SAM3X8E__) || def
 
 /* extern my global vars */
 extern Adafruit_HX8357 tft;
+//extern DFRobot_SHT3x   sht3x;
 
 /* function pre defines */
 void tftdiags();
