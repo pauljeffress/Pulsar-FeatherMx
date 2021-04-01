@@ -10,13 +10,22 @@
 Adafruit_HX8357 tft = Adafruit_HX8357(TFT_CS, TFT_DC, TFT_RST);
 
 // Create SHT31 instance
-//DFRobot_SHT3x   sht3x;
-//DFRobot_SHT3x sht3x(&Wire,/*address=*/0x45,/*RST=*/4);
 Adafruit_SHT31 sht31 = Adafruit_SHT31();
+
+// Create Ambient Light Sensor instance
+DFRobot_B_LUX_V30B    myLux(13,6,5);
+
+// Create DS18B20 temp sensor
+  // Setup a oneWire instance to communicate with any OneWire devices (not just Maxim/Dallas temperature ICs)
+OneWire oneWire(ONE_WIRE_BUS);
+  // Pass our oneWire reference to Dallas Temperature. 
+DallasTemperature sensors(&oneWire);
+
+
 
 void setup() {
   Serial.begin(115200);
-  delay(3000); // wait for Serial to come up so we don't miss initial messages
+  delay(5000); // wait for Serial to come up so we don't miss initial messages
   Serial.println("Pulsar FeatherMx"); 
 
   tft.begin();  // initialise the TFT screen
@@ -64,15 +73,38 @@ void setup() {
     Serial.println("DISABLED");
 
 
+  // setup ambient light sensor dome
+  //myLux.begin();  // currently commented out as it is stopping the SHT31 from working.
+ 
+
+  // Start up the DallasTemperature library
+  sensors.begin();
+  // locate devices on the bus
+  Serial.print("Locating devices...");
+  Serial.print("Found ");
+  Serial.print(sensors.getDeviceCount(), DEC);
+  Serial.println(" devices.");
+  // report parasite power requirements
+  Serial.print("Parasite power is: "); 
+  if (sensors.isParasitePowerMode()) Serial.println("ON");
+  else Serial.println("OFF");
+
+
+  Serial.println("Setup() complete");
 }
 
 void loop(void) {
 
+/*
+ * ----------------------------------
+ * Operate the SHT31 Temp & Humidity Sensor 
+ * ----------------------------------
+ */
   float t = sht31.readTemperature();
   float h = sht31.readHumidity();
 
   if (! isnan(t)) {  // check if 'is not a number'
-    Serial.print("Temp *C = "); Serial.print(t); Serial.print("\t\t");
+    Serial.print("SHT Temp *C = "); Serial.print(t); Serial.print("\t\t");
     //tft.setCursor(215, 70);
     tft.fillRect(215,30,200,40,HX8357_BLACK);
     tft.setCursor(215, 70); 
@@ -82,7 +114,7 @@ void loop(void) {
   }
   
   if (! isnan(h)) {  // check if 'is not a number'
-    Serial.print("Hum. % = "); Serial.println(h);
+    Serial.print("SHT Hum. % = "); Serial.print(h); Serial.print("\t\t");
     //tft.setCursor(215, 110); 
     tft.fillRect(215,70,200,40,HX8357_BLACK);
     tft.setCursor(215, 110); 
@@ -91,13 +123,39 @@ void loop(void) {
     Serial.println("Failed to read humidity");
   }
 
-  delay(1000);
+/*
+ * ----------------------------------
+ * Operate the Ambient Light Sensor 
+ * ----------------------------------
+ */
+  //Serial.print("value: ");
+  //Serial.print(myLux.lightStrengthLux());
+  //Serial.println(" (lux).");
 
-  // for (int i=0;i < 100;i++)
-  // {
-  //   Serial.println(i);
-  //   tft.print(i);
-  //   delay(500);
-  // }
-  
+/*
+ * ----------------------------------
+ * Operate the DS18B20 Temp Sensor 
+ * ----------------------------------
+ */
+  // call sensors.requestTemperatures() to issue a global temperature 
+  // request to all devices on the bus
+  //Serial.print("Requesting temperatures...");
+  sensors.requestTemperatures(); // Send the command to get temperatures
+  //Serial.println("DONE");
+  // After we got the temperatures, we can print them here.
+  // We use the function ByIndex, and as an example get the temperature from the first sensor only.
+  float tempC = sensors.getTempCByIndex(0);
+  // Check if reading was successful
+  if(tempC != DEVICE_DISCONNECTED_C) 
+  {
+    Serial.print("DS18B20 Temp *C = ");
+    Serial.println(tempC);
+  } 
+  else
+  {
+    Serial.println("Error: Could not read temperature data");
+  }
+
+
+  delay(1000);  
 }

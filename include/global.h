@@ -16,7 +16,10 @@
 #include <Fonts/FreeMonoBoldOblique12pt7b.h>
 #include <Fonts/FreeSans18pt7b.h>
 //#include <DFRobot_SHT3x.h>    // for my DFRobot weatherproof Temp & Humidity I2C sensor
-#include "Adafruit_SHT31.h"
+#include "Adafruit_SHT31.h"   
+#include <DFRobot_B_LUX_V30B.h>
+#include <OneWire.h>             // required by DallasTemperature library
+#include <DallasTemperature.h>   // required for DS18B20 temp sensor
 
 // defs for Adafruit 3.5" 480x320 TFT Featherwing - https://learn.adafruit.com/adafruit-3-5-tft-featherwing?view=all
 // I have removed the pin defs for other boards.  See original example "graphicstest_featherwing.ino" for them.
@@ -30,12 +33,18 @@ defined(ARDUINO_SAMD_ZERO) || defined(__SAMD51__) || defined(__SAM3X8E__) || def
 #endif
 #define TFT_RST -1
 
+// DS18B20 sensor - Data wire is plugged into port 2 on the Arduino
+#define ONE_WIRE_BUS 4
+
+
 /* define any enums */
 
 
 /* extern my global vars */
 extern Adafruit_HX8357 tft;
 //extern DFRobot_SHT3x   sht3x;
+extern Adafruit_SHT31 sht31;
+//extern DFRobot_B_LUX_V30B myLux();
 
 /* function pre defines */
 void tftdiags();
