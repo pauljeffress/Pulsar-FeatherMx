@@ -3,7 +3,38 @@
  */
 
 #include "global.h"        // My main header file for this project itself
+
+void tftSetup()
+{
+  tft.begin();  // initialise the TFT screen
+  tftdiags();   // read diagnostics (optional but can help debug problems)
+  tft.setRotation(1);
+
+  tft.fillScreen(HX8357_BLACK);
+  tft.setTextColor(HX8357_GREEN);
+  tft.setFont(&FreeSans18pt7b); // you need to #include each font before you can use it. https://cdn-learn.adafruit.com/downloads/pdf/adafruit-gfx-graphics-library.pdf
+  tft.setCursor(0, 26); // Needed to do this or the first row of my 18pt (approx 40 vert pixels per char) font was partly off top of TFT.
+
+  tft.println("             Pulsar SubSystem ");
+  tft.println("Temperature:");
+  tft.println("Humidity:");
+  tft.println("Temperature:");
+  tft.println("Light:");
   
+  // put in place holder values and importantly their units symbol
+  tft.setCursor(215, 70); 
+  tft.println("88.88 c");
+  tft.setCursor(215, 110); 
+  tft.println("88.88 %");  
+  tft.setCursor(215, 150); 
+  tft.println("88.88 c");
+  tft.setCursor(215, 190); 
+  tft.println("8888.88 lux");
+
+  Serial.println("TFT Setup done");
+
+}
+
 void tftdiags()
   {
   // read diagnostics (optional but can help debug problems)

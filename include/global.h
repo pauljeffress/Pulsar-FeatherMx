@@ -42,12 +42,16 @@ defined(ARDUINO_SAMD_ZERO) || defined(__SAMD51__) || defined(__SAM3X8E__) || def
 
 /* extern my global vars */
 extern Adafruit_HX8357 tft;
-//extern DFRobot_SHT3x   sht3x;
 extern Adafruit_SHT31 sht31;
-//extern DFRobot_B_LUX_V30B myLux();
+extern DFRobot_B_LUX_V30B myLux;  
+extern OneWire oneWire;
+extern DallasTemperature sensors;
 
 /* function pre defines */
+void tftSetup();
 void tftdiags();
 unsigned long testText();
+void sensorsSetup();
+void sensorsTest();
 
 #endif
