@@ -21,6 +21,9 @@
 #include <OneWire.h>             // required by DallasTemperature library
 #include <DallasTemperature.h>   // required for DS18B20 temp sensor
 
+#include <common/mavlink.h>
+
+
 // defs for Adafruit 3.5" 480x320 TFT Featherwing - https://learn.adafruit.com/adafruit-3-5-tft-featherwing?view=all
 // I have removed the pin defs for other boards.  See original example "graphicstest_featherwing.ino" for them.
 // Anything else!
