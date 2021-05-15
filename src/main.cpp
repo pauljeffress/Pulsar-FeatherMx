@@ -40,7 +40,8 @@ Stream *_debugSerial;     //The stream to send debug messages to (if enabled)
 volatile int loop_step = loop_init; // Holds state of the main loop() state machine
                                     // It's volatile as it needs to be maintained across the sleep/wake.
 int assess_step = check_power;      // Holds state of the assess_situation state machine
-
+uint32_t assess_iterations_counter = 0; // Useful while debugging my assess_situation state machine.
+uint32_t assess_iterations_counter_last = 0; // Useful while debugging my assess_situation state machine.
 
 bool send_F2Ablob = false;   
 bool send_F2Pblob = false;   

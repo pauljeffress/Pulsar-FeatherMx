@@ -32,7 +32,7 @@ void case_assess_situation()
 //  tickle_watchdog
 //  sleep_yet
 
-debugPrintln("case_assess_situation() - starting");
+// debugPrintln("case_assess_situation() - starting");
 
 send_F2Ablob = false;   // when set, tx_to_agt() will send the full standard 
                         // Feather to AGT (F2A) blob of data to the AGT, and 
@@ -48,6 +48,13 @@ while (loop_step == assess_situation)   // Stay in this state machine or is it t
   {
   //debugPrintln("case_assess_situation() - top of main while loop");
   
+assess_iterations_counter++;
+if (assess_iterations_counter > (assess_iterations_counter_last + 1000))
+{
+  assess_iterations_counter_last = assess_iterations_counter;
+  Serial.print(assess_iterations_counter); Serial.print("  ");
+}
+
   // clear all stay_awake_xxx flags at beginning of each pass through.
   // If any of these are TRUE at the end of a pass, then we will not SLEEP and will 
   // instead make another pass through this function.
@@ -60,27 +67,34 @@ while (loop_step == assess_situation)   // Stay in this state machine or is it t
   switch (assess_step) 
     {
     // ************************************************************************************************
-    // Check AGT's power source status.
+    // Check Feather's power source status.
     case check_power:
-      case_check_power();  
+      //case_check_power();  
+      assess_step = read_sensors;
+      //debugPrintln("Skipping check_power");
     break;
 
     // ************************************************************************************************
     // Read the various sensors attached to the Feather.
     case read_sensors:
-      case_read_sensors();     
+      //case_read_sensors(); 
+      assess_step = write_to_tft; 
+      //debugPrintln("Skipping read_sensors");   
     break;
 
     // ************************************************************************************************
     // Update the tft display
     case write_to_tft:
-      case_write_to_tft();    
+      //case_write_to_tft(); 
+      assess_step = rx_from_autopilot;  
+      //debugPrintln("Skipping write_to_tft"); 
     break;
 
     // ************************************************************************************************
     // Read Mavlink stream from the Autopilot.
     case rx_from_autopilot:
-      //case_rx_from_autopilot();    
+      case_rx_from_autopilot();
+      assess_step = check_power;  // temorary short cut back to start of state machine.    
     break;
 
     // ************************************************************************************************

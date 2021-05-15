@@ -108,6 +108,8 @@ extern Stream *_debugSerial;
 
 extern volatile int loop_step;
 extern int assess_step;
+extern uint32_t assess_iterations_counter;
+extern uint32_t assess_iterations_counter_last;
 
 extern bool send_F2Ablob;
 extern bool send_F2Pblob;
@@ -131,8 +133,8 @@ void debugPrintlnInt(int32_t number);
 void debugPrintFlt(float number);
 void debugPrintlnFlt(float number);
 void setupPins();
-void MavLink_receive();
-void request_datastream();
+void mavlink_receive();
+void mavlink_request_datastream();
 void case_loop_init();
 void case_zzz();
 void case_wake();
@@ -140,6 +142,7 @@ void case_assess_situation();
 void case_check_power();
 void case_read_sensors();
 void case_write_to_tft();
+void case_rx_from_autopilot();
 void case_tickle_watchdog();
 void case_sleep_yet();
 #endif

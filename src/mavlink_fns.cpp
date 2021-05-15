@@ -6,82 +6,24 @@
  * 
  */
 
- #include "global.h"
+#include "global.h"
 
 /*============================*/
-/* MavLink_receive()
-/*
-/* function called by arduino to read any MAVlink messages sent by serial communication from flight controller to arduino
-/*============================*/
-void MavLink_receive()
-  { 
-  mavlink_message_t msg;
-  mavlink_status_t status;
-
-  while(Serial1.available())
-  {
-    uint8_t c= Serial1.read();
-
-    //Get new message
-    if(mavlink_parse_char(MAVLINK_COMM_0, c, &msg, &status))
-    {
-
-    //Handle new message from autopilot
-      switch(msg.msgid)
-      {
-
-      //handle heartbeat message
-      case MAVLINK_MSG_ID_HEARTBEAT:
-        {
-        mavlink_heartbeat_t hb;
-        mavlink_msg_heartbeat_decode(&msg,&hb);
-        
-        Serial.println();
-        Serial.print("Millis: ")                   ;Serial.print(millis());
-        Serial.print("\nFlight Mode: (10 is auto)");Serial.println(hb.custom_mode);
-        Serial.print("Type: ");                     Serial.println(hb.type);
-        Serial.print("Autopilot: ");                Serial.println(hb.autopilot);
-        Serial.print("Base Mode: ");                Serial.println(hb.base_mode);
-        Serial.print("System Status: ");            Serial.println(hb.system_status);
-        Serial.print("Mavlink Version: ");          Serial.println(hb.mavlink_version); 
-      }
-
-      case MAVLINK_MSG_ID_GPS_RAW_INT:
-        {
-        mavlink_gps_raw_int_t packet;
-        mavlink_msg_gps_raw_int_decode(&msg, &packet);
-
-        Serial.println();
-        Serial.print("\nGPS Fix: ");Serial.print(packet.fix_type);
-        Serial.print("  GPS Latitude: ");Serial.print(packet.lat);
-        Serial.print("  GPS Longitude: ");Serial.print(packet.lon);
-        Serial.print("  GPS Speed: ");Serial.print(packet.vel);
-        Serial.print("  Sats Visible: ");Serial.println(packet.satellites_visible);
-        }
-
-      break;
-
-      } // END - switch
-    } // END - do we have a full mavlink packet
-  }
-}   // END - MavLink_receive()
-
-
-/*============================*/
-/* request_datastream()
+/* mavlink_request_datastream()
 /*
 /* Request Data from Pixhawk - Pixhawk will not send any data until you request it.
 /*============================*/
-void request_datastream() {
-  uint8_t _system_id = 255; // id of computer which is sending the command (ground control software has id of 255)
-  uint8_t _component_id = 2; // seems like it can be any # except the number of what Pixhawk sys_id is
-  uint8_t _target_system = 1; // Id # of Pixhawk (should be 1)
+void mavlink_request_datastream()
+{
+  uint8_t _system_id = 255;      // id of computer which is sending the command (ground control software has id of 255)
+  uint8_t _component_id = 2;     // seems like it can be any # except the number of what Pixhawk sys_id is
+  uint8_t _target_system = 1;    // Id # of Pixhawk (should be 1)
   uint8_t _target_component = 0; // Target component, 0 = all (seems to work with 0 or 1
-  uint8_t _req_stream_id = MAV_DATA_STREAM_ALL;
+  uint8_t _req_stream_id = MAV_DATA_STREAM_RAW_SENSORS; // MAV_DATA_STREAM_ALL;
   uint16_t _req_message_rate = 0x01; //number of times per second to request the data in hex
-  uint8_t _start_stop = 1; //1 = start, 0 = stop
+  uint8_t _start_stop = 1;           //1 = start, 0 = stop
 
-// STREAMS that can be requested
+  // STREAMS that can be requested
   /*
    * Definitions are in common.h: enum MAV_DATA_STREAM and more importantly at:
      https://mavlink.io/en/messages/common.html#MAV_DATA_STREAM
@@ -108,8 +50,87 @@ void request_datastream() {
 
   // Pack the message
   mavlink_msg_request_data_stream_pack(_system_id, _component_id, &msg, _target_system, _target_component, _req_stream_id, _req_message_rate, _start_stop);
-  uint16_t len = mavlink_msg_to_send_buffer(buf, &msg);  // Send the message (.write sends as bytes)
+  uint16_t len = mavlink_msg_to_send_buffer(buf, &msg); // Send the message (.write sends as bytes)
 
   Serial1.write(buf, len); //Write data to serial port
 
-}   // END - request_datastream()
+} // END - mavlink_request_datastream()
+
+/*============================*/
+/* mavlink_receive()
+/*
+/* function called by arduino to read any MAVlink messages sent by serial communication from flight controller to arduino
+/*============================*/
+void mavlink_receive()
+{
+  mavlink_message_t msg;
+  mavlink_status_t status;
+  //debugPrintln("char?");
+  while (Serial1.available())
+  {
+    uint8_t c = Serial1.read();
+    //debugPrintln("got char");
+    // add new char to what we have so far and see of we have a full Mavlink msg yet
+    if (mavlink_parse_char(MAVLINK_COMM_0, c, &msg, &status)) // if we do then lets process it
+    {
+      //debugPrintln("got msg");
+      //Decode new message from autopilot
+      switch (msg.msgid)
+      {
+      //handle heartbeat message
+      case MAVLINK_MSG_ID_HEARTBEAT:
+      {
+        //debugPrintln("Its a HB");
+        mavlink_heartbeat_t hb;
+        mavlink_msg_heartbeat_decode(&msg, &hb);
+
+        Serial.println();
+        Serial.print("Millis: ");
+        Serial.print(millis());
+        Serial.print("\nFlight Mode: (10 is auto)");
+        Serial.println(hb.custom_mode);
+        Serial.print("Type: ");
+        Serial.println(hb.type);
+        Serial.print("Autopilot: ");
+        Serial.println(hb.autopilot);
+        Serial.print("Base Mode: ");
+        Serial.println(hb.base_mode);
+        Serial.print("System Status: ");
+        Serial.println(hb.system_status);
+        Serial.print("Mavlink Version: ");
+        Serial.println(hb.mavlink_version);
+        break;
+      }
+
+      case MAVLINK_MSG_ID_GPS_RAW_INT:
+      {
+        //debugPrintln("Its a GPS RAW");
+        mavlink_gps_raw_int_t packet;
+        mavlink_msg_gps_raw_int_decode(&msg, &packet);
+
+        Serial.println();
+        Serial.print("\nGPS Fix: ");
+        Serial.print(packet.fix_type);
+        Serial.print("  GPS Latitude: ");
+        Serial.print(packet.lat);
+        Serial.print("  GPS Longitude: ");
+        Serial.print(packet.lon);
+        Serial.print("  GPS Speed: ");
+        Serial.print(packet.vel);
+        Serial.print("  Sats Visible: ");
+        Serial.println(packet.satellites_visible);
+        break;
+      }
+
+      // ************************************************************************************************
+      // DEFAULT - should not happen, but programing it defensively
+      default:
+        //Serial.println("ERROR - we hit the default: in mavlink packet decode switch");
+        break;
+
+      } // END - of msg decoder switch
+
+      //delay(5000);
+    }   // END - of IF we have a full mavlink packet
+  }     // END - of while (Serial1.available())
+} // END - MavLink_receive()

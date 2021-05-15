@@ -7,9 +7,10 @@
 
 void case_rx_from_autopilot()
 {
-    debugPrintln("caserx_from_autopilot() - executing");
+    //debugPrintln("case_rx_from_autopilot() - executing");
 
-    debugPrintln("caserx_from_autopilot() - WARNING CODE NOT FINISHED IN HERE");
+    mavlink_receive();  // 
 
-    assess_step = tickle_watchdog; // Set next state
+
+    assess_step = process_autopilot; // Set next state
 }
