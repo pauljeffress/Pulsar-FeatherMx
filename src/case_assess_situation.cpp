@@ -80,43 +80,43 @@ while (loop_step == assess_situation)   // Stay in this state machine or is it t
     // ************************************************************************************************
     // Read Mavlink stream from the Autopilot.
     case rx_from_autopilot:
-      case_rx_from_autopilot();    
+      //case_rx_from_autopilot();    
     break;
 
     // ************************************************************************************************
     // Review/action the recently received Mavlink data from the Autopilot.
     case process_autopilot: 
-      case_process_autopilot();    
+      //case_process_autopilot();    
     break;
       
     // ************************************************************************************************
     // Send Mavlink data to the autopilot.
     case tx_to_autopilot:
-      case_tx_to_autopilot();
+      //case_tx_to_autopilot();
     break;
 
     // ************************************************************************************************
     // Check if the AGT has sent us a datum
     case rx_from_agt:
-      case_rx_from_agt();     
+      //case_rx_from_agt();     
     break;
 
     // ************************************************************************************************
     // process it if it has and set appropriate flags
     case process_agt:
-      case_process_agt();    
+      //case_process_agt();    
     break;
 
     // ************************************************************************************************
     // If we need to, send a datum to the AGT
     case tx_to_agt:
-      case_tx_to_agt();    
+      //case_tx_to_agt();    
     break;
 
     // ************************************************************************************************
     // Decide and write to the Logger.
     case tx_to_logger: 
-      case_tx_to_logger();    
+      //case_tx_to_logger();    
     break;
       
     // ************************************************************************************************

@@ -25,12 +25,8 @@ void case_read_sensors()
     if (!isnan(t))
     { // check if 'is not a number'
         myfeatherSettings.AIRTEMP = t;
-        debugPrintln("case_read_sensors() - Air Temp (degC): ");
+        debugPrint("case_read_sensors() - Air Temp (degC): ");
         debugPrintlnFlt(t);
-
-        //tft.fillRect(215, 31, 90, 40, HX8357_BLACK); // 90 pixels Horiz, 40 pixels vert
-        //tft.setCursor(215, 70);
-        //tft.println(t);
     }
     else
     {
@@ -41,7 +37,7 @@ void case_read_sensors()
     if (!isnan(h))
     { // check if 'is not a number'
         myfeatherSettings.AIRHUMIDITY = h;
-        debugPrintln("case_read_sensors() - Air Humidity (%): ");
+        debugPrint("case_read_sensors() - Air Humidity (%): ");
         debugPrintlnFlt(h);
 
         //tft.fillRect(215, 71, 90, 40, HX8357_BLACK);
@@ -65,7 +61,7 @@ void case_read_sensors()
     if (tempC != DEVICE_DISCONNECTED_C)       // check if its a valid reading
     {
         myfeatherSettings.WATERTEMP = tempC;
-        debugPrintln("case_read_sensors() - Water Temp (degC): ");
+        debugPrint("case_read_sensors() - Water Temp (degC): ");
         debugPrintlnFlt(tempC);
 
         //tft.fillRect(215, 71, 90, 40, HX8357_BLACK);
@@ -92,7 +88,7 @@ void case_read_sensors()
     if (lux != DEVICE_DISCONNECTED_C) // check if its a valid reading
     {
         myfeatherSettings.AMBIENTLIGHT = lux;
-        debugPrintln("case_read_sensors() - Ambient Light (Lux): ");
+        debugPrint("case_read_sensors() - Ambient Light (Lux): ");
         debugPrintlnFlt(lux);
 
         //tft.fillRect(215, 71, 90, 40, HX8357_BLACK);

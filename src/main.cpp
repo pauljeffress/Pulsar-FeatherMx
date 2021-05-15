@@ -62,9 +62,27 @@ void setup()
 
   setupPins(); // initialise all GPIOs
 
+  digitalWrite(LED_BUILTIN, HIGH);
+  delay(1000);
+  digitalWrite(LED_BUILTIN, LOW);
+  delay(1000);
+  digitalWrite(LED_BUILTIN, HIGH);
+  delay(1000);
+  digitalWrite(LED_BUILTIN, LOW);
+  delay(1000);
+  digitalWrite(LED_BUILTIN, HIGH);
+  delay(1000);
+  digitalWrite(LED_BUILTIN, LOW);
+  delay(1000);
+  digitalWrite(LED_BUILTIN, HIGH);
+  delay(1000);
+  digitalWrite(LED_BUILTIN, LOW);
+  delay(1000);  
+
+
   disableDebugging(); // Make sure the serial debug messages are disabled until the Serial port is open ( see loop_init() )!
 
-  loop_step = assess_situation; // Set openning state
+  loop_step = loop_init; // Set openning state
 
 } // END - setup()
 

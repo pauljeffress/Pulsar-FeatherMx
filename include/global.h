@@ -23,7 +23,7 @@
 
 #include <common/mavlink.h> // The Mavlink library
 
-#define TFT_CONNECTED // toggles code depending on whether I want to use teh TFT or not. \
+#define TFT_CONNECTED // toggles code depending on whether I want to use teh TFT or not. 
                       // Will make it easier to test with/without it and ultimatetly disconnect before a voyage.
 // defs for Adafruit 3.5" 480x320 TFT Featherwing - https://learn.adafruit.com/adafruit-3-5-tft-featherwing?view=all
 // I have removed the pin defs for other boards.  See original example "graphicstest_featherwing.ino" for them.
@@ -43,7 +43,7 @@
 // Loop Steps - these are used by the switch/case in the main loop()
 #define loop_init 0 // Send the welcome message, check the battery voltage
 
-#define assess_situation 1 // Look at all available data e.g. flags, timers, last data from FeatherMx etc. \
+#define assess_situation 1 // Look at all available data e.g. flags, timers, last data from FeatherMx etc. 
                            // Decide if any action required, if so set additional flags and/or next state
 #define zzz 2              // Turn everything off and put the processor into deep sleep
 #define wake 3             // Wake from deep sleep, restore the processor clock speed
@@ -103,6 +103,9 @@ extern featherSettings myfeatherSettings;
 
 extern long iterationCounter;
 
+extern bool _printDebug; 
+extern Stream *_debugSerial; 
+
 extern volatile int loop_step;
 extern int assess_step;
 
@@ -133,5 +136,10 @@ void request_datastream();
 void case_loop_init();
 void case_zzz();
 void case_wake();
+void case_assess_situation();
 void case_check_power();
+void case_read_sensors();
+void case_write_to_tft();
+void case_tickle_watchdog();
+void case_sleep_yet();
 #endif

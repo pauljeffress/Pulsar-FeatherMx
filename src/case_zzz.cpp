@@ -72,7 +72,7 @@ void case_zzz()
 
       // WAKE UP and do stuff
       // --------------------
-      interval_alarm = false; // Clear the interval alarm flag now 
+      //interval_alarm = false; // Clear the interval alarm flag now 
       
 
       // Wake up!

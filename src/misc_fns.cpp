@@ -12,7 +12,7 @@ void setupPins()
 {
   debugPrintln("setupPins() - CODE STILL TO BE DONE IN HERE!!!!!!!!!");
 
-  // pinMode(LED, OUTPUT); // Make the LED pin an output
+  pinMode(LED_BUILTIN, OUTPUT); // Make the LED pin an output
 
   // pinMode(geofencePin, INPUT); // Configure the geofence pin as an input
 

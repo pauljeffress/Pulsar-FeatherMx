@@ -1,5 +1,5 @@
 /*
- * case_check_power.ino
+ * case_check_power.cpp
  * 
  */
 
