@@ -23,7 +23,9 @@
 
 #include <common/mavlink.h> // The Mavlink library
 
-#define TFT_CONNECTED // toggles code depending on whether I want to use teh TFT or not. 
+#include <TimeLib.h> // The PJRC TimeLib library to help me deal with Unix Epoch time from GPS.
+
+#define TFT_CONNECTED // toggles code depending on whether I want to use teh TFT or not. \
                       // Will make it easier to test with/without it and ultimatetly disconnect before a voyage.
 // defs for Adafruit 3.5" 480x320 TFT Featherwing - https://learn.adafruit.com/adafruit-3-5-tft-featherwing?view=all
 // I have removed the pin defs for other boards.  See original example "graphicstest_featherwing.ino" for them.
@@ -43,7 +45,7 @@
 // Loop Steps - these are used by the switch/case in the main loop()
 #define loop_init 0 // Send the welcome message, check the battery voltage
 
-#define assess_situation 1 // Look at all available data e.g. flags, timers, last data from FeatherMx etc. 
+#define assess_situation 1 // Look at all available data e.g. flags, timers, last data from FeatherMx etc. \
                            // Decide if any action required, if so set additional flags and/or next state
 #define zzz 2              // Turn everything off and put the processor into deep sleep
 #define wake 3             // Wake from deep sleep, restore the processor clock speed
@@ -75,21 +77,35 @@
 // It also just helps me keep clear whats global and how to check on its value from time to time.
 typedef struct
 {
-   byte STX;          // 0x02 - when written to EEPROM, helps indicate if EEPROM contains valid data
-   byte SWVER;        // Software version: bits 7-4 = major version; bits 3-0 = minor version
-   float BATTV;       // The battery (bus) voltage in V
-   float AIRTEMP;     // The air temperature in degrees C
-   float AIRHUMIDITY;    // The humidity in %RH
-   float WATERTEMP;    // The water temp in deg C
-   float AMBIENTLIGHT;          // Ambient light reading in lux
-   uint16_t YEAR;     // UTC year
-   byte MONTH;        // UTC month
-   byte DAY;          // UTC day
-   byte HOUR;         // UTC hour
-   byte MIN;          // UTC minute
-   byte SEC;          // UTC seconds
-   uint32_t WAKEINT;  // The wake-up interval in seconds
-   byte ETX;          // 0x03 - when written to EEPROM, helps indicate if EEPROM contains valid data
+    byte STX;           // 0x02 - when written to EEPROM, helps indicate if EEPROM contains valid data
+    byte SWVER;         // Software version: bits 7-4 = major version; bits 3-0 = minor version
+    // The following are populated by the sensors directly connected to the FeatherMx
+    float BATTV;        // The battery (bus) voltage in V on the FeatherMx BAT socket.
+    float AIRTEMP;      // The air temperature in degrees C
+    float AIRHUMIDITY;  // The humidity in %RH
+    float WATERTEMP;    // The water temp in deg C
+    float AMBIENTLIGHT; // Ambient light reading in lux
+    // the following relate to MAVLINK_MSG_ID_HEARTBEAT packets
+    uint32_t custom_mode; /*<  A bitfield for use for autopilot-specific flags*/
+    uint8_t system_status; /*<  System status flag.*/
+    // the following relate to MAVLINK_MSG_ID_GPS_RAW_INT packets
+    uint64_t time_usec;         /*< [us] Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude of the number.*/
+    int32_t lat;                /*< [degE7] Latitude (WGS84, EGM96 ellipsoid)*/
+    int32_t lon;                /*< [degE7] Longitude (WGS84, EGM96 ellipsoid)*/
+    uint16_t vel;               /*< [cm/s] GPS ground speed. If unknown, set to: UINT16_MAX*/
+    uint16_t cog;               /*< [cdeg] Course over ground (NOT heading, but direction of movement) in degrees * 100, 0.0..359.99 degrees. If unknown, set to: UINT16_MAX*/
+    uint8_t fix_type;           /*<  GPS fix type.*/
+    uint8_t satellites_visible; /*<  Number of satellites visible. If unknown, set to 255*/
+    // the following are derived from other data by the FeatherMx
+    uint16_t YEAR;    // UTC year
+    byte MONTH;       // UTC month
+    byte DAY;         // UTC day
+    byte HOUR;        // UTC hour
+    byte MIN;         // UTC minute
+    byte SEC;         // UTC seconds
+    // will only use this if I implement sleep functionality
+    uint32_t WAKEINT; // The wake-up interval in seconds
+    byte ETX;         // 0x03 - when written to EEPROM, helps indicate if EEPROM contains valid data
 } featherSettings;
 
 /* extern my global vars */
@@ -103,8 +119,8 @@ extern featherSettings myfeatherSettings;
 
 extern long iterationCounter;
 
-extern bool _printDebug; 
-extern Stream *_debugSerial; 
+extern bool _printDebug;
+extern Stream *_debugSerial;
 
 extern volatile int loop_step;
 extern int assess_step;
@@ -143,6 +159,14 @@ void case_check_power();
 void case_read_sensors();
 void case_write_to_tft();
 void case_rx_from_autopilot();
+void case_process_autopilot();
+void case_tx_to_autopilot();
+void case_rx_from_agt();
+void case_process_agt();
+void case_tx_to_agt();
+void case_tx_to_logger();
 void case_tickle_watchdog();
 void case_sleep_yet();
+
+String my64toString(uint64_t x);
 #endif

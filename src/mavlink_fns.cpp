@@ -73,32 +73,38 @@ void mavlink_receive()
     // add new char to what we have so far and see of we have a full Mavlink msg yet
     if (mavlink_parse_char(MAVLINK_COMM_0, c, &msg, &status)) // if we do then lets process it
     {
-      //debugPrintln("got msg");
+      debugPrint("#");
+      debugPrintInt(msg.msgid);
+      debugPrint("  ");
       //Decode new message from autopilot
       switch (msg.msgid)
       {
       //handle heartbeat message
       case MAVLINK_MSG_ID_HEARTBEAT:
       {
-        //debugPrintln("Its a HB");
         mavlink_heartbeat_t hb;
         mavlink_msg_heartbeat_decode(&msg, &hb);
 
-        Serial.println();
-        Serial.print("Millis: ");
-        Serial.print(millis());
-        Serial.print("\nFlight Mode: (10 is auto)");
-        Serial.println(hb.custom_mode);
-        Serial.print("Type: ");
-        Serial.println(hb.type);
-        Serial.print("Autopilot: ");
-        Serial.println(hb.autopilot);
-        Serial.print("Base Mode: ");
-        Serial.println(hb.base_mode);
-        Serial.print("System Status: ");
-        Serial.println(hb.system_status);
-        Serial.print("Mavlink Version: ");
+        debugPrint("\nMillis:");
+        debugPrintInt(millis());
+        debugPrint("  HEARTBEAT");
+        Serial.print("  Flight Mode: (10 is auto):");
+        Serial.print(hb.custom_mode);
+        Serial.print("  Type:");
+        Serial.print(hb.type);
+        Serial.print("  Autopilot:");
+        Serial.print(hb.autopilot);
+        Serial.print("  Base Mode:");
+        Serial.print(hb.base_mode);
+        Serial.print("  System Status:");
+        Serial.print(hb.system_status);
+        Serial.print("  Mavlink Version:");
         Serial.println(hb.mavlink_version);
+
+        // Save things I'm interested in to FeatherMx data structure for use later.
+        myfeatherSettings.custom_mode = hb.custom_mode;
+        myfeatherSettings.system_status = hb.system_status;
+
         break;
       }
 
@@ -107,25 +113,49 @@ void mavlink_receive()
         //debugPrintln("Its a GPS RAW");
         mavlink_gps_raw_int_t packet;
         mavlink_msg_gps_raw_int_decode(&msg, &packet);
+        
 
-        Serial.println();
-        Serial.print("\nGPS Fix: ");
+        debugPrint("\nMillis:");
+        debugPrintInt(millis());
+        debugPrint("  GPS_RAW_INT");
+        Serial.print("  Time:");
+        time_t t = packet.time_usec / 1000000;  // time from GPS in mavlink is uint64_t in microseconds
+                                                // so I divide by 1,000,000 to get it in seconds
+                                                // which is what the hour(), minute() etc functions expect
+        Serial.print(hour(t));
+        Serial.print(":");
+        Serial.print(minute(t));
+        Serial.print(":");
+        Serial.print(second(t));        
+        Serial.print("  Fix Type:");
         Serial.print(packet.fix_type);
-        Serial.print("  GPS Latitude: ");
+        Serial.print("  Latitude:");
         Serial.print(packet.lat);
-        Serial.print("  GPS Longitude: ");
+        Serial.print("  Longitude:");
         Serial.print(packet.lon);
-        Serial.print("  GPS Speed: ");
+        Serial.print("  Ground Speed:");
         Serial.print(packet.vel);
-        Serial.print("  Sats Visible: ");
+        Serial.print("  CoG (deg):");
+        Serial.print(packet.cog);
+        Serial.print("  Sats Visible:");
         Serial.println(packet.satellites_visible);
+
+        // Save things I'm interested in to FeatherMx data structure for use later.
+        myfeatherSettings.time_usec = packet.time_usec;
+        myfeatherSettings.fix_type = packet.fix_type;
+        myfeatherSettings.lat = packet.lat;
+        myfeatherSettings.lon = packet.lon;
+        myfeatherSettings.vel = packet.vel;
+        myfeatherSettings.cog = packet.cog;
+        myfeatherSettings.satellites_visible = packet.satellites_visible;
+
         break;
       }
 
       // ************************************************************************************************
       // DEFAULT - should not happen, but programing it defensively
       default:
-        //Serial.println("ERROR - we hit the default: in mavlink packet decode switch");
+        //Serial.println("we hit the default: in mavlink packet decode switch");
         break;
 
       } // END - of msg decoder switch

@@ -30,5 +30,5 @@ void case_write_to_tft()
     tft.println(myfeatherSettings.AMBIENTLIGHT);
 
 
-    assess_step = tickle_watchdog; // Set next state
+    assess_step = rx_from_autopilot; // Set next state
 }

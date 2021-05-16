@@ -69,24 +69,24 @@ if (assess_iterations_counter > (assess_iterations_counter_last + 1000))
     // ************************************************************************************************
     // Check Feather's power source status.
     case check_power:
-      //case_check_power();  
-      assess_step = read_sensors;
+      case_check_power();  
+      //assess_step = read_sensors;
       //debugPrintln("Skipping check_power");
     break;
 
     // ************************************************************************************************
     // Read the various sensors attached to the Feather.
     case read_sensors:
-      //case_read_sensors(); 
-      assess_step = write_to_tft; 
+      case_read_sensors(); 
+      //assess_step = write_to_tft; 
       //debugPrintln("Skipping read_sensors");   
     break;
 
     // ************************************************************************************************
     // Update the tft display
     case write_to_tft:
-      //case_write_to_tft(); 
-      assess_step = rx_from_autopilot;  
+      case_write_to_tft(); 
+      //assess_step = rx_from_autopilot;  
       //debugPrintln("Skipping write_to_tft"); 
     break;
 
@@ -94,43 +94,44 @@ if (assess_iterations_counter > (assess_iterations_counter_last + 1000))
     // Read Mavlink stream from the Autopilot.
     case rx_from_autopilot:
       case_rx_from_autopilot();
-      assess_step = check_power;  // temorary short cut back to start of state machine.    
+      //assess_step = check_power;  // temorary short cut back to start of state machine.  
+      //delay(500);  
     break;
 
     // ************************************************************************************************
     // Review/action the recently received Mavlink data from the Autopilot.
     case process_autopilot: 
-      //case_process_autopilot();    
+      case_process_autopilot();    
     break;
       
     // ************************************************************************************************
     // Send Mavlink data to the autopilot.
     case tx_to_autopilot:
-      //case_tx_to_autopilot();
+      case_tx_to_autopilot();
     break;
 
     // ************************************************************************************************
     // Check if the AGT has sent us a datum
     case rx_from_agt:
-      //case_rx_from_agt();     
+      case_rx_from_agt();     
     break;
 
     // ************************************************************************************************
     // process it if it has and set appropriate flags
     case process_agt:
-      //case_process_agt();    
+      case_process_agt();    
     break;
 
     // ************************************************************************************************
     // If we need to, send a datum to the AGT
     case tx_to_agt:
-      //case_tx_to_agt();    
+      case_tx_to_agt();    
     break;
 
     // ************************************************************************************************
     // Decide and write to the Logger.
     case tx_to_logger: 
-      //case_tx_to_logger();    
+      case_tx_to_logger();    
     break;
       
     // ************************************************************************************************
