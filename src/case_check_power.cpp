@@ -7,7 +7,7 @@
 
 void case_check_power()
 {
-  debugPrintln("case_check_power() executing");
+  //debugPrintln("case_check_power() executing");
 
   // measure it as per https://learn.adafruit.com/adafruit-feather-m4-express-atsamd51/power-management
   float measuredvbat = analogRead(FEATHER_VBAT_PIN);
@@ -15,8 +15,8 @@ void case_check_power()
   measuredvbat *= 3.3;  // Multiply by 3.3V, our reference voltage
   measuredvbat /= 1024; // convert to voltage
 
-  debugPrint("case_check_power() - Feather Vbat: ");
-  debugPrintlnFlt(measuredvbat);
+  //debugPrint("case_check_power() - Feather Vbat: ");
+  //debugPrintlnFlt(measuredvbat);
 
   if (measuredvbat < FEATHER_VBAT_LOW)
   {

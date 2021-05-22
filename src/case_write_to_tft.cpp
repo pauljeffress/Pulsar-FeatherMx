@@ -7,7 +7,7 @@
 
 void case_write_to_tft()
 {
-    debugPrintln("case_write_to_tft() - executing");
+    //debugPrintln("case_write_to_tft() - executing");
     
     // AIRTEMP
     tft.fillRect(215, 31, 90, 40, HX8357_BLACK); // 90 pixels Horiz, 40 pixels vert

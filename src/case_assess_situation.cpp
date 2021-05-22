@@ -86,7 +86,7 @@ if (assess_iterations_counter > (assess_iterations_counter_last + 1000))
     // Update the tft display
     case write_to_tft:
       case_write_to_tft(); 
-      //assess_step = rx_from_autopilot;  
+      assess_step = rx_from_agt;  
       //debugPrintln("Skipping write_to_tft"); 
     break;
 

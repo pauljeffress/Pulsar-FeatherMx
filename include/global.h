@@ -9,21 +9,28 @@
 #define GLOBAL_H
 
 #include <Arduino.h>
+ #include "wiring_private.h"    // for "pinPeripheral()". Only needed in PlatformIO, not required in Arduino IDE???
 #include <Wire.h>
 #include <SPI.h>
-#include "Adafruit_GFX.h"
-#include "Adafruit_HX8357.h"
-#include <Fonts/FreeMonoBoldOblique12pt7b.h>
-#include <Fonts/FreeSans18pt7b.h>
-//#include <DFRobot_SHT3x.h>    // for my DFRobot weatherproof Temp & Humidity I2C sensor
-#include "Adafruit_SHT31.h"
-#include <DFRobot_B_LUX_V30B.h>
-#include <OneWire.h>           // required by DallasTemperature library
-#include <DallasTemperature.h> // required for DS18B20 temp sensor
+#include "Adafruit_GFX.h"                       // For TFT
+#include "Adafruit_HX8357.h"                    // For TFT
+#include <Fonts/FreeMonoBoldOblique12pt7b.h>    // For TFT
+#include <Fonts/FreeSans18pt7b.h>               // For TFT
+#include "Adafruit_SHT31.h"         // for my DFRobot weatherproof Temp & Humidity I2C sensor (I'm not using the DFRobot lib)
+#include <DFRobot_B_LUX_V30B.h>     // DFRobot Visible Light sensor
+#include <OneWire.h>                // required by DallasTemperature library
+#include <DallasTemperature.h>      // required for DS18B20 temp sensor
 
 #include <common/mavlink.h> // The Mavlink library
 
 #include <TimeLib.h> // The PJRC TimeLib library to help me deal with Unix Epoch time from GPS.
+
+#include <SerialTransfer.h> // Note: This library will complain about SPDR in the SPITransfer.cpp/h files at compile time.
+                            //       Its a known problem, search my Evernotes. The solution as I am not using SPI under
+                            //       SerialTransfer is to rename two of the source files in the SerilTransfer library so
+                            //       they are not compiled.  The two files are;
+                            //       * SPITransfer.h and SPITransfer.cpp
+                            //       they live in .pio/libdeps/..../SerialTransfer/src/
 
 #define TFT_CONNECTED // toggles code depending on whether I want to use teh TFT or not. \
                       // Will make it easier to test with/without it and ultimatetly disconnect before a voyage.
@@ -70,15 +77,28 @@
 #define GOOD true
 #define BAD false
 
+// define pins for the additional HW serial port I have to configure.
+#define SERIAL_TO_AGT_TX_PIN    18  
+#define SERIAL_TO_AGT_RX_PIN    19 
+// define GPIO pins for the extra Serial control wires that go between this Feather and AGT.
+#define FEATHER_READY_TO_RX_PIN 9  // I was using 13 and having issues, I think its because thats the LED pin on the Feather.
+#define AGT_WANTS_TO_TX_PIN 12
+#define FEATHER_WAIT_FOR_AGT_TO_DROP 10 // seconds - amount of time to wait for AGT to drop AGT_WANTS_TO_TX_PIN.
+#define SENDPERIODSECONDS 25  // seconds - how often to send the dummy packets
+
+
+
 /* define any enums */
 
+
+/* define any struct's */
 // Define the struct for _all_ of the global message fields (stored in RAM)
 // I'm going to use this in case I want to write all of these globals to EEPROM like the AGT does.
 // It also just helps me keep clear whats global and how to check on its value from time to time.
 typedef struct
 {
-    byte STX;           // 0x02 - when written to EEPROM, helps indicate if EEPROM contains valid data
-    byte SWVER;         // Software version: bits 7-4 = major version; bits 3-0 = minor version
+    byte STX;   // 0x02 - when written to EEPROM, helps indicate if EEPROM contains valid data
+    byte SWVER; // Software version: bits 7-4 = major version; bits 3-0 = minor version
     // The following are populated by the sensors directly connected to the FeatherMx
     float BATTV;        // The battery (bus) voltage in V on the FeatherMx BAT socket.
     float AIRTEMP;      // The air temperature in degrees C
@@ -86,7 +106,7 @@ typedef struct
     float WATERTEMP;    // The water temp in deg C
     float AMBIENTLIGHT; // Ambient light reading in lux
     // the following relate to MAVLINK_MSG_ID_HEARTBEAT packets
-    uint32_t custom_mode; /*<  A bitfield for use for autopilot-specific flags*/
+    uint32_t custom_mode;  /*<  A bitfield for use for autopilot-specific flags*/
     uint8_t system_status; /*<  System status flag.*/
     // the following relate to MAVLINK_MSG_ID_GPS_RAW_INT packets
     uint64_t time_usec;         /*< [us] Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude of the number.*/
@@ -97,16 +117,25 @@ typedef struct
     uint8_t fix_type;           /*<  GPS fix type.*/
     uint8_t satellites_visible; /*<  Number of satellites visible. If unknown, set to 255*/
     // the following are derived from other data by the FeatherMx
-    uint16_t YEAR;    // UTC year
-    byte MONTH;       // UTC month
-    byte DAY;         // UTC day
-    byte HOUR;        // UTC hour
-    byte MIN;         // UTC minute
-    byte SEC;         // UTC seconds
+    uint16_t YEAR; // UTC year
+    byte MONTH;    // UTC month
+    byte DAY;      // UTC day
+    byte HOUR;     // UTC hour
+    byte MIN;      // UTC minute
+    byte SEC;      // UTC seconds
     // will only use this if I implement sleep functionality
     uint32_t WAKEINT; // The wake-up interval in seconds
     byte ETX;         // 0x03 - when written to EEPROM, helps indicate if EEPROM contains valid data
 } featherSettings;
+
+typedef struct // my datum to tx/rx over SerialTransfer
+{
+    uint8_t i1;
+    char c1;
+    char c2;
+    char c3;
+    char c4;
+} datum;
 
 /* extern my global vars */
 extern Adafruit_HX8357 tft;
@@ -114,6 +143,9 @@ extern Adafruit_SHT31 sht31;
 extern DFRobot_B_LUX_V30B myLux;
 extern OneWire oneWire;
 extern DallasTemperature sensors;
+extern Uart Serial2;
+extern SerialTransfer STdriverFNIC;
+extern SerialTransfer STdriverF2A;
 
 extern featherSettings myfeatherSettings;
 
@@ -133,6 +165,10 @@ extern bool send_F2Pblob;
 extern bool sensor_sht31_status;
 extern bool sensor_ambientlight_status;
 extern bool sensor_ds18b20_status;
+
+extern bool feather_cant_tx_flag;
+extern datum STDatumTX, STDatumRX;
+extern uint32_t lastsend;
 
 /* function pre defines */
 void tftSetup();
@@ -167,6 +203,9 @@ void case_tx_to_agt();
 void case_tx_to_logger();
 void case_tickle_watchdog();
 void case_sleep_yet();
+void setFEATHER_READY_TO_RX_PINhigh();
+void setFEATHER_READY_TO_RX_PINlow();
+void serialSetup();
 
 String my64toString(uint64_t x);
 #endif

@@ -33,21 +33,21 @@ void setupPins()
   // pinMode(busVoltageMonEN, OUTPUT); // Make the Bus Voltage Monitor Enable an output
   // digitalWrite(busVoltageMonEN, LOW); // Set it low to disable the measurement to save power
 
-  // // control pins for serial connection to Feather
-  // pinMode(FEATHER_READY_TO_RX_PIN, INPUT);
-  // pinMode(AGT_WANTS_TO_TX_PIN, OUTPUT);
-  // digitalWrite(AGT_WANTS_TO_TX_PIN, LOW); // set initial state
+  // control pins for serial connection to Feather
+    pinMode(FEATHER_READY_TO_RX_PIN, OUTPUT);
+    pinMode(AGT_WANTS_TO_TX_PIN, INPUT);
+    digitalWrite(FEATHER_READY_TO_RX_PIN, LOW); // set initial state of this pin.
 }
 
-// void AGT_WANTS_TO_TX_PINhigh(){
-//   digitalWrite(AGT_WANTS_TO_TX_PIN, HIGH);
-//   digitalWrite(LED_BUILTIN, HIGH);
-// }
-
-// void AGT_WANTS_TO_TX_PINlow(){
-//   digitalWrite(AGT_WANTS_TO_TX_PIN, LOW);
-//   digitalWrite(LED_BUILTIN, LOW);
-// }
+// help manage the control pins for serial connection to Feather
+void setFEATHER_READY_TO_RX_PINhigh(){
+  digitalWrite(FEATHER_READY_TO_RX_PIN, HIGH);
+  digitalWrite(LED_BUILTIN, HIGH);
+}
+void setFEATHER_READY_TO_RX_PINlow(){
+  digitalWrite(FEATHER_READY_TO_RX_PIN, LOW);
+  digitalWrite(LED_BUILTIN, LOW);
+}
 
 
 

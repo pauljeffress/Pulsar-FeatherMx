@@ -23,6 +23,14 @@ OneWire oneWire(ONE_WIRE_BUS);
 // Pass our oneWire reference to Dallas Temperature.
 DallasTemperature sensors(&oneWire);
 
+// Create SerialtoAGT - a new hw Serial port
+// Define --- SERCOM    RX  TX      RX PAD           TX PAD
+Uart Serial2 (&sercom0, 19, 18, SERCOM_RX_PAD_2, UART_TX_PAD_0);
+
+// SerialTransfer initialisation
+SerialTransfer STdriverF2A;  // create a SerialTransfer entity for the Feather to AGT connection.
+
+
 /*============================*/
 /* Global Variables           */
 /*============================*/
@@ -51,6 +59,9 @@ bool sensor_ambientlight_status = BAD;
 bool sensor_ds18b20_status = BAD;
 
 
+bool feather_cant_tx_flag = false;  // control when the Feather can/can't TX to the AGT.
+datum STDatumTX, STDatumRX;
+uint32_t lastsend = 0; // used to determine when to send a dummy packet
 
 /*============================*/
 /* setup()

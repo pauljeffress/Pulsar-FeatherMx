@@ -1,5 +1,5 @@
 /*
- * tft_support.cpp
+ * sensor_fns.cpp
  */
 
 #include "global.h" // My main header file for this project itself
