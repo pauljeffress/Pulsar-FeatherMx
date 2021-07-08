@@ -40,8 +40,8 @@
 #if defined(__AVR_ATmega32U4__) || defined(ARDUINO_SAMD_FEATHER_M0) || defined(__AVR_ATmega328P__) || \
     defined(ARDUINO_SAMD_ZERO) || defined(__SAMD51__) || defined(__SAM3X8E__) || defined(ARDUINO_NRF52840_FEATHER)
 //#define STMPE_CS 6   // Touchscreen overlay controller CS pin - not in use in this project
-#define TFT_CS 14 // D14 = A0
-#define TFT_DC 15 // D15 = A1
+#define TFT_CS 9 // Default TFT_CS = D9 (I was using D14/A0 previously)
+#define TFT_DC 10 // Default TFT_DC = D10 (I was using D15/A1 previously)
 //#define SD_CS    5   // SD slot CS pin - not in use in this project
 #endif
 #define TFT_RST -1
