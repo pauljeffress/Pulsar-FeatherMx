@@ -29,6 +29,8 @@ void case_zzz()
 
       disableDebugging(); // Disable the serial debug messages
 
+      disableLogging(); // Disable the serial logging messages going to the OLA    
+
       // Close and detach the serial console
       Serial.println(F("Going to SLEEP until next WAKEINT..."));
       Serial.flush(); //Finish any prints

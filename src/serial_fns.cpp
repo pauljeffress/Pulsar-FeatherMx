@@ -58,7 +58,7 @@ void serialSetup()
    * Serial2 - setup the serial port between Feather & AGT for SatComms.
    */
   // Initialise the Serial that connects this Feather to the AGT
-  Serial2.begin(9600); // AGT end is using SoftwareSerial, so go slower speed.
+  Serial2.begin(57600); // AGT end is using SoftwareSerial, so go slower speed.
   // Reassign pins on the internal SAMD pinmux, to connect to my SERCOMs. They may have defaulted to other peripherals.
   // Assign pins 18 & 19 SERCOM functionality. Must happen after the SerialX.begin(xxxx) command.
   pinPeripheral(18, PIO_SERCOM_ALT);    // the 'PIO_SERCOM' should be 'PIO_SERCOM_ALT' if we are trying to use the 'alternate' pins for this.

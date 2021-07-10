@@ -106,6 +106,8 @@ void setup()
 
 
   disableDebugging(); // Make sure the serial debug messages are disabled until the Serial port is open ( see loop_init() )!
+  disableLogging(); // Make sure the serial logging messages (to OLA) are disabled until the Serial port is open ( see loop_init() )!
+
 
   loop_step = loop_init; // Set openning state
 
