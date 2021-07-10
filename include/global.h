@@ -77,6 +77,7 @@
 #define GOOD true
 #define BAD false
 
+// xxx - most of the below can be removed once I get new HW serial/I2C connection to AGT.
 // define pins for the additional HW serial port I have to configure.
 #define SERIAL_TO_AGT_TX_PIN    18  
 #define SERIAL_TO_AGT_RX_PIN    19 
@@ -144,6 +145,8 @@ extern DFRobot_B_LUX_V30B myLux;
 extern OneWire oneWire;
 extern DallasTemperature sensors;
 extern Uart Serial2;
+extern Uart Serial3;
+// xxx - some of the below may need to be deleted.
 extern SerialTransfer STdriverFNIC;
 extern SerialTransfer STdriverF2A;
 
@@ -206,6 +209,7 @@ void case_sleep_yet();
 void setFEATHER_READY_TO_RX_PINhigh();
 void setFEATHER_READY_TO_RX_PINlow();
 void serialSetup();
+void olaHeartbeat();
 
 String my64toString(uint64_t x);
 #endif

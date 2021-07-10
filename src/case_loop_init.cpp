@@ -34,6 +34,8 @@ void case_loop_init()
 
   serialSetup();
 
+  olaHeartbeat(); // Send a heartbeat to the OLA
+
   sensorsSetup();
 
   tftSetup();

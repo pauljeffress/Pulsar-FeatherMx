@@ -23,10 +23,16 @@ OneWire oneWire(ONE_WIRE_BUS);
 // Pass our oneWire reference to Dallas Temperature.
 DallasTemperature sensors(&oneWire);
 
-// Create SerialtoAGT - a new hw Serial port.
+// Create Serial2 - a new hw Serial port I'll use to connect to the AGT.
 // Note I am calling it "Serial2", I'm not sure, but when I tried naming it something like "UartToAGT" I had problems tx/rx'ing.
 // Define --- SERCOM    RX  TX      RX PAD           TX PAD
 Uart Serial2 (&sercom0, 19, 18, SERCOM_RX_PAD_2, UART_TX_PAD_0);
+
+// Create Serial3 - a new hw Serial port I'll use to connect to the OpenLog Artemis.
+// Define --- SERCOM    RX  TX      RX PAD           TX PAD
+Uart Serial3 (&sercom3, 11, 12, SERCOM_RX_PAD_3, UART_TX_PAD_0);
+
+
 
 // SerialTransfer initialisation
 SerialTransfer STdriverF2A;  // create a SerialTransfer entity for the Feather to AGT connection.
