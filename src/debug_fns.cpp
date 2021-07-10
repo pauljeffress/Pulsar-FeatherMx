@@ -10,6 +10,8 @@
 
 // debug functions taken from the SparkFun u-blox library:
 // https://github.com/sparkfun/SparkFun_Ublox_Arduino_Library
+
+
 void enableDebugging(Stream &debugPort)
 {
   _debugSerial = &debugPort; //Grab which port the user wants us to use for debugging

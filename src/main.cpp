@@ -48,8 +48,14 @@ featherSettings myfeatherSettings; // Create storage for the feather global sett
 // It also indicates if the tracker has been reset (the count will go back to zero).
 long iterationCounter = 0;
 
+// stuff for my printDebug functionality (most code is in debug_fns.cpp)
 bool _printDebug = false; // Flag to show if message field debug printing is enabled. See debug_fns.ino
 Stream *_debugSerial;     //The stream to send debug messages to (if enabled)
+
+// stuff for my printLog functionality (most code is in ola_fns.cpp)
+bool _printLog = false; // Flag to show if log printing is enabled. See ola_fns.ino
+Stream *_logSerial;     //The stream to send Log messages to (if enabled)
+
 
 // state machine state trackers
 volatile int loop_step = loop_init; // Holds state of the main loop() state machine

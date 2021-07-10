@@ -43,7 +43,19 @@ void SERCOM3_3_Handler()
 void serialSetup()
 {
   /*
-   *  Setup the serial port between Feather & AGT
+   * Serial - setup the serial port the is via USB for concole/SerialMonitor etc.
+   */
+  Serial.begin(115200); // Start the console serial port
+  delay(2000); // ensure time for the Serial port to get ready.
+  
+
+  /*
+   * Serial1 - setup the serial port between Feather and Cube Orange port for MAVLink telemetry
+   */  
+  Serial1.begin(57600); //RXTX from Telem Radio (Pins RX1 & TX1 on Feather M4)
+  
+  /*
+   * Serial2 - setup the serial port between Feather & AGT for SatComms.
    */
   // Initialise the Serial that connects this Feather to the AGT
   Serial2.begin(9600); // AGT end is using SoftwareSerial, so go slower speed.
@@ -66,7 +78,7 @@ void serialSetup()
 
 
   /*
-   *  Setup the serial port between Feather & OpenLog Artemis
+   *  Serial 3 - setup the serial logging port between Feather & OpenLog Artemis for logging.
    */
   // Initialise the Serial that connects this Feather to the OpenLog Artemis
   Serial3.begin(57600); 

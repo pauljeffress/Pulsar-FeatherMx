@@ -157,6 +157,9 @@ extern long iterationCounter;
 extern bool _printDebug;
 extern Stream *_debugSerial;
 
+extern bool _printLog;
+extern Stream *_logSerial;
+
 extern volatile int loop_step;
 extern int assess_step;
 extern uint32_t assess_iterations_counter;
@@ -179,6 +182,7 @@ void tftdiags();
 unsigned long testText();
 void sensorsSetup();
 void sensorsTest();
+
 void enableDebugging(Stream &debugPort);
 void disableDebugging(void);
 void debugPrint(const char *message);
@@ -187,6 +191,16 @@ void debugPrintInt(int32_t number);
 void debugPrintlnInt(int32_t number);
 void debugPrintFlt(float number);
 void debugPrintlnFlt(float number);
+
+void enableLogging(Stream &debugPort);
+void disableLogging(void);
+void logPrint(const char *message);
+void logPrintln(const char *message);
+void logPrintInt(int32_t number);
+void logPrintlnInt(int32_t number);
+void logPrintFlt(float number);
+void logPrintlnFlt(float number);
+
 void setupPins();
 void mavlink_receive();
 void mavlink_request_datastream();
@@ -209,7 +223,6 @@ void case_sleep_yet();
 void setFEATHER_READY_TO_RX_PINhigh();
 void setFEATHER_READY_TO_RX_PINlow();
 void serialSetup();
-void olaHeartbeat();
 
 String my64toString(uint64_t x);
 #endif
