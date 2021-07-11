@@ -34,13 +34,11 @@ void case_assess_situation()
 
 // debugPrintln("case_assess_situation() - starting");
 
-send_F2Ablob = false;   // when set, tx_to_agt() will send the full standard 
-                        // Feather to AGT (F2A) blob of data to the AGT, and 
+flag_do_agt_tx = false;   // when set, tx_to_agt() will send the full standard 
+                        // Feather to AGT  blob of data to the AGT, and 
                         // the AGT will decide what to do with it.
 
-send_F2Pblob = false;   // when set, tx_to_autopilot() will send the full standard 
-                        // Feather to Pilot (F2P) blob of data to the Pilot, and 
-                        // the Pilot will decide what to do with it.
+
 
 iterationCounter = iterationCounter + 1; // Increment the iterationCounter, helps detect CPU RESET or Power Cycle.
 

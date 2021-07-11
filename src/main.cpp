@@ -42,11 +42,26 @@ SerialTransfer STdriverF2A;  // create a SerialTransfer entity for the Feather t
 /* Global Variables           */
 /*============================*/
 featherSettings myfeatherSettings; // Create storage for the feather global settings in RAM
+feathersharedSettings myfeathersharedSettings;  // My copy of the settings I will share with the AGT
+agtsharedSettings myagtsharedSettings;   // My copy of the setting the AGT has shared with me.
+
 
 // iterationCounter is incremented each time a transmission is attempted.
 // It helps keep track of whether messages are being sent successfully.
 // It also indicates if the tracker has been reset (the count will go back to zero).
 long iterationCounter = 0;
+
+// Period counters (seconds) - They are incremented in the RTC ISR (hence volitile type) that fires every second.
+// Note, this bit of code only gets executed at Power on or HW reset so all counters have to be reset.
+volatile unsigned long seconds_since_reset_or_powercycle = 0;
+volatile unsigned long seconds_since_last_wake = 0;
+volatile unsigned long seconds_since_last_ap_tx = 0;
+volatile unsigned long seconds_since_last_ap_rx = 0;
+volatile unsigned long seconds_since_last_agt_tx = 0;
+volatile unsigned long seconds_since_last_agt_rx = 0;
+volatile unsigned long seconds_since_last_sensors_read = 0;
+
+
 
 // stuff for my printDebug functionality (most code is in debug_fns.cpp)
 bool _printDebug = false; // Flag to show if message field debug printing is enabled. See debug_fns.ino
@@ -64,15 +79,16 @@ int assess_step = check_power;      // Holds state of the assess_situation state
 uint32_t assess_iterations_counter = 0; // Useful while debugging my assess_situation state machine.
 uint32_t assess_iterations_counter_last = 0; // Useful while debugging my assess_situation state machine.
 
-bool send_F2Ablob = false;   
-bool send_F2Pblob = false;   
+// Action Flags
+bool flag_do_agt_tx = false;   // Set when something wants the Feather to send it's sharedSettings to the AGT
 
+// Sensor Status Flags
 bool sensor_sht31_status = BAD;         // Do we think the sensor is available/working or not?
 bool sensor_ambientlight_status = BAD;
 bool sensor_ds18b20_status = BAD;
 
 
-bool feather_cant_tx_flag = false;  // control when the Feather can/can't TX to the AGT.
+// xxx - not needed anymore - bool feather_cant_tx_flag = false;  // control when the Feather can/can't TX to the AGT.
 datum STDatumTX, STDatumRX;
 uint32_t lastsend = 0; // used to determine when to send a dummy packet
 

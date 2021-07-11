@@ -32,6 +32,8 @@
                             //       * SPITransfer.h and SPITransfer.cpp
                             //       they live in .pio/libdeps/..../SerialTransfer/src/
 
+#include "sharedSettings.h" // header file for my sharedSettings data structures
+
 #define TFT_CONNECTED // toggles code depending on whether I want to use teh TFT or not. \
                       // Will make it easier to test with/without it and ultimatetly disconnect before a voyage.
 // defs for Adafruit 3.5" 480x320 TFT Featherwing - https://learn.adafruit.com/adafruit-3-5-tft-featherwing?view=all
@@ -93,6 +95,8 @@
 
 
 /* define any struct's */
+
+
 // Define the struct for _all_ of the global message fields (stored in RAM)
 // I'm going to use this in case I want to write all of these globals to EEPROM like the AGT does.
 // It also just helps me keep clear whats global and how to check on its value from time to time.
@@ -125,7 +129,8 @@ typedef struct
     byte MIN;      // UTC minute
     byte SEC;      // UTC seconds
     // will only use this if I implement sleep functionality
-    uint32_t WAKEINT; // The wake-up interval in seconds
+    uint32_t WAKEINT; // Seconds - The wake-up interval in seconds
+    uint32_t TXAGTINTERVAL; // Seconds - The interval between periodic settings share to AGT.
     byte ETX;         // 0x03 - when written to EEPROM, helps indicate if EEPROM contains valid data
 } featherSettings;
 
@@ -146,11 +151,12 @@ extern OneWire oneWire;
 extern DallasTemperature sensors;
 extern Uart Serial2;
 extern Uart Serial3;
-// xxx - some of the below may need to be deleted.
-extern SerialTransfer STdriverFNIC;
+
 extern SerialTransfer STdriverF2A;
 
 extern featherSettings myfeatherSettings;
+extern feathersharedSettings myfeathersharedSettings;
+extern agtsharedSettings myagtsharedSettings;
 
 extern long iterationCounter;
 
@@ -165,16 +171,23 @@ extern int assess_step;
 extern uint32_t assess_iterations_counter;
 extern uint32_t assess_iterations_counter_last;
 
-extern bool send_F2Ablob;
-extern bool send_F2Pblob;
+extern bool flag_do_agt_tx;
 
 extern bool sensor_sht31_status;
 extern bool sensor_ambientlight_status;
 extern bool sensor_ds18b20_status;
 
-extern bool feather_cant_tx_flag;
 extern datum STDatumTX, STDatumRX;
 extern uint32_t lastsend;
+
+extern volatile unsigned long seconds_since_reset_or_powercycle;
+extern volatile unsigned long seconds_since_last_wake;
+extern volatile unsigned long seconds_since_last_ap_tx;
+extern volatile unsigned long seconds_since_last_ap_rx;
+extern volatile unsigned long seconds_since_last_agt_tx;
+extern volatile unsigned long seconds_since_last_agt_rx;
+extern volatile unsigned long seconds_since_last_sensors_read;
+
 
 /* function pre defines */
 void tftSetup();

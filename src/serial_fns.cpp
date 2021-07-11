@@ -74,8 +74,6 @@ void serialSetup()
   STDatumTX.c3 = 'o';
   STDatumTX.c4 = 'A';
 
-  feather_cant_tx_flag = false;
-
 
   /*
    *  Serial 3 - setup the serial logging port between Feather & OpenLog Artemis for logging.
