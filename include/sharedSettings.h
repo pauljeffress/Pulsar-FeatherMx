@@ -1,5 +1,5 @@
 /*
- * sharedSettings.h
+ * SharedSettings.h
  * 
  * header file for my sharedSettings data structures
  * that are used to communicate data over serial link between the FeatherMx and AGT.
@@ -9,37 +9,46 @@
 #ifndef SHAREDSETTINGS_H
 #define SHAREDSETTINGS_H
 
+#include "Arduino.h"    // helps with the "types" used here.
+
+
+
+
 // Define the struct for all of my Feather originated settings, that I want to be able to share with the AGT.
-// It is based heavily on myfeatherSettings.
-// Whilst alot of it is duplicated from myfeatherSettings, I want a clean copy timestamped and ready to share with AGT.
+// It is based heavily on myFeatherSettings.
+// Whilst alot of it is duplicated from myFeatherSettings, I want a clean copy timestamped and ready to share with AGT.
 // It is only ever written to by the Feather, and then shared with the AGT.
 typedef struct
 {
     // The following are populated by the sensors directly connected to the FeatherMx
-    uint16_t BATTV;     // The battery (bus) voltage in V * 10^-2
-    int16_t  AIRTEMP;     // The air temperature in degrees C * 10^-2
-    uint16_t AIRHUMIDITY;   // The humidity in %RH
-    int16_t  WATERTEMP;     // The water temperature in degrees C * 10^-2
-    uint16_t AMBIENTLIGHT;   // Ambient light reading in lux
-    // the following relate to MAVLINK_MSG_ID_HEARTBEAT packets
-    uint32_t AP_custom_mode;  /*<  A bitfield for use for autopilot-specific flags*/
-    uint8_t AP_system_status; /*<  System status flag.*/
+    uint16_t BATTV;        // The battery (Batt socket LiPo) voltage in V * 10^-2
+    uint16_t PRESS;        // The pressure in mbar
+    int16_t AIRTEMP;          // The air temperature in degrees C * 10^-2
+    int16_t HUMID;        // The humidity in %RH * 10^-2
+    int16_t WATERTEMP;          // The water temperature in degrees C * 10^-2
+    int16_t AMBIENTLIGHT; // Ambient light reading in lux
+    
+    // the following are derived from other data by the FeatherMx
+    uint16_t YEAR; // UTC year
+    byte MONTH;    // UTC month
+    byte DAY;      // UTC day
+    byte HOUR;     // UTC hour
+    byte MIN;      // UTC minute
+    byte SEC;      // UTC seconds
+    uint16_t MILLIS;       // UTC milliseconds
+
     // the following relate to MAVLINK_MSG_ID_GPS_RAW_INT packets
-    uint64_t AP_time_usec;         /*< [us] Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude of the number.*/
-    int32_t AP_lat;                /*< [degE7] Latitude (WGS84, EGM96 ellipsoid)*/
-    int32_t AP_lon;                /*< [degE7] Longitude (WGS84, EGM96 ellipsoid)*/
-    uint16_t AP_vel;               /*< [cm/s] GPS ground speed. If unknown, set to: UINT16_MAX*/
-    uint16_t AP_cog;               /*< [cdeg] Course over ground (NOT heading, but direction of movement) in degrees * 100, 0.0..359.99 degrees. If unknown, set to: UINT16_MAX*/
-    uint8_t AP_fix_type;           /*<  GPS fix type.*/
-    uint8_t AP_satellites_visible; /*<  Number of satellites visible. If unknown, set to 255*/
-    // the following timestamp is populated by the Feather and marks the last time any parameter in this struct was writen to.
-    uint16_t TIMESTAMP_YEAR; // UTC year
-    byte TIMESTAMP_MONTH;    // UTC month
-    byte TIMESTAMP_DAY;      // UTC day
-    byte TIMESTAMP_HOUR;     // UTC hour
-    byte TIMESTAMP_MIN;      // UTC minute
-    byte TIMESTAMP_SEC;      // UTC seconds
-} feathersharedSettings;
+    uint64_t GPSTIMESTAMP;         /*< [us] Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude of the number.*/
+    int32_t LAT;           // Latitude in Degrees * 10^-7
+    int32_t LON;           // Latitude in Degrees * 10^-7
+    int32_t ALT;           // Altitude above MSL in mm
+    int32_t SPEED;         // Ground speed in mm/s
+    int32_t HEAD;          // The heading in Degrees * 10^-7
+    byte    SATS;          // The number of satellites (space vehicles) used in the solution
+    uint16_t PDOP;         // The Positional Dilution of Precision in cm
+    byte    FIX;                   // The gps fix type as defined in the u-blox PVT message
+
+} FeatherSharedSettings;
 
 // Define the struct for all of my AGT originated settings, that I want to be able to share with the FEATHER.
 // It is based heavily on mytrackerSettings.
@@ -80,11 +89,12 @@ typedef struct
     byte TIMESTAMP_HOUR;     // UTC hour
     byte TIMESTAMP_MIN;      // UTC minute
     byte TIMESTAMP_SEC;      // UTC seconds
-} agtsharedSettings;
+    uint16_t MILLIS;       // UTC milliseconds
+} AgtSharedSettings;
 
 
 /* function pre defines */
-bool send_sharedSettings_to_AGT(void);
-
+bool sendSharedSettings_to_AGT(void);
+void initFeatherSharedSettings(void);
 
 #endif

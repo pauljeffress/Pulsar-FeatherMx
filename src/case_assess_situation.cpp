@@ -45,13 +45,27 @@ iterationCounter = iterationCounter + 1; // Increment the iterationCounter, help
 while (loop_step == assess_situation)   // Stay in this state machine or is it time to exit out to the main loop state machine?
   {
   //debugPrintln("case_assess_situation() - top of main while loop");
-  
-assess_iterations_counter++;
-if (assess_iterations_counter > (assess_iterations_counter_last + 1000))
-{
-  assess_iterations_counter_last = assess_iterations_counter;
-  Serial.print(assess_iterations_counter); Serial.print("  ");
-}
+
+
+// debugging code to show how often/quickly the loop inside assess_situation was running
+// assess_iterations_counter++;
+// if (assess_iterations_counter > (assess_iterations_counter_last + 1000))
+// {
+//   assess_iterations_counter_last = assess_iterations_counter;
+//   Serial.print(assess_iterations_counter); Serial.print("  ");
+// }
+
+
+  // temporarily required intil my 1sec Timer ISR is working
+  // determines if 1sec has passed (roughly) and if so increments my seconds counters
+  oneSecCounter = millis();
+  if(oneSecCounter > (oneSecCounter_last + 1000))
+  {
+    unsigned long numSecsPassed = (oneSecCounter - oneSecCounter_last) / 1000;   // how many whole seconds have passed
+    oneSecCounter_last = oneSecCounter;
+    for(int i=0; i < numSecsPassed; i++)  // call my incrementer once for each second that has passed.
+      timerIncrementer();
+  }
 
   // clear all stay_awake_xxx flags at beginning of each pass through.
   // If any of these are TRUE at the end of a pass, then we will not SLEEP and will 

@@ -12,22 +12,22 @@ void case_write_to_tft()
     // AIRTEMP
     tft.fillRect(215, 31, 90, 40, HX8357_BLACK); // 90 pixels Horiz, 40 pixels vert
     tft.setCursor(215, 70);
-    tft.println(myfeatherSettings.AIRTEMP);
+    tft.println(myFeatherSettings.AIRTEMP);
 
     // AIRHUMIDITY
     tft.fillRect(215, 71, 90, 40, HX8357_BLACK);
     tft.setCursor(215, 110);
-    tft.println(myfeatherSettings.AIRHUMIDITY);
+    tft.println(myFeatherSettings.HUMID);
 
     // WATERTEMP
     tft.fillRect(215, 111, 90, 40, HX8357_BLACK);
     tft.setCursor(215, 150);
-    tft.println(myfeatherSettings.WATERTEMP);
+    tft.println(myFeatherSettings.WATERTEMP);
 
     // AMBIENTLIGHT
     tft.fillRect(215, 151, 130, 40, HX8357_BLACK);
     tft.setCursor(215, 190);
-    tft.println(myfeatherSettings.AMBIENTLIGHT);
+    tft.println(myFeatherSettings.AMBIENTLIGHT);
 
 
     assess_step = rx_from_autopilot; // Set next state

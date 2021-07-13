@@ -24,25 +24,25 @@ void case_read_sensors()
 
     if (!isnan(t))
     { // check if 'is not a number'
-        myfeatherSettings.AIRTEMP = t;
+        myFeatherSettings.AIRTEMP = t;
         //debugPrint("case_read_sensors() - Air Temp (degC): ");
         //debugPrintlnFlt(t);
     }
     else
     {
-        myfeatherSettings.AIRTEMP = -100; // set to an obvious failed magic number
+        myFeatherSettings.AIRTEMP = -100; // set to an obvious failed magic number
         debugPrintln("case_read_sensors() - ERROR Air Temp sensor read failed");
     }
 
     if (!isnan(h))
     { // check if 'is not a number'
-        myfeatherSettings.AIRHUMIDITY = h;
+        myFeatherSettings.HUMID = h;
         //debugPrint("case_read_sensors() - Air Humidity (%): ");
         //debugPrintlnFlt(h);
     }
     else
     {
-        myfeatherSettings.AIRHUMIDITY = -100; // set to an obvious failed magic number
+        myFeatherSettings.HUMID = -100; // set to an obvious failed magic number
         debugPrintln("case_read_sensors() - ERROR - Air Humidity sensor read failed");
     }
 
@@ -56,13 +56,13 @@ void case_read_sensors()
     float tempC = sensors.getTempCByIndex(0); // We use the function ByIndex, and as an example get the temperature from the first sensor only.
     if (tempC != DEVICE_DISCONNECTED_C)       // check if its a valid reading
     {
-        myfeatherSettings.WATERTEMP = tempC;
+        myFeatherSettings.WATERTEMP = tempC;
         //debugPrint("case_read_sensors() - Water Temp (degC): ");
         //debugPrintlnFlt(tempC);
     }
     else
     {
-        myfeatherSettings.WATERTEMP = -100; // set to an obvious failed magic number
+        myFeatherSettings.WATERTEMP = -100; // set to an obvious failed magic number
         debugPrintln("case_read_sensors() - ERROR - Water Temp sensor read failed");
     }
 
@@ -76,13 +76,13 @@ void case_read_sensors()
     float lux = myLux.lightStrengthLux();
     if (lux != DEVICE_DISCONNECTED_C) // check if its a valid reading
     {
-        myfeatherSettings.AMBIENTLIGHT = lux;
+        myFeatherSettings.AMBIENTLIGHT = lux;
         //debugPrint("case_read_sensors() - Ambient Light (Lux): ");
         //debugPrintlnFlt(lux);
     }
     else
     {
-        myfeatherSettings.AMBIENTLIGHT = -100; // set to an obvious failed magic number
+        myFeatherSettings.AMBIENTLIGHT = -100; // set to an obvious failed magic number
         debugPrintln("case_read_sensors() - ERROR - Ambient Light sensor read failed");
     }
 

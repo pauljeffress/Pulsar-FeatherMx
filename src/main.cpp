@@ -32,18 +32,32 @@ Uart Serial2 (&sercom0, 19, 18, SERCOM_RX_PAD_2, UART_TX_PAD_0);
 // Define --- SERCOM    RX  TX      RX PAD           TX PAD
 Uart Serial3 (&sercom3, 11, 12, SERCOM_RX_PAD_3, UART_TX_PAD_0);
 
-
-
 // SerialTransfer initialisation
 SerialTransfer STdriverF2A;  // create a SerialTransfer entity for the Feather to AGT connection.
+
+
+// Depending on the board, you can select SAMD21 Hardware Timer from TC3-TCC
+// SAMD21 Hardware Timer from TC3 or TCC
+// SAMD51 Hardware Timer only TC3
+// xxxx - SAMDTimer ITimer0(TIMER_TC3);   
+
+
 
 
 /*============================*/
 /* Global Variables           */
 /*============================*/
-featherSettings myfeatherSettings; // Create storage for the feather global settings in RAM
-feathersharedSettings myfeathersharedSettings;  // My copy of the settings I will share with the AGT
-agtsharedSettings myagtsharedSettings;   // My copy of the setting the AGT has shared with me.
+FeatherSettings myFeatherSettings; // Create storage for the feather global settings in RAM. To be backed up in EEPROM too.
+FeatherSharedSettings myFeatherSharedSettings;  // My RAM copy of the settings I will share with the AGT
+AgtSharedSettings myAgtSharedSettings;   // My RAM copy of the setting the AGT has shared with me.
+
+// variables used when testing my 1sec ISR Timer.
+volatile uint32_t mytimercounter = 0;
+uint32_t mytimercounter_last = 0;
+
+// temporarily required intil my 1sec Timer ISR is working
+unsigned long oneSecCounter = 0;
+unsigned long oneSecCounter_last = 0;
 
 
 // iterationCounter is incremented each time a transmission is attempted.
@@ -57,11 +71,9 @@ volatile unsigned long seconds_since_reset_or_powercycle = 0;
 volatile unsigned long seconds_since_last_wake = 0;
 volatile unsigned long seconds_since_last_ap_tx = 0;
 volatile unsigned long seconds_since_last_ap_rx = 0;
-volatile unsigned long seconds_since_last_agt_tx = 0;
+volatile unsigned long seconds_since_last_agt_tx = 100;
 volatile unsigned long seconds_since_last_agt_rx = 0;
 volatile unsigned long seconds_since_last_sensors_read = 0;
-
-
 
 // stuff for my printDebug functionality (most code is in debug_fns.cpp)
 bool _printDebug = false; // Flag to show if message field debug printing is enabled. See debug_fns.ino
@@ -70,7 +82,6 @@ Stream *_debugSerial;     //The stream to send debug messages to (if enabled)
 // stuff for my printLog functionality (most code is in ola_fns.cpp)
 bool _printLog = false; // Flag to show if log printing is enabled. See ola_fns.ino
 Stream *_logSerial;     //The stream to send Log messages to (if enabled)
-
 
 // state machine state trackers
 volatile int loop_step = loop_init; // Holds state of the main loop() state machine
@@ -92,11 +103,12 @@ bool sensor_ds18b20_status = BAD;
 datum STDatumTX, STDatumRX;
 uint32_t lastsend = 0; // used to determine when to send a dummy packet
 
-/*============================*/
-/* setup()
-/*
-/* Note: setup() code only runs when CPU has done a real powerup (or HW RESET), NOT a wake from sleep.
-/*============================*/
+
+/*============================
+ * setup()
+ *
+ * Note: setup() code only runs when CPU has done a real powerup (or HW RESET), NOT a wake from sleep.
+ ============================*/
 void setup()
 {
   // Note: Serial and many other things are not setup here.  Due to sleep/wake it is all done in init_loop()
@@ -124,17 +136,21 @@ void setup()
   disableDebugging(); // Make sure the serial debug messages are disabled until the Serial port is open ( see loop_init() )!
   disableLogging(); // Make sure the serial logging messages (to OLA) are disabled until the Serial port is open ( see loop_init() )!
 
+  initFeatherSettings();
+  initFeatherSharedSettings();
 
   loop_step = loop_init; // Set openning state
 
 } // END - setup()
 
-/*============================*/
-/* loop()
-/*
-/*============================*/
+/*============================
+ * loop()
+ *
+ *============================*/
 void loop(void)
 {
+
+
   // loop is one big state machine that controls the sequencing of the code
   switch (loop_step)
   {

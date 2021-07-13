@@ -8,11 +8,11 @@
 
 #include "global.h"
 
-/*============================*/
-/* mavlink_request_datastream()
-/*
-/* Request Data from Pixhawk - Pixhawk will not send any data until you request it.
-/*============================*/
+/*============================
+ * mavlink_request_datastream()
+ *
+ * Request Data from Pixhawk - Pixhawk will not send any data until you request it.
+ *============================*/
 void mavlink_request_datastream()
 {
   uint8_t _system_id = 255;      // id of computer which is sending the command (ground control software has id of 255)
@@ -29,14 +29,14 @@ void mavlink_request_datastream()
      https://mavlink.io/en/messages/common.html#MAV_DATA_STREAM
    *   
    * MAV_DATA_STREAM_ALL=0, // Enable all data streams
-   * MAV_DATA_STREAM_RAW_SENSORS=1, /* Enable IMU_RAW, GPS_RAW, GPS_STATUS packets.
-   * MAV_DATA_STREAM_EXTENDED_STATUS=2, /* Enable GPS_STATUS, CONTROL_STATUS, AUX_STATUS
-   * MAV_DATA_STREAM_RC_CHANNELS=3, /* Enable RC_CHANNELS_SCALED, RC_CHANNELS_RAW, SERVO_OUTPUT_RAW
-   * MAV_DATA_STREAM_RAW_CONTROLLER=4, /* Enable ATTITUDE_CONTROLLER_OUTPUT, POSITION_CONTROLLER_OUTPUT, NAV_CONTROLLER_OUTPUT.
-   * MAV_DATA_STREAM_POSITION=6, /* Enable LOCAL_POSITION, GLOBAL_POSITION/GLOBAL_POSITION_INT messages.
-   * MAV_DATA_STREAM_EXTRA1=10, /* Dependent on the autopilot
-   * MAV_DATA_STREAM_EXTRA2=11, /* Dependent on the autopilot
-   * MAV_DATA_STREAM_EXTRA3=12, /* Dependent on the autopilot
+   * MAV_DATA_STREAM_RAW_SENSORS=1, // Enable IMU_RAW, GPS_RAW, GPS_STATUS packets.
+   * MAV_DATA_STREAM_EXTENDED_STATUS=2, // Enable GPS_STATUS, CONTROL_STATUS, AUX_STATUS
+   * MAV_DATA_STREAM_RC_CHANNELS=3, // Enable RC_CHANNELS_SCALED, RC_CHANNELS_RAW, SERVO_OUTPUT_RAW
+   * MAV_DATA_STREAM_RAW_CONTROLLER=4, // Enable ATTITUDE_CONTROLLER_OUTPUT, POSITION_CONTROLLER_OUTPUT, NAV_CONTROLLER_OUTPUT.
+   * MAV_DATA_STREAM_POSITION=6, // Enable LOCAL_POSITION, GLOBAL_POSITION/GLOBAL_POSITION_INT messages.
+   * MAV_DATA_STREAM_EXTRA1=10, // Dependent on the autopilot
+   * MAV_DATA_STREAM_EXTRA2=11, // Dependent on the autopilot
+   * MAV_DATA_STREAM_EXTRA3=12, // Dependent on the autopilot
    * MAV_DATA_STREAM_ENUM_END=13,
    * 
    * Data in PixHawk available in:
@@ -56,11 +56,11 @@ void mavlink_request_datastream()
 
 } // END - mavlink_request_datastream()
 
-/*============================*/
-/* mavlink_receive()
-/*
-/* function called by arduino to read any MAVlink messages sent by serial communication from flight controller to arduino
-/*============================*/
+/*============================
+ * mavlink_receive()
+ *
+ * function called by arduino to read any MAVlink messages sent by serial communication from flight controller to arduino
+ *============================*/
 void mavlink_receive()
 {
   mavlink_message_t msg;
@@ -102,8 +102,8 @@ void mavlink_receive()
         Serial.println(hb.mavlink_version);
 
         // Save things I'm interested in to FeatherMx data structure for use later.
-        myfeatherSettings.custom_mode = hb.custom_mode;
-        myfeatherSettings.system_status = hb.system_status;
+        myFeatherSettings.CUSTOMMODE = hb.custom_mode;
+        myFeatherSettings.SYSTEMSTATUS = hb.system_status;
 
         break;
       }
@@ -141,13 +141,13 @@ void mavlink_receive()
         Serial.println(packet.satellites_visible);
 
         // Save things I'm interested in to FeatherMx data structure for use later.
-        myfeatherSettings.time_usec = packet.time_usec;
-        myfeatherSettings.fix_type = packet.fix_type;
-        myfeatherSettings.lat = packet.lat;
-        myfeatherSettings.lon = packet.lon;
-        myfeatherSettings.vel = packet.vel;
-        myfeatherSettings.cog = packet.cog;
-        myfeatherSettings.satellites_visible = packet.satellites_visible;
+        myFeatherSettings.GPSTIMESTAMP = packet.time_usec;
+        myFeatherSettings.FIX = packet.fix_type;
+        myFeatherSettings.LAT = packet.lat;
+        myFeatherSettings.LON = packet.lon;
+        myFeatherSettings.SPEED = packet.vel;
+        myFeatherSettings.HEAD = packet.cog;
+        myFeatherSettings.SATS = packet.satellites_visible;
 
         break;
       }

@@ -9,7 +9,7 @@
 #define GLOBAL_H
 
 #include <Arduino.h>
- #include "wiring_private.h"    // for "pinPeripheral()". Only needed in PlatformIO, not required in Arduino IDE???
+#include "wiring_private.h"    // for "pinPeripheral()". Only needed in PlatformIO, not required in Arduino IDE???
 #include <Wire.h>
 #include <SPI.h>
 #include "Adafruit_GFX.h"                       // For TFT
@@ -32,9 +32,22 @@
                             //       * SPITransfer.h and SPITransfer.cpp
                             //       they live in .pio/libdeps/..../SerialTransfer/src/
 
-#include "sharedSettings.h" // header file for my sharedSettings data structures
 
-#define TFT_CONNECTED // toggles code depending on whether I want to use teh TFT or not. \
+// These define's must be placed at the beginning before #include "SAMDTimerInterrupt.h"
+// _TIMERINTERRUPT_LOGLEVEL_ from 0 to 4
+// Don't define _TIMERINTERRUPT_LOGLEVEL_ > 0. Only for special ISR debugging only. Can hang the system.
+// Don't define TIMER_INTERRUPT_DEBUG > 2. Only for special ISR debugging only. Can hang the system.
+#define TIMER_INTERRUPT_DEBUG         0
+#define _TIMERINTERRUPT_LOGLEVEL_     0
+// xxxx #include "SAMDTimerInterrupt.h"             // https://github.com/khoih-prog/SAMD_TimerInterrupt
+#define TIMER0_INTERVAL_MS        1000
+
+
+#include "SharedSettings.h" // header file for my SharedSettings data structures
+#include "FeatherSettings.h" // header file for my FeatherSettings data structure
+
+
+#define TFT_CONNECTED // toggles code depending on whether I want to use teh TFT or not. 
                       // Will make it easier to test with/without it and ultimatetly disconnect before a voyage.
 // defs for Adafruit 3.5" 480x320 TFT Featherwing - https://learn.adafruit.com/adafruit-3-5-tft-featherwing?view=all
 // I have removed the pin defs for other boards.  See original example "graphicstest_featherwing.ino" for them.
@@ -54,7 +67,7 @@
 // Loop Steps - these are used by the switch/case in the main loop()
 #define loop_init 0 // Send the welcome message, check the battery voltage
 
-#define assess_situation 1 // Look at all available data e.g. flags, timers, last data from FeatherMx etc. \
+#define assess_situation 1 // Look at all available data e.g. flags, timers, last data from FeatherMx etc. 
                            // Decide if any action required, if so set additional flags and/or next state
 #define zzz 2              // Turn everything off and put the processor into deep sleep
 #define wake 3             // Wake from deep sleep, restore the processor clock speed
@@ -96,44 +109,6 @@
 
 /* define any struct's */
 
-
-// Define the struct for _all_ of the global message fields (stored in RAM)
-// I'm going to use this in case I want to write all of these globals to EEPROM like the AGT does.
-// It also just helps me keep clear whats global and how to check on its value from time to time.
-typedef struct
-{
-    byte STX;   // 0x02 - when written to EEPROM, helps indicate if EEPROM contains valid data
-    byte SWVER; // Software version: bits 7-4 = major version; bits 3-0 = minor version
-    // The following are populated by the sensors directly connected to the FeatherMx
-    float BATTV;        // The battery (bus) voltage in V on the FeatherMx BAT socket.
-    float AIRTEMP;      // The air temperature in degrees C
-    float AIRHUMIDITY;  // The humidity in %RH
-    float WATERTEMP;    // The water temp in deg C
-    float AMBIENTLIGHT; // Ambient light reading in lux
-    // the following relate to MAVLINK_MSG_ID_HEARTBEAT packets
-    uint32_t custom_mode;  /*<  A bitfield for use for autopilot-specific flags*/
-    uint8_t system_status; /*<  System status flag.*/
-    // the following relate to MAVLINK_MSG_ID_GPS_RAW_INT packets
-    uint64_t time_usec;         /*< [us] Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude of the number.*/
-    int32_t lat;                /*< [degE7] Latitude (WGS84, EGM96 ellipsoid)*/
-    int32_t lon;                /*< [degE7] Longitude (WGS84, EGM96 ellipsoid)*/
-    uint16_t vel;               /*< [cm/s] GPS ground speed. If unknown, set to: UINT16_MAX*/
-    uint16_t cog;               /*< [cdeg] Course over ground (NOT heading, but direction of movement) in degrees * 100, 0.0..359.99 degrees. If unknown, set to: UINT16_MAX*/
-    uint8_t fix_type;           /*<  GPS fix type.*/
-    uint8_t satellites_visible; /*<  Number of satellites visible. If unknown, set to 255*/
-    // the following are derived from other data by the FeatherMx
-    uint16_t YEAR; // UTC year
-    byte MONTH;    // UTC month
-    byte DAY;      // UTC day
-    byte HOUR;     // UTC hour
-    byte MIN;      // UTC minute
-    byte SEC;      // UTC seconds
-    // will only use this if I implement sleep functionality
-    uint32_t WAKEINT; // Seconds - The wake-up interval in seconds
-    uint32_t TXAGTINTERVAL; // Seconds - The interval between periodic settings share to AGT.
-    byte ETX;         // 0x03 - when written to EEPROM, helps indicate if EEPROM contains valid data
-} featherSettings;
-
 typedef struct // my datum to tx/rx over SerialTransfer
 {
     uint8_t i1;
@@ -154,9 +129,17 @@ extern Uart Serial3;
 
 extern SerialTransfer STdriverF2A;
 
-extern featherSettings myfeatherSettings;
-extern feathersharedSettings myfeathersharedSettings;
-extern agtsharedSettings myagtsharedSettings;
+// xxx extern SAMDTimer ITimer0(TIMER_TC3);
+
+extern FeatherSettings myFeatherSettings;
+extern FeatherSharedSettings myFeatherSharedSettings;
+extern AgtSharedSettings myAgtSharedSettings;
+
+extern volatile uint32_t mytimercounter;
+extern uint32_t mytimercounter_last;
+
+extern unsigned long oneSecCounter;
+extern unsigned long oneSecCounter_last;
 
 extern long iterationCounter;
 
@@ -236,6 +219,8 @@ void case_sleep_yet();
 void setFEATHER_READY_TO_RX_PINhigh();
 void setFEATHER_READY_TO_RX_PINlow();
 void serialSetup();
+void timerSetup();
+void timerIncrementer();
 
 String my64toString(uint64_t x);
 #endif

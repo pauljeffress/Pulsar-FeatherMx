@@ -36,6 +36,9 @@ void case_loop_init()
   // do any other general setup tasks that would normally be done in setup() but need to
   // be done here due to sleep/wake.
 
+
+  timerSetup();
+
   sensorsSetup();
 
   tftSetup();
