@@ -87,4 +87,6 @@ void case_read_sensors()
     }
 
     assess_step = write_to_tft; // Set next state
+
+    //debugPrintln("case_read_sensors() - done");
 }

@@ -36,18 +36,18 @@
 
 
 #define DEF_GPSTIMESTAMP 0
-#define DEF_LAT       0
-#define DEF_LON       0
-#define DEF_ALT       0
-#define DEF_SPEED     0
-#define DEF_HEAD      0
-#define DEF_SATS      0
-#define DEF_PDOP      0
-#define DEF_FIX       0
+#define DEF_LAT       -891234599   // LAT (-90 to +90) min for LAT is -90deg so I picked just below that -89.1234599 as its easy to spot.
+#define DEF_LON       1791234599    // LON (-180 to 180) max for LON is 180deg so I picked just below that 179.1234599 as its easy to spot.
+#define DEF_ALT       99    // unlikely and easy to spot
+#define DEF_SPEED     99    // unlikely and easy to spot
+#define DEF_HEAD      99    // unlikely and easy to spot
+#define DEF_SATS      99    // unlikely and easy to spot
+#define DEF_PDOP      99    // unlikely and easy to spot
+#define DEF_FIX       99    // possible but easy to spot
 
 
 #define DEF_WAKEINT         60 // Seconds
-#define DEF_TXAGTINT        60 // Seconds
+#define DEF_TXAGTINT        15 // Seconds
 #define DEF_LOWBATT        330 // 330 * 0.01V = 3.3V
 #define DEF_ETX       0x03
 

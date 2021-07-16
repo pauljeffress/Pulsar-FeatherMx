@@ -136,8 +136,9 @@ void setup()
   disableDebugging(); // Make sure the serial debug messages are disabled until the Serial port is open ( see loop_init() )!
   disableLogging(); // Make sure the serial logging messages (to OLA) are disabled until the Serial port is open ( see loop_init() )!
 
-  initFeatherSettings();
-  initFeatherSharedSettings();
+  // note, below will run but Serial Ports are not open yet so no debug output will be shown.
+  initFeatherSettings();        // Initialise the myFeatherSettings, from defaults or otherwise.
+  initFeatherSharedSettings();  // Initialise the myFeatherSharedSettings, from myFeatherSettings.
 
   loop_step = loop_init; // Set openning state
 

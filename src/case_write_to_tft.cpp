@@ -29,6 +29,7 @@ void case_write_to_tft()
     tft.setCursor(215, 190);
     tft.println(myFeatherSettings.AMBIENTLIGHT);
 
+    //debugPrintln("case_write_to_tft() - done");
 
     assess_step = rx_from_autopilot; // Set next state
 }

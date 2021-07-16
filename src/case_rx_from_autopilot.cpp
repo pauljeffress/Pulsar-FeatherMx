@@ -23,5 +23,7 @@ void case_rx_from_autopilot()
     while ((millis() < (start + 3000)) && (millis() > 4000))  // keep doing it for 3 seconds
         mavlink_receive(); 
 
+    debugPrintln("case_rx_from_autopilot() - done");
+
     assess_step = process_autopilot; // Set next state
 }

@@ -43,9 +43,9 @@
 #define TIMER0_INTERVAL_MS        1000
 
 
-#include "SharedSettings.h" // header file for my SharedSettings data structures
-#include "FeatherSettings.h" // header file for my FeatherSettings data structure
 
+#include "FeatherSettings.h" // header file for my FeatherSettings data structure
+#include "SharedSettings.h" // header file for my SharedSettings data structures
 
 #define TFT_CONNECTED // toggles code depending on whether I want to use teh TFT or not. 
                       // Will make it easier to test with/without it and ultimatetly disconnect before a voyage.
@@ -100,7 +100,7 @@
 #define FEATHER_READY_TO_RX_PIN 9  // I was using 13 and having issues, I think its because thats the LED pin on the Feather.
 #define AGT_WANTS_TO_TX_PIN 12
 #define FEATHER_WAIT_FOR_AGT_TO_DROP 10 // seconds - amount of time to wait for AGT to drop AGT_WANTS_TO_TX_PIN.
-#define SENDPERIODSECONDS 25  // seconds - how often to send the dummy packets
+#define SENDPERIODSECONDS 15  // seconds - how often to send the dummy packets
 
 
 
@@ -221,6 +221,13 @@ void setFEATHER_READY_TO_RX_PINlow();
 void serialSetup();
 void timerSetup();
 void timerIncrementer();
+bool sendSharedSettings_to_AGT(void);
+void initFeatherSharedSettings(void);
+void preptosendFeatherSharedSettings(void);
+int16_t int32_to_int16_a(int32_t input_int32);
+uint16_t int32_to_int16_b(int32_t input_int32);
+uint16_t int32_to_int16_c(int32_t input_int32);
+
 
 String my64toString(uint64_t x);
 #endif

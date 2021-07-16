@@ -97,14 +97,16 @@ while (loop_step == assess_situation)   // Stay in this state machine or is it t
     // ************************************************************************************************
     // Update the tft display
     case write_to_tft:
+      //Serial.println("case_write_to_tft()===============================");
       case_write_to_tft(); 
-      assess_step = rx_from_agt;  
+      //assess_step = rx_from_agt;  
       //debugPrintln("Skipping write_to_tft"); 
     break;
 
     // ************************************************************************************************
     // Read Mavlink stream from the Autopilot.
     case rx_from_autopilot:
+      //Serial.println("case_rx_from_autopilot()+++++++++++++++++++++++++++");
       case_rx_from_autopilot();
       //assess_step = check_power;  // temorary short cut back to start of state machine.  
       //delay(500);  
