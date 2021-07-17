@@ -26,19 +26,19 @@ void printFeatherSettings(void)
     Serial.println(myFeatherSettings.AMBIENTLIGHT);
     
     Serial.print("YEAR: ");
-    Serial.println(myFeatherSettings.YEAR);
+    Serial.println(myFeatherSettings.GPSYEAR);
     Serial.print("MONTH: ");
-    Serial.println(myFeatherSettings.MONTH);
+    Serial.println(myFeatherSettings.GPSMONTH);
     Serial.print("DAY: ");
-    Serial.println(myFeatherSettings.DAY);
+    Serial.println(myFeatherSettings.GPSDAY);
     Serial.print("HOUR: ");
-    Serial.println(myFeatherSettings.HOUR);
+    Serial.println(myFeatherSettings.GPSHOUR);
     Serial.print("MIN: ");
-    Serial.println(myFeatherSettings.MIN);
+    Serial.println(myFeatherSettings.GPSMIN);
     Serial.print("SEC: ");
-    Serial.println(myFeatherSettings.SEC);
+    Serial.println(myFeatherSettings.GPSSEC);
     Serial.print("MILLIS: ");
-    Serial.println(myFeatherSettings.MILLIS);
+    Serial.println(myFeatherSettings.GPSMILLIS);
 
     Serial.print("CUSTOMMODE: ");
     Serial.println(myFeatherSettings.CUSTOMMODE);
@@ -84,13 +84,13 @@ void initFeatherSettings(void) // Initialises the myFeatherSettings in RAM with 
   myFeatherSettings.WATERTEMP = DEF_WATERTEMP;  
   myFeatherSettings.AMBIENTLIGHT = DEF_AMBIENTLIGHT;
 
-  myFeatherSettings.YEAR = DEF_YEAR;
-  myFeatherSettings.MONTH = DEF_MONTH;
-  myFeatherSettings.DAY = DEF_DAY;
-  myFeatherSettings.HOUR = DEF_HOUR;
-  myFeatherSettings.MIN = DEF_MIN;
-  myFeatherSettings.SEC = DEF_SEC;
-  myFeatherSettings.MILLIS = DEF_MILLIS;
+  myFeatherSettings.GPSYEAR = DEF_GPSYEAR;
+  myFeatherSettings.GPSMONTH = DEF_GPSMONTH;
+  myFeatherSettings.GPSDAY = DEF_GPSDAY;
+  myFeatherSettings.GPSHOUR = DEF_GPSHOUR;
+  myFeatherSettings.GPSMIN = DEF_GPSMIN;
+  myFeatherSettings.GPSSEC = DEF_GPSSEC;
+  myFeatherSettings.GPSMILLIS = DEF_GPSMILLIS;
 
   myFeatherSettings.CUSTOMMODE = DEF_CUSTOMMODE;
   myFeatherSettings.SYSTEMSTATUS = DEF_SYSTEMSTATUS;

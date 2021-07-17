@@ -15,7 +15,7 @@ void case_check_power()
   measuredvbat *= 3.3;  // Multiply by 3.3V, our reference voltage
   measuredvbat /= 1024; // convert to voltage
 
-  //debugPrint("case_check_power() - Feather Vbat: ");
+  //debugPrint("case_check_power() - AGT Vbat: ");
   //debugPrintlnFlt(measuredvbat);
 
   if (measuredvbat < FEATHER_VBAT_LOW)

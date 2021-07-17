@@ -23,13 +23,13 @@
 #define DEF_AMBIENTLIGHT    0
 
 
-#define DEF_YEAR      1980
-#define DEF_MONTH     1
-#define DEF_DAY       1
-#define DEF_HOUR      0
-#define DEF_MIN       0
-#define DEF_SEC       0
-#define DEF_MILLIS    0
+#define DEF_GPSYEAR      1980
+#define DEF_GPSMONTH     1
+#define DEF_GPSDAY       1
+#define DEF_GPSHOUR      0
+#define DEF_GPSMIN       0
+#define DEF_GPSSEC       0
+#define DEF_GPSMILLIS    0
 
 #define DEF_CUSTOMMODE    0
 #define DEF_SYSTEMSTATUS  0
@@ -68,13 +68,13 @@ typedef struct
     int16_t AMBIENTLIGHT; // Ambient light reading in lux
     
     // the following are derived from other data by the FeatherMx
-    uint16_t YEAR; // UTC year
-    byte MONTH;    // UTC month
-    byte DAY;      // UTC day
-    byte HOUR;     // UTC hour
-    byte MIN;      // UTC minute
-    byte SEC;      // UTC seconds
-    uint16_t MILLIS;       // UTC milliseconds
+    uint16_t GPSYEAR; // UTC year
+    uint8_t  GPSMONTH;    // UTC month
+    uint8_t  GPSDAY;      // UTC day
+    uint8_t  GPSHOUR;     // UTC hour
+    uint8_t  GPSMIN;      // UTC minute
+    uint8_t  GPSSEC;      // UTC seconds
+    uint16_t GPSMILLIS;       // UTC milliseconds
     
     // the following relate to MAVLINK_MSG_ID_HEARTBEAT packets
     uint32_t CUSTOMMODE;  /*<  A bitfield for use for autopilot-specific flags*/

@@ -64,8 +64,9 @@ void serialSetup()
   pinPeripheral(18, PIO_SERCOM_ALT);    // the 'PIO_SERCOM' should be 'PIO_SERCOM_ALT' if we are trying to use the 'alternate' pins for this.
   pinPeripheral(19, PIO_SERCOM_ALT);    // same as above comment.
 
-  // Initialise FNIC SerialTransfer drivers
-  STdriverF2A.begin(Serial2, true, Serial);
+  // Initialise SerialTransfer driver for Feather to AGTconnection
+  //                Serial Port, debug on, Debug output port, timeout in mS
+  STdriverF2A.begin(Serial2,     true,     Serial,            200);
 
   // prep datum for first use
   STDatumTX.i1 = 1;

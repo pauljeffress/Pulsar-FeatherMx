@@ -9,25 +9,42 @@ void case_rx_from_agt()
 {
     //debugPrintln("case_rx_from_agt() - executing");
    
-    if (STdriverF2A.available())
-    {
-        logPrintln("case_rx_to_agt() - receiving Dummy Datum from AGT");
-        STdriverF2A.rxObj(STDatumRX);
-        Serial.println("case_rx_from_agt() - Received a Datum from AGT");
-        Serial.println("case_rx_from_agt() - RRRRRRRRRRRRRRRRRRRRRRRRR");
-        Serial.print("case_rx_from_agt() - i1=");
-        Serial.println(STDatumRX.i1);
-        Serial.print("case_rx_from_agt() - c1=");
-        Serial.println(STDatumRX.c1);
-        Serial.print("case_rx_from_agt() - c2=");
-        Serial.println(STDatumRX.c2);
-        Serial.print("case_rx_from_agt() - c3=");
-        Serial.println(STDatumRX.c3);
-        Serial.print("case_rx_from_agt() - c4=");
-        Serial.println(STDatumRX.c4);
+  // Check if the AGT has sent us anything
+  // Use SerialTransfer receive code to get anything from our peer.
+  int numbytesexpected = sizeof(myAgtSharedSettings);
+  //Serial.print("   ...");Serial.println(numbytesexpected);
+  if(STdriverF2A.available() > (numbytesexpected - 1))  
+  {
+    STdriverF2A.rxObj(myAgtSharedSettings);
+    Serial.println("case_rx_from_agt() - Received a Datum");
+    Serial.println("case_rx_from_agt() - RRRRRRRRRRRRRRRR");
+    Serial.print("case_rx_from_agt() - AGT MAGICNUM=");Serial.println(myAgtSharedSettings.MAGICNUM);
+    Serial.println();
+    Serial.print("case_rx_from_agt() - AGT BATTV=");Serial.println(myAgtSharedSettings.BATTV);
+    Serial.print("case_rx_from_agt() - AGT PRESS=");Serial.println(myAgtSharedSettings.PRESS);
+    Serial.print("case_rx_from_agt() - AGT AIRTEMP=");Serial.println(myAgtSharedSettings.TEMP);
+    Serial.print("case_rx_from_agt() - AGT HUMID=");Serial.println(myAgtSharedSettings.HUMID);   
+    Serial.println();
+    Serial.print("case_rx_from_agt() - AGT GPSYEAR=");Serial.println(myAgtSharedSettings.GPSYEAR);
+    Serial.print("case_rx_from_agt() - AGT GPSMONTH=");Serial.println(myAgtSharedSettings.GPSMONTH);
+    Serial.print("case_rx_from_agt() - AGT GPSDAY=");Serial.println(myAgtSharedSettings.GPSDAY);
+    Serial.print("case_rx_from_agt() - AGT GPSHOUR=");Serial.println(myAgtSharedSettings.GPSHOUR);  
+    Serial.print("case_rx_from_agt() - AGT GPSMIN=");Serial.println(myAgtSharedSettings.GPSMIN);
+    Serial.print("case_rx_from_agt() - AGT GPSSSEC=");Serial.println(myAgtSharedSettings.GPSSEC); 
+    Serial.print("case_rx_from_agt() - AGT GPSMILLIS=");Serial.println(myAgtSharedSettings.GPSMILLIS);
+    Serial.println();
+    Serial.print("case_rx_from_agt() - AGT LAT=");Serial.println(myAgtSharedSettings.LAT);
+    Serial.print("case_rx_from_agt() - AGT LON=");Serial.println(myAgtSharedSettings.LON);  
+    Serial.print("case_rx_from_agt() - AGT ALT=");Serial.println(myAgtSharedSettings.ALT);
+    Serial.print("case_rx_from_agt() - AGT SPEED=");Serial.println(myAgtSharedSettings.SPEED); 
+    Serial.print("case_rx_from_agt() - AGT HEAD=");Serial.println(myAgtSharedSettings.HEAD);    
+    Serial.print("case_rx_from_agt() - AGT SATS=");Serial.println(myAgtSharedSettings.SATS);  
+    Serial.print("case_rx_from_agt() - AGT PDOP=");Serial.println(myAgtSharedSettings.PDOP);
+    Serial.print("case_rx_from_agt() - AGT FIX=");Serial.println(myAgtSharedSettings.FIX);
+    Serial.println();
 
-        assess_step = process_agt; // now that we have data from the AGT lets process it
-    }
+    assess_step = process_agt; // now that we have data from the AGT lets process it
+   } 
 
     assess_step = tx_to_agt; // we can skip "process_agt" as we did not receive anything from it.
 
