@@ -15,6 +15,8 @@
  *============================*/
 void mavlink_request_datastream()
 {
+  debugPrintln("mavlink_request_datastream() - Executing");
+  delay(2000);    // just to give me time to see the message :)
   uint8_t _system_id = 255;      // id of computer which is sending the command (ground control software has id of 255)
   uint8_t _component_id = 2;     // seems like it can be any # except the number of what Pixhawk sys_id is
   uint8_t _target_system = 1;    // Id # of Pixhawk (should be 1)
@@ -63,19 +65,23 @@ void mavlink_request_datastream()
  *============================*/
 void mavlink_receive()
 {
+  //debugPrintln("mavlink_receive() - Executing");
   mavlink_message_t msg;
   mavlink_status_t status;
   //debugPrintln("char?");
-  while (Serial1.available())
+  while (Serial1.available())   // xxx - I should prob put a time limiter on this WHILE, I think the only reason
+                                // it is not hogging the CPU is because the AutoPilot cube only sends msgs each 
+                                // second, and then pauses I think, is why the WHILE breaks out.
   {
     uint8_t c = Serial1.read();
     //debugPrintln("got char");
     // add new char to what we have so far and see of we have a full Mavlink msg yet
     if (mavlink_parse_char(MAVLINK_COMM_0, c, &msg, &status)) // if we do then lets process it
     {
-      debugPrint("#");
-      debugPrintInt(msg.msgid);
-      debugPrint("  ");
+      // debugs to show the msg # of the ones I'm seeing but not interested in.
+      //debugPrint("#");
+      //debugPrintInt(msg.msgid);
+      //debugPrint("  ");
       //Decode new message from autopilot
       switch (msg.msgid)
       {
@@ -142,6 +148,13 @@ void mavlink_receive()
 
         // Save things I'm interested in to FeatherMx data structure for use later.
         myFeatherSettings.GPSTIMESTAMP = packet.time_usec;
+        myFeatherSettings.GPSHOUR = year(t);
+        myFeatherSettings.GPSHOUR = month(t);
+        myFeatherSettings.GPSHOUR = day(t);
+        myFeatherSettings.GPSHOUR = hour(t);
+        myFeatherSettings.GPSMIN = minute(t);
+        myFeatherSettings.GPSHOUR = second(t);
+        myFeatherSettings.GPSHOUR = 0;  // I'm not sure how to extract millis from t yet.
         myFeatherSettings.FIX = packet.fix_type;
         myFeatherSettings.LAT = packet.lat;
         myFeatherSettings.LON = packet.lon;

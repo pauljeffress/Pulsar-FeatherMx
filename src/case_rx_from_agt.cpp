@@ -16,6 +16,9 @@ void case_rx_from_agt()
   if(STdriverF2A.available() > (numbytesexpected - 1))  
   {
     STdriverF2A.rxObj(myAgtSharedSettings);
+
+    seconds_since_last_agt_tx = 0; // reset the counter
+
     Serial.println("case_rx_from_agt() - Received a Datum");
     Serial.println("case_rx_from_agt() - RRRRRRRRRRRRRRRR");
     Serial.print("case_rx_from_agt() - AGT MAGICNUM=");Serial.println(myAgtSharedSettings.MAGICNUM);

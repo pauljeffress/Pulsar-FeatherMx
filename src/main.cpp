@@ -71,7 +71,7 @@ volatile unsigned long seconds_since_reset_or_powercycle = 0;
 volatile unsigned long seconds_since_last_wake = 0;
 volatile unsigned long seconds_since_last_ap_tx = 0;
 volatile unsigned long seconds_since_last_ap_rx = 0;
-volatile unsigned long seconds_since_last_agt_tx = 100;
+volatile unsigned long seconds_since_last_agt_tx = 0;
 volatile unsigned long seconds_since_last_agt_rx = 0;
 volatile unsigned long seconds_since_last_sensors_read = 0;
 

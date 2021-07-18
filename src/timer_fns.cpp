@@ -40,8 +40,8 @@ void timerSetup(void)
 
 void timerIncrementer(void)
 {
-  debugPrint("timerIncrementer() - executing at ");
-  Serial.print(millis());
+  //debugPrint("timerIncrementer() - executing at ");
+  //Serial.print(millis());
   seconds_since_reset_or_powercycle++;
   seconds_since_last_wake++;
   seconds_since_last_ap_tx++;
@@ -49,6 +49,6 @@ void timerIncrementer(void)
   seconds_since_last_agt_tx++;
   seconds_since_last_agt_rx++;
   seconds_since_last_sensors_read++;
-  debugPrint(" seconds_since_last_wake=");
-  Serial.println(seconds_since_last_wake);
+  //debugPrint(" seconds_since_last_wake=");
+  //Serial.println(seconds_since_last_wake);
  }

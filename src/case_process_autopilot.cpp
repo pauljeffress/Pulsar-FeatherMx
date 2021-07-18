@@ -7,7 +7,7 @@
 
 void case_process_autopilot()
 {
-    debugPrintln("case_process_autopilot() - executing");
+    //debugPrintln("case_process_autopilot() - executing");
 
     
 

@@ -15,6 +15,8 @@ void case_check_power()
   measuredvbat *= 3.3;  // Multiply by 3.3V, our reference voltage
   measuredvbat /= 1024; // convert to voltage
 
+  myFeatherSettings.BATTV = measuredvbat * 100;  // we store it as an int of voltage * 100, e.g. 3.8v = 380
+
   //debugPrint("case_check_power() - AGT Vbat: ");
   //debugPrintlnFlt(measuredvbat);
 

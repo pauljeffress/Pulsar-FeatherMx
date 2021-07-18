@@ -7,7 +7,7 @@
 
 void case_tx_to_autopilot()
 {
-    debugPrintln("case_tx_to_autopilot() - executing");
+    //debugPrintln("case_tx_to_autopilot() - executing");
 
     
 

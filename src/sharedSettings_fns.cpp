@@ -17,8 +17,8 @@ bool sendSharedSettings_to_AGT(void)
 
     // Send the Datum to peer
     int8_t numbytessent = STdriverF2A.sendDatum(myFeatherSharedSettings);
-    debugPrint("sendSharedSettings_to_AGT() - sending Datum to AGT - numbytessent:");
-    debugPrintlnInt(numbytessent);
+    //debugPrint("sendSharedSettings_to_AGT() - sending Datum to AGT - numbytessent:");
+    //debugPrintlnInt(numbytessent);
     seconds_since_last_agt_tx =  0; // reset this counter as we have sent....even though AGT may not have received.
 
     return(success);
@@ -27,7 +27,7 @@ bool sendSharedSettings_to_AGT(void)
 
 void initFeatherSharedSettings(void) // Initialises the myFeatherSharedSettings in RAM with the default values
 {
-  myFeatherSharedSettings.MAGICNUM = 0;
+  // myFeatherSharedSettings.MAGICNUM = 0;   // do not reset this, the SharedSetting is the source of truth!!!!
   // initialise based on the main myFeatherSettings, they are the source of truth.
   myFeatherSharedSettings.BATTV = myFeatherSettings.BATTV;
   myFeatherSharedSettings.PRESS = myFeatherSettings.PRESS;
@@ -53,7 +53,7 @@ void initFeatherSharedSettings(void) // Initialises the myFeatherSharedSettings 
   myFeatherSharedSettings.PDOP = myFeatherSettings.PDOP;
   myFeatherSharedSettings.FIX = myFeatherSettings.FIX;
 
-  debugPrintln("initFeatherSharedSettings: RAM settings initialised");
+  //debugPrintln("initFeatherSharedSettings: RAM settings initialised");
 }   // END - initFeatherSharedSettings()
 
 
@@ -61,10 +61,13 @@ void preptosendFeatherSharedSettings(void) // gets myFeatherSharedSettings fresh
 {
   initFeatherSharedSettings(); // start by setting everything to align with the current myFeatherSettings
   
+  myFeatherSharedSettings.MAGICNUM++;
+  if (myFeatherSharedSettings.MAGICNUM > 240) // roll the counter back to 0 at 240.
+    myFeatherSharedSettings.MAGICNUM = 0;
   // then alter anything that needs to change just before transmission to the AGT.
   // xxx TBD
 
-  debugPrintln("preptosendFeatherSharedSettings: DONE");
+  //debugPrintln("preptosendFeatherSharedSettings: DONE");
 }   // END - preptosendFeatherSharedSettings()
 
 

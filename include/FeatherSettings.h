@@ -13,30 +13,28 @@
 #include "Arduino.h"    // helps with the "types" used here.
 
 // Define the default value for each message field
-#define DEF_STX       0x02
-#define DEF_SWVER     0x10 // Software version 1.0
-#define DEF_BATTV     500  // 500 * 0.01V = 5V
-#define DEF_PRESS     0     // used if we can't get a reading from the AGT's onboard PHT sensor.
-#define DEF_AIRTEMP      0     // used if we can't get a reading from the AGT's onboard PHT sensor.
-#define DEF_HUMID     0     // used if we can't get a reading from the AGT's onboard PHT sensor.
-#define DEF_WATERTEMP      0     // used if we can't get a reading from the AGT's onboard PHT sensor.
-#define DEF_AMBIENTLIGHT    0
-
+#define DEF_STX           0x02  // See my AGT code for reasoning
+#define DEF_SWVER         0x10  // Software version 1.0
+#define DEF_BATTV         555   // 555 * 0.01V = 5.55V  This default is obvious and easy to identify.
+#define DEF_PRESS         99    // used if we can't get a reading from the Feathers SHT31 sensor.
+#define DEF_AIRTEMP       99    // used if we can't get a reading from the Feathers SHT31 sensor.
+#define DEF_HUMID         1     // used if we can't get a reading from the Feathers SHT31 sensor.
+#define DEF_WATERTEMP     99    // used if we can't get a reading from the Feathers DS18B20 sensor.
+#define DEF_AMBIENTLIGHT  1     // used if we can't get a reading from the Feathers Light sensor.
 
 #define DEF_GPSYEAR      1980
 #define DEF_GPSMONTH     1
 #define DEF_GPSDAY       1
-#define DEF_GPSHOUR      0
-#define DEF_GPSMIN       0
-#define DEF_GPSSEC       0
-#define DEF_GPSMILLIS    0
+#define DEF_GPSHOUR      1
+#define DEF_GPSMIN       1
+#define DEF_GPSSEC       1
+#define DEF_GPSMILLIS    1
 
-#define DEF_CUSTOMMODE    0
-#define DEF_SYSTEMSTATUS  0
-
+#define DEF_CUSTOMMODE    99    // unlikely and easy to spot
+#define DEF_SYSTEMSTATUS  99    // unlikely and easy to spot
 
 #define DEF_GPSTIMESTAMP 0
-#define DEF_LAT       -891234599   // LAT (-90 to +90) min for LAT is -90deg so I picked just below that -89.1234599 as its easy to spot.
+#define DEF_LAT       -891234599    // LAT (-90 to +90) min for LAT is -90deg so I picked just below that -89.1234599 as its easy to spot.
 #define DEF_LON       1791234599    // LON (-180 to 180) max for LON is 180deg so I picked just below that 179.1234599 as its easy to spot.
 #define DEF_ALT       99    // unlikely and easy to spot
 #define DEF_SPEED     99    // unlikely and easy to spot
@@ -46,8 +44,9 @@
 #define DEF_FIX       99    // possible but easy to spot
 
 
-#define DEF_WAKEINT         60 // Seconds
-#define DEF_TXAGTINT        15 // Seconds
+#define DEF_WAKEINT        60 // Seconds
+#define DEF_TXAGTINT       15 // Seconds
+#define DEF_RXAPINT        90 // Seconds
 #define DEF_LOWBATT        330 // 330 * 0.01V = 3.3V
 #define DEF_ETX       0x03
 
@@ -89,13 +88,14 @@ typedef struct
     int32_t HEAD;          // The heading in Degrees * 10^-7
     byte    SATS;          // The number of satellites (space vehicles) used in the solution
     uint16_t PDOP;         // The Positional Dilution of Precision in cm
-    byte    FIX;                   // The gps fix type as defined in the u-blox PVT message
+    byte    FIX;           // The gps fix type as defined in the u-blox PVT message
 
     // will only use this if I implement sleep functionality
-    uint32_t WAKEINT; // Seconds - The wake-up interval in seconds
-    uint32_t TXAGTINT; // Seconds - The interval between periodic settings share to AGT.
-    uint16_t LOWBATT;      // The low battery limit in V * 10^-2
-    byte ETX;         // 0x03 - when written to EEPROM, helps indicate if EEPROM contains valid data
+    uint32_t WAKEINT;   // Seconds - The wake-up interval in seconds
+    uint32_t TXAGTINT;  // Seconds - The interval between periodic settings share to AGT.
+    uint32_t RXAPINT;   // Seconds - The interval between periodic RX from AutoPilot.
+    uint16_t LOWBATT;   // The low battery limit in V * 10^-2
+    byte ETX;           // 0x03 - when written to EEPROM, helps indicate if EEPROM contains valid data
 } FeatherSettings;
 
 

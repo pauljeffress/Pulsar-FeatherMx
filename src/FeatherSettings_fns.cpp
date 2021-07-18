@@ -68,6 +68,8 @@ void printFeatherSettings(void)
     Serial.println(myFeatherSettings.WAKEINT);
     Serial.print("TXAGTINT: ");
     Serial.println(myFeatherSettings.TXAGTINT);
+    Serial.print("RXAPINT: ");
+    Serial.println(myFeatherSettings.RXAPINT);
     Serial.print("LOWBATT: ");
     Serial.println(((float)myFeatherSettings.LOWBATT / 100),2);
 } // END - printFeatherSettings()
@@ -107,6 +109,7 @@ void initFeatherSettings(void) // Initialises the myFeatherSettings in RAM with 
 
   myFeatherSettings.WAKEINT = DEF_WAKEINT;
   myFeatherSettings.TXAGTINT = DEF_TXAGTINT;
+  myFeatherSettings.RXAPINT = DEF_RXAPINT;
   myFeatherSettings.LOWBATT = DEF_LOWBATT;
   myFeatherSettings.ETX = DEF_ETX;
   debugPrintln("initFeatherSettings: RAM tracker settings initialised");
