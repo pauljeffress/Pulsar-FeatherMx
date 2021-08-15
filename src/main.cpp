@@ -113,8 +113,10 @@ void setup()
 {
   // Note: Serial and many other things are not setup here.  Due to sleep/wake it is all done in init_loop()
 
+  // xxx - should this be done in loop_init???
   setupPins(); // initialise all GPIOs
 
+  
   digitalWrite(LED_BUILTIN, HIGH);
   delay(1000);
   digitalWrite(LED_BUILTIN, LOW);
