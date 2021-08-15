@@ -28,38 +28,38 @@ bool sendSharedSettings_to_AGT(void)
 void initFeatherSharedSettings(void) // Initialises the myFeatherSharedSettings in RAM with the default values
 {
   // myFeatherSharedSettings.MAGICNUM = 0;   // do not reset this, the SharedSetting is the source of truth!!!!
-  // initialise based on the main myFeatherSettings, they are the source of truth.
-  myFeatherSharedSettings.BATTV = myFeatherSettings.BATTV;
-  myFeatherSharedSettings.PRESS = myFeatherSettings.PRESS;
-  myFeatherSharedSettings.AIRTEMP = myFeatherSettings.AIRTEMP;
-  myFeatherSharedSettings.HUMID = myFeatherSettings.HUMID;
-  myFeatherSharedSettings.WATERTEMP = myFeatherSettings.WATERTEMP;
-  myFeatherSharedSettings.AMBIENTLIGHT = myFeatherSettings.AMBIENTLIGHT;
+  // initialise based on the main myFeatherMxSettings, they are the source of truth.
+  myFeatherSharedSettings.BATTV = myFeatherMxSettings.FMX_BATT_V;
+  myFeatherSharedSettings.PRESS = myFeatherMxSettings.FMX_PRESS;
+  myFeatherSharedSettings.TEMP = myFeatherMxSettings.FMX_TEMP;
+  myFeatherSharedSettings.HUMID = myFeatherMxSettings.FMX_RH;
+  myFeatherSharedSettings.WATERTEMP = myFeatherMxSettings.FMX_WATERTEMP;
+  myFeatherSharedSettings.AMBIENTLIGHT = myFeatherMxSettings.FMX_AMBIENTLIGHT;
   
-  myFeatherSharedSettings.GPSYEAR = myFeatherSettings.GPSYEAR;
-  myFeatherSharedSettings.GPSMONTH = myFeatherSettings.GPSMONTH;
-  myFeatherSharedSettings.GPSDAY = myFeatherSettings.GPSDAY;
-  myFeatherSharedSettings.GPSHOUR = myFeatherSettings.GPSHOUR;
-  myFeatherSharedSettings.GPSMIN = myFeatherSettings.GPSMIN;
-  myFeatherSharedSettings.GPSSEC = myFeatherSettings.GPSSEC;
-  myFeatherSharedSettings.GPSMILLIS = myFeatherSettings.GPSMILLIS;
+  myFeatherSharedSettings.GPSYEAR = myFeatherMxSettings.FMX_GPSYEAR;
+  myFeatherSharedSettings.GPSMONTH = myFeatherMxSettings.FMX_GPSMONTH;
+  myFeatherSharedSettings.GPSDAY = myFeatherMxSettings.FMX_GPSDAY;
+  myFeatherSharedSettings.GPSHOUR = myFeatherMxSettings.FMX_GPSHOUR;
+  myFeatherSharedSettings.GPSMIN = myFeatherMxSettings.FMX_GPSMIN;
+  myFeatherSharedSettings.GPSSEC = myFeatherMxSettings.FMX_GPSSEC;
+  myFeatherSharedSettings.GPSMILLIS = myFeatherMxSettings.FMX_GPSMILLIS;
 
-  myFeatherSharedSettings.LAT = myFeatherSettings.LAT;
-  myFeatherSharedSettings.LON = myFeatherSettings.LON;
-  myFeatherSharedSettings.ALT = myFeatherSettings.ALT;
-  myFeatherSharedSettings.SPEED = myFeatherSettings.SPEED;
-  myFeatherSharedSettings.HEAD = myFeatherSettings.HEAD;
-  myFeatherSharedSettings.SATS = myFeatherSettings.SATS;
-  myFeatherSharedSettings.PDOP = myFeatherSettings.PDOP;
-  myFeatherSharedSettings.FIX = myFeatherSettings.FIX;
+  myFeatherSharedSettings.LAT = myFeatherMxSettings.FMX_LAT;
+  myFeatherSharedSettings.LON = myFeatherMxSettings.FMX_LON;
+  myFeatherSharedSettings.ALT = myFeatherMxSettings.FMX_ALT;
+  myFeatherSharedSettings.SPEED = myFeatherMxSettings.FMX_SPEED;
+  myFeatherSharedSettings.HEAD = myFeatherMxSettings.FMX_HEAD;
+  myFeatherSharedSettings.SATS = myFeatherMxSettings.FMX_SATS;
+  myFeatherSharedSettings.PDOP = myFeatherMxSettings.FMX_PDOP;
+  myFeatherSharedSettings.FIX = myFeatherMxSettings.FMX_FIX;
 
   //debugPrintln("initFeatherSharedSettings: RAM settings initialised");
 }   // END - initFeatherSharedSettings()
 
 
-void preptosendFeatherSharedSettings(void) // gets myFeatherSharedSettings fresh (mainly from myFeatherSettings) and ready to TX to AGT.
+void preptosendFeatherSharedSettings(void) // gets myFeatherSharedSettings fresh (mainly from myFeatherMxSettings) and ready to TX to AGT.
 {
-  initFeatherSharedSettings(); // start by setting everything to align with the current myFeatherSettings
+  initFeatherSharedSettings(); // start by setting everything to align with the current myFeatherMxSettings
   
   myFeatherSharedSettings.MAGICNUM++;
   if (myFeatherSharedSettings.MAGICNUM > 240) // roll the counter back to 0 at 240.

@@ -69,11 +69,11 @@ void serialSetup()
   STdriverF2A.begin(Serial2,     true,     Serial,            200);
 
   // prep datum for first use
-  STDatumTX.i1 = 1;
-  STDatumTX.c1 = 'F';
-  STDatumTX.c2 = 't';
-  STDatumTX.c3 = 'o';
-  STDatumTX.c4 = 'A';
+  //STDatumTX.i1 = 1;
+  //STDatumTX.c1 = 'F';
+  //STDatumTX.c2 = 't';
+  //STDatumTX.c3 = 'o';
+  //STDatumTX.c4 = 'A';
 
 
   /*

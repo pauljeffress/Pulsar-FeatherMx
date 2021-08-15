@@ -29,8 +29,9 @@ void sensorsSetup()
 
   // setup ambient light sensor dome
   debugPrintln("sensorsSetup() - AmbientLight initialising");
-  myLux.begin();    // TODO - there is a potential dead end inside this begin code "while(lightStrengthLux()<=0);" in that library!!
-  float lux = myLux.lightStrengthLux();
+  float lux;
+  // xxx myLux.begin();    // TODO - there is a potential dead end inside this begin code "while(lightStrengthLux()<=0);" in that library!!
+  // float lux = myLux.lightStrengthLux();
   if (lux == -1) // the read failed
   {
     debugPrintln("sensorsSetup() - ERROR - Failed");

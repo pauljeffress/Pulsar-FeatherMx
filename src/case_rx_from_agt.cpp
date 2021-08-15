@@ -25,7 +25,7 @@ void case_rx_from_agt()
     Serial.println();
     Serial.print("case_rx_from_agt() - AGT BATTV=");Serial.println(myAgtSharedSettings.BATTV);
     Serial.print("case_rx_from_agt() - AGT PRESS=");Serial.println(myAgtSharedSettings.PRESS);
-    Serial.print("case_rx_from_agt() - AGT AIRTEMP=");Serial.println(myAgtSharedSettings.TEMP);
+    Serial.print("case_rx_from_agt() - AGT TEMP=");Serial.println(myAgtSharedSettings.TEMP);
     Serial.print("case_rx_from_agt() - AGT HUMID=");Serial.println(myAgtSharedSettings.HUMID);   
     Serial.println();
     Serial.print("case_rx_from_agt() - AGT GPSYEAR=");Serial.println(myAgtSharedSettings.GPSYEAR);

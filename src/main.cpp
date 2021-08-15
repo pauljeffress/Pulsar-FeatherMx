@@ -47,48 +47,14 @@ SerialTransfer STdriverF2A;  // create a SerialTransfer entity for the Feather t
 /*============================*/
 /* Global Variables           */
 /*============================*/
-FeatherSettings myFeatherSettings; // Create storage for the feather global settings in RAM. To be backed up in EEPROM too.
 FeatherSharedSettings myFeatherSharedSettings;  // My RAM copy of the settings I will share with the AGT
 AgtSharedSettings myAgtSharedSettings;   // My RAM copy of the setting the AGT has shared with me.
 
-// variables used when testing my 1sec ISR Timer.
-volatile uint32_t mytimercounter = 0;
-uint32_t mytimercounter_last = 0;
-
-// temporarily required intil my 1sec Timer ISR is working
-unsigned long oneSecCounter = 0;
-unsigned long oneSecCounter_last = 0;
-
-
-// iterationCounter is incremented each time a transmission is attempted.
-// It helps keep track of whether messages are being sent successfully.
-// It also indicates if the tracker has been reset (the count will go back to zero).
-long iterationCounter = 0;
-
-// Period counters (seconds) - They are incremented in the RTC ISR (hence volitile type) that fires every second.
-// Note, this bit of code only gets executed at Power on or HW reset so all counters have to be reset.
-volatile unsigned long seconds_since_reset_or_powercycle = 0;
-volatile unsigned long seconds_since_last_wake = 0;
-volatile unsigned long seconds_since_last_ap_tx = 0;
-volatile unsigned long seconds_since_last_ap_rx = 0;
-volatile unsigned long seconds_since_last_agt_tx = 0;
-volatile unsigned long seconds_since_last_agt_rx = 0;
-volatile unsigned long seconds_since_last_sensors_read = 0;
-
-// stuff for my printDebug functionality (most code is in debug_fns.cpp)
-bool _printDebug = false; // Flag to show if message field debug printing is enabled. See debug_fns.ino
-Stream *_debugSerial;     //The stream to send debug messages to (if enabled)
-
-// stuff for my printLog functionality (most code is in ola_fns.cpp)
-bool _printLog = false; // Flag to show if log printing is enabled. See ola_fns.ino
-Stream *_logSerial;     //The stream to send Log messages to (if enabled)
 
 // state machine state trackers
 volatile int loop_step = loop_init; // Holds state of the main loop() state machine
                                     // It's volatile as it needs to be maintained across the sleep/wake.
 int assess_step = check_power;      // Holds state of the assess_situation state machine
-uint32_t assess_iterations_counter = 0; // Useful while debugging my assess_situation state machine.
-uint32_t assess_iterations_counter_last = 0; // Useful while debugging my assess_situation state machine.
 
 // Action Flags
 bool flag_do_agt_tx = false;   // Set when something wants the Feather to send it's sharedSettings to the AGT
@@ -98,10 +64,13 @@ bool sensor_sht31_status = BAD;         // Do we think the sensor is available/w
 bool sensor_ambientlight_status = BAD;
 bool sensor_ds18b20_status = BAD;
 
+// stuff for my printDebug functionality (most code is in debug_fns.cpp)
+bool _printLog = false; // Flag to show if message field log printing is enabled. 
+Stream *_logSerial;     //The stream to send log messages to (if enabled)
 
 // xxx - not needed anymore - bool feather_cant_tx_flag = false;  // control when the Feather can/can't TX to the AGT.
-datum STDatumTX, STDatumRX;
-uint32_t lastsend = 0; // used to determine when to send a dummy packet
+//datum STDatumTX, STDatumRX;
+//uint32_t lastsend = 0; // used to determine when to send a dummy packet
 
 
 /*============================
@@ -112,6 +81,8 @@ uint32_t lastsend = 0; // used to determine when to send a dummy packet
 void setup()
 {
   // Note: Serial and many other things are not setup here.  Due to sleep/wake it is all done in init_loop()
+
+  myCANid = CBP_CANID_FEATHERMX; // Set myCANid based on defines in CBP.h
 
   // xxx - should this be done in loop_init???
   setupPins(); // initialise all GPIOs
@@ -139,8 +110,10 @@ void setup()
   disableLogging(); // Make sure the serial logging messages (to OLA) are disabled until the Serial port is open ( see loop_init() )!
 
   // note, below will run but Serial Ports are not open yet so no debug output will be shown.
-  initFeatherSettings();        // Initialise the myFeatherSettings, from defaults or otherwise.
-  initFeatherSharedSettings();  // Initialise the myFeatherSharedSettings, from myFeatherSettings.
+  initFeatherMxSettings();        // Initialise the myFeatherMxSettings, from defaults or otherwise.
+  initFeatherSharedSettings();  // Initialise the myFeatherSharedSettings, from myFeatherMxSettings.FMX_
+  initTFTFeatherInternalSettings();
+  initPowerFeatherSettings();
 
   loop_step = loop_init; // Set openning state
 

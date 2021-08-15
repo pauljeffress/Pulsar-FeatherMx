@@ -63,18 +63,9 @@ while (loop_step == assess_situation)   // Stay in this state machine or is it t
   {
     unsigned long numSecsPassed = (oneSecCounter - oneSecCounter_last) / 1000;   // how many whole seconds have passed
     oneSecCounter_last = oneSecCounter;
-    for(int i=0; i < numSecsPassed; i++)  // call my incrementer once for each second that has passed.
+    for(unsigned long i=0; i < numSecsPassed; i++)  // call my incrementer once for each second that has passed.
       timerIncrementer();
   }
-
-  // clear all stay_awake_xxx flags at beginning of each pass through.
-  // If any of these are TRUE at the end of a pass, then we will not SLEEP and will 
-  // instead make another pass through this function.
-  // stay_awake_due_to_feather = false;
-  // stay_awake_due_to_AGT_myself = false;
-  // stay_awake_due_to_sat = false;
-  // stay_awake_due_to_gps = false;
-  // stay_awake_due_to_env = false;
   
   switch (assess_step) 
     {
@@ -82,8 +73,7 @@ while (loop_step == assess_situation)   // Stay in this state machine or is it t
     // Check Feather's power source status.
     case check_power:
       case_check_power();  
-      //assess_step = read_sensors;
-      //debugPrintln("Skipping check_power");
+      assess_step = read_sensors;  // Set next state here because we can't set it inside the function itself as its a shared function. 
     break;
 
     // ************************************************************************************************
@@ -94,6 +84,19 @@ while (loop_step == assess_situation)   // Stay in this state machine or is it t
       //debugPrintln("Skipping read_sensors");   
     break;
 
+    // ************************************************************************************************
+    // If we need to, send info onto the CAN bus
+    case tx_to_CANbus:
+      case_tx_to_CANbus();    
+    break;
+    
+    // ************************************************************************************************
+    // check if any packets received via CAN bus.
+    case check_CANbus:
+      case_check_CANbus(); 
+      assess_step = write_to_tft; // Set next state here because we can't set it inside the function itself as its a shared function.
+    break;
+    
     // ************************************************************************************************
     // Update the tft display
     case write_to_tft:

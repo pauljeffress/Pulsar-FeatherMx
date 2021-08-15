@@ -108,8 +108,8 @@ void mavlink_receive()
         Serial.println(hb.mavlink_version);
 
         // Save things I'm interested in to FeatherMx data structure for use later.
-        myFeatherSettings.CUSTOMMODE = hb.custom_mode;
-        myFeatherSettings.SYSTEMSTATUS = hb.system_status;
+        myFeatherMxSettings.FMX_CUSTOMMODE = hb.custom_mode;
+        myFeatherMxSettings.FMX_SYSTEMSTATUS = hb.system_status;
 
         break;
       }
@@ -147,20 +147,20 @@ void mavlink_receive()
         Serial.println(packet.satellites_visible);
 
         // Save things I'm interested in to FeatherMx data structure for use later.
-        myFeatherSettings.GPSTIMESTAMP = packet.time_usec;
-        myFeatherSettings.GPSHOUR = year(t);
-        myFeatherSettings.GPSHOUR = month(t);
-        myFeatherSettings.GPSHOUR = day(t);
-        myFeatherSettings.GPSHOUR = hour(t);
-        myFeatherSettings.GPSMIN = minute(t);
-        myFeatherSettings.GPSHOUR = second(t);
-        myFeatherSettings.GPSHOUR = 0;  // I'm not sure how to extract millis from t yet.
-        myFeatherSettings.FIX = packet.fix_type;
-        myFeatherSettings.LAT = packet.lat;
-        myFeatherSettings.LON = packet.lon;
-        myFeatherSettings.SPEED = packet.vel;
-        myFeatherSettings.HEAD = packet.cog;
-        myFeatherSettings.SATS = packet.satellites_visible;
+        myFeatherMxSettings.FMX_GPSTIMESTAMP = packet.time_usec;
+        myFeatherMxSettings.FMX_GPSHOUR = year(t);
+        myFeatherMxSettings.FMX_GPSHOUR = month(t);
+        myFeatherMxSettings.FMX_GPSHOUR = day(t);
+        myFeatherMxSettings.FMX_GPSHOUR = hour(t);
+        myFeatherMxSettings.FMX_GPSMIN = minute(t);
+        myFeatherMxSettings.FMX_GPSHOUR = second(t);
+        myFeatherMxSettings.FMX_GPSHOUR = 0;  // I'm not sure how to extract millis from t yet.
+        myFeatherMxSettings.FMX_FIX = packet.fix_type;
+        myFeatherMxSettings.FMX_LAT = packet.lat;
+        myFeatherMxSettings.FMX_LON = packet.lon;
+        myFeatherMxSettings.FMX_SPEED = packet.vel;
+        myFeatherMxSettings.FMX_HEAD = packet.cog;
+        myFeatherMxSettings.FMX_SATS = packet.satellites_visible;
 
         break;
       }

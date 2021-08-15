@@ -21,7 +21,7 @@ void case_rx_from_autopilot()
     //debugPrintln("case_rx_from_autopilot() - executing");
     
     // if its time to do a routine read of AutoPilot MAVlink data?
-    if (seconds_since_last_ap_rx > myFeatherSettings.RXAPINT)
+    if (seconds_since_last_ap_rx > myFeatherMxSettings.FMX_RXAPINT)
     {
         //debugPrintln(" - ATTEMPTING RX");
         uint32_t start = millis();  // xxx - need to review how I'm timing this loop...seems clunky. Also need to take any contants and set the as #defines.
