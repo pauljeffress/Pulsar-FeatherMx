@@ -25,8 +25,8 @@ typedef struct // FeatherSharedSettings
     // The following are populated by the sensors directly connected to the FeatherMx
     uint16_t BATTV;        // The battery (Batt socket LiPo) voltage in V * 10^-2
     uint16_t PRESS;        // The pressure in mbar
-    int16_t TEMP;       // The air temperature in degrees C * 10^-2
-    int16_t HUMID;         // The humidity in %RH * 10^-2
+    int16_t TEMP;          // The air temperature in degrees C * 10^-2
+    int16_t HUMID;         // The relative humidity in %RH * 10^-2
     int16_t WATERTEMP;     // The water temperature in degrees C * 10^-2
     int16_t AMBIENTLIGHT;  // Ambient light reading in lux
     

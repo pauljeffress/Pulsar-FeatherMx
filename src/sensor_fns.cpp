@@ -12,6 +12,7 @@ void sensorsSetup()
   debugPrintln("sensorsSetup() - SHT31 initialising");
   if (!sht31.begin(0x44)) // Set to 0x45 for alternate i2c addr
   {
+    // xxx - Even when the SHT31 is not connected, the begin still seems to respond true and hence this code here does not get run!
     debugPrintln("sensorsSetup() - ERROR - Failed");
     sensor_sht31_status = BAD;
   }
