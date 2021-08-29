@@ -83,9 +83,10 @@
 #define rx_from_agt         9   // Check if the AGT has sent us a datum,
 #define process_agt         10  // process it if it has and set appropriate flags
 #define tx_to_agt           11  // If we need to, send a datum to the AGT
-#define tx_to_logger        12  // Decide and write to the Logger.
-#define tickle_watchdog     13  // Tickle the watchdog so it knows we are ok.
-#define sleep_yet           14  // Look at flags, should we be going to SLEEP?
+
+#define tx_to_logger        20  // Decide and write to the Logger.
+#define tickle_watchdog     21  // Tickle the watchdog so it knows we are ok.
+#define sleep_yet           22  // Look at flags, should we be going to SLEEP?
 
 #define SENSORPERIODSECONDS 30  // seconds - how often should we read the sensors?
 
