@@ -17,18 +17,19 @@ bool sendSharedSettings_to_AGT(void)
 
     // Send the Datum to peer
     int8_t numbytessent = STdriverF2A.sendDatum(myFeatherSharedSettings);
-    //debugPrint("sendSharedSettings_to_AGT() - sending Datum to AGT - numbytessent:");
-    //debugPrintlnInt(numbytessent);
+    debugPrint("sendSharedSettings_to_AGT() - sending Datum to AGT - numbytessent:");
+    debugPrintlnInt(numbytessent);
     seconds_since_last_agt_tx =  0; // reset this counter as we have sent....even though AGT may not have received.
 
     return(success);
 }   // END - sendSharedSettings_to_AGT
 
 
-void initFeatherSharedSettings(void) // Initialises the myFeatherSharedSettings in RAM with the default values
+void initFeatherSharedSettings(void) // Initialises the myFeatherSharedSettings in RAM
 {
   // myFeatherSharedSettings.MAGICNUM = 0;   // do not reset this, the SharedSetting is the source of truth!!!!
-  // initialise based on the main myFeatherMxSettings, they are the source of truth.
+  
+  // initialise based on the correct source of truth. This is the same for both initial boot up AND when we need to refresh!
   myFeatherSharedSettings.BATTV = myFeatherMxSettings.FMX_BATT_V;
   myFeatherSharedSettings.PRESS = myFeatherMxSettings.FMX_PRESS;
   myFeatherSharedSettings.TEMP = myFeatherMxSettings.FMX_TEMP;
@@ -53,19 +54,27 @@ void initFeatherSharedSettings(void) // Initialises the myFeatherSharedSettings 
   myFeatherSharedSettings.PDOP = myFeatherMxSettings.FMX_PDOP;
   myFeatherSharedSettings.FIX = myFeatherMxSettings.FMX_FIX;
 
+  myFeatherSharedSettings.PF_BATT1_SOC = myPowerFeatherSettings.PF_BATT1_SOC;
+  myFeatherSharedSettings.PF_BATT1_V = myPowerFeatherSettings.PF_BATT1_V;
+  myFeatherSharedSettings.PF_BATT1_CHARGE_I = myPowerFeatherSettings.PF_BATT1_CHARGE_I;
+
+  myFeatherSharedSettings.PF_BATT2_SOC = myPowerFeatherSettings.PF_BATT2_SOC;
+  myFeatherSharedSettings.PF_BATT2_V = myPowerFeatherSettings.PF_BATT2_V;
+  myFeatherSharedSettings.PF_BATT2_CHARGE_I = myPowerFeatherSettings.PF_BATT2_CHARGE_I;
+
   //debugPrintln("initFeatherSharedSettings: RAM settings initialised");
 }   // END - initFeatherSharedSettings()
 
 
 void preptosendFeatherSharedSettings(void) // gets myFeatherSharedSettings fresh (mainly from myFeatherMxSettings) and ready to TX to AGT.
 {
-  initFeatherSharedSettings(); // start by setting everything to align with the current myFeatherMxSettings
-  
+  // refresh all parameters in myFeatherSharedSettings.
+  initFeatherSharedSettings();
+
+  // update the MAGICNUM in myFeatherSharedSettings.
   myFeatherSharedSettings.MAGICNUM++;
   if (myFeatherSharedSettings.MAGICNUM > 240) // roll the counter back to 0 at 240.
     myFeatherSharedSettings.MAGICNUM = 0;
-  // then alter anything that needs to change just before transmission to the AGT.
-  // xxx TBD
 
   //debugPrintln("preptosendFeatherSharedSettings: DONE");
 }   // END - preptosendFeatherSharedSettings()
