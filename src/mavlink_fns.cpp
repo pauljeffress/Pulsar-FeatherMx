@@ -108,8 +108,8 @@ void mavlink_receive()
         Serial.println(hb.mavlink_version);
 
         // Save things I'm interested in to FeatherMx data structure for use later.
-        myFeatherMxSettings.FMX_CUSTOMMODE = hb.custom_mode;
-        myFeatherMxSettings.FMX_SYSTEMSTATUS = hb.system_status;
+        myFeatherMxSettings.AP_CUSTOMMODE = hb.custom_mode;
+        myFeatherMxSettings.AP_SYSTEMSTATUS = hb.system_status;
 
         break;
       }
@@ -147,20 +147,20 @@ void mavlink_receive()
         Serial.println(packet.satellites_visible);
 
         // Save things I'm interested in to FeatherMx data structure for use later.
-        myFeatherMxSettings.FMX_GPSTIMESTAMP = packet.time_usec;
-        myFeatherMxSettings.FMX_GPSHOUR = year(t);
-        myFeatherMxSettings.FMX_GPSHOUR = month(t);
-        myFeatherMxSettings.FMX_GPSHOUR = day(t);
-        myFeatherMxSettings.FMX_GPSHOUR = hour(t);
-        myFeatherMxSettings.FMX_GPSMIN = minute(t);
-        myFeatherMxSettings.FMX_GPSHOUR = second(t);
-        myFeatherMxSettings.FMX_GPSHOUR = 0;  // I'm not sure how to extract millis from t yet.
-        myFeatherMxSettings.FMX_FIX = packet.fix_type;
-        myFeatherMxSettings.FMX_LAT = packet.lat;
-        myFeatherMxSettings.FMX_LON = packet.lon;
-        myFeatherMxSettings.FMX_SPEED = packet.vel;
-        myFeatherMxSettings.FMX_HEAD = packet.cog;
-        myFeatherMxSettings.FMX_SATS = packet.satellites_visible;
+        myFeatherMxSettings.AP_GPSTIMESTAMP = packet.time_usec;
+        // myFeatherMxSettings.FMX_GPSHOUR = year(t);
+        // myFeatherMxSettings.FMX_GPSHOUR = month(t);
+        // myFeatherMxSettings.FMX_GPSHOUR = day(t);
+        // myFeatherMxSettings.FMX_GPSHOUR = hour(t);
+        // myFeatherMxSettings.FMX_GPSMIN = minute(t);
+        // myFeatherMxSettings.FMX_GPSHOUR = second(t);
+        // myFeatherMxSettings.FMX_GPSMSEC = 666;  // xxx - I'm not sure how to extract millis from t yet.
+        myFeatherMxSettings.AP_FIX = packet.fix_type;
+        myFeatherMxSettings.AP_LAT = packet.lat;
+        myFeatherMxSettings.AP_LON = packet.lon;
+        myFeatherMxSettings.AP_SPEED = packet.vel;
+        myFeatherMxSettings.AP_COG = packet.cog;
+        myFeatherMxSettings.AP_SATS = packet.satellites_visible;
 
         break;
       }

@@ -46,15 +46,8 @@ while (loop_step == assess_situation)   // Stay in this state machine or is it t
   {
   //debugPrintln("case_assess_situation() - top of main while loop");
 
-
-// debugging code to show how often/quickly the loop inside assess_situation was running
-// assess_iterations_counter++;
-// if (assess_iterations_counter > (assess_iterations_counter_last + 1000))
-// {
-//   assess_iterations_counter_last = assess_iterations_counter;
-//   Serial.print(assess_iterations_counter); Serial.print("  ");
-// }
-
+  // Do LED
+  digitalWrite( LED_BUILTIN, millis() % 500 > 250 );
 
   // temporarily required intil my 1sec Timer ISR is working
   // determines if 1sec has passed (roughly) and if so increments my seconds counters

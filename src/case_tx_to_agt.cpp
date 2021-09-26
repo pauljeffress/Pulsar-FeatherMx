@@ -15,6 +15,7 @@ void case_tx_to_agt()
         //debugPrintln(" - ATTEMPTING SEND");
         sendSharedSettings_to_AGT();
         flag_do_agt_tx = false;
+        //delay(3000);  // xxx - remove this is only for debugging
     }
     else
     {

@@ -7,6 +7,7 @@
 
 void case_read_sensors()
 {
+
     //debugPrintln("case_read_sensors() - executing");
 
     // is it time to do a routine sensor read?

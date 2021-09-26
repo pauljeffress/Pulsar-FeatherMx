@@ -125,7 +125,8 @@ void setup()
  *============================*/
 void loop(void)
 {
-
+  // Do LED
+  digitalWrite( LED_BUILTIN, millis() % 500 > 250 );
 
   // loop is one big state machine that controls the sequencing of the code
   switch (loop_step)

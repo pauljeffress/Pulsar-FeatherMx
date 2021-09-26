@@ -17,7 +17,7 @@ void case_rx_from_agt()
   {
     STdriverF2A.rxObj(myAgtSharedSettings);
 
-    seconds_since_last_agt_tx = 0; // reset the counter
+    seconds_since_last_agt_rx = 0; // reset the counter
 
     Serial.println("case_rx_from_agt() - Received a Datum");
     Serial.println("case_rx_from_agt() - RRRRRRRRRRRRRRRR");
