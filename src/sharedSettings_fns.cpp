@@ -6,19 +6,21 @@
 
 #include "global.h" // My main header file for this project itself
 
-bool sendSharedSettings_to_AGT(void)
+bool sendSharedSettings_to_AGT(void)    // xxx - do we need to return anything here, if not get rid of the bool.
 {
 
-    debugPrintln("sendSharedSettings_to_AGT() - sending Datum to AGT -------------------------------------------");
+    debugPrintln("sendSharedSettings_to_AGT() - STARTING --------------------------------------------");
 
     bool success = false;
 
     preptosendFeatherSharedSettings();    // gets myFeatherSharedSettings fresh and ready to TX to AGT. 
 
+    debugPrintln("sendSharedSettings_to_AGT() - about to SerialTransfer sendDatum()");
     // Send the Datum to peer
-    int8_t numbytessent = STdriverF2A.sendDatum(myFeatherSharedSettings);
-    debugPrint("sendSharedSettings_to_AGT() - sending Datum to AGT - numbytessent:");
-    debugPrintlnInt(numbytessent);
+    uint8_t numbytessent = STdriverF2A.sendDatum(myFeatherSharedSettings);
+    debugPrint("sendSharedSettings_to_AGT() - SerialTransfer sendDatum() finished - numbytessent:");
+    Serial.println(numbytessent);  //debugPrintlnInt(numbytessent);
+
     seconds_since_last_agt_tx =  0; // reset this counter as we have sent....even though AGT may not have received.
 
     return(success);
@@ -37,13 +39,41 @@ void initFeatherSharedSettings(void) // Initialises the myFeatherSharedSettings 
   myFeatherSharedSettings.PF_RH = myPowerFeatherSettings.PF_RH;
   myFeatherSharedSettings.PF_UPTIME_S = myPowerFeatherSettings.PF_UPTIME_S;
   
-  myFeatherSharedSettings.PF_BATT1_SOC = myPowerFeatherSettings.PF_BATT1_SOC;
-  myFeatherSharedSettings.PF_BATT1_V = myPowerFeatherSettings.PF_BATT1_V;
-  myFeatherSharedSettings.PF_BATT1_CHARGE_I = myPowerFeatherSettings.PF_BATT1_CHARGE_I;
+  myFeatherSharedSettings.PF_CHARGER1_PID  = myPowerFeatherSettings.PF_CHARGER1_PID ;
+  myFeatherSharedSettings.PF_CHARGER1_FW   = myPowerFeatherSettings.PF_CHARGER1_FW  ;
+  myFeatherSharedSettings.PF_CHARGER1_V    = myPowerFeatherSettings.PF_CHARGER1_V   ;
+  myFeatherSharedSettings.PF_CHARGER1_I    = myPowerFeatherSettings.PF_CHARGER1_I   ;
+  myFeatherSharedSettings.PF_CHARGER1_VPV  = myPowerFeatherSettings.PF_CHARGER1_VPV ;
+  myFeatherSharedSettings.PF_CHARGER1_PPV  = myPowerFeatherSettings.PF_CHARGER1_PPV ;
+  myFeatherSharedSettings.PF_CHARGER1_CS   = myPowerFeatherSettings.PF_CHARGER1_CS  ;
+  myFeatherSharedSettings.PF_CHARGER1_ERR  = myPowerFeatherSettings.PF_CHARGER1_ERR ;
+  myFeatherSharedSettings.PF_CHARGER1_LOAD = myPowerFeatherSettings.PF_CHARGER1_LOAD;
+  myFeatherSharedSettings.PF_CHARGER1_IL   = myPowerFeatherSettings.PF_CHARGER1_IL  ;
+  myFeatherSharedSettings.PF_CHARGER1_H19  = myPowerFeatherSettings.PF_CHARGER1_H19 ;
+  myFeatherSharedSettings.PF_CHARGER1_H20  = myPowerFeatherSettings.PF_CHARGER1_H20 ;
+  myFeatherSharedSettings.PF_CHARGER1_H21  = myPowerFeatherSettings.PF_CHARGER1_H21 ;
+  myFeatherSharedSettings.PF_CHARGER1_H22  = myPowerFeatherSettings.PF_CHARGER1_H22 ;
+  myFeatherSharedSettings.PF_CHARGER1_H23  = myPowerFeatherSettings.PF_CHARGER1_H23 ;
+  myFeatherSharedSettings.PF_CHARGER1_HSDS = myPowerFeatherSettings.PF_CHARGER1_HSDS;
+  myFeatherSharedSettings.PF_CHARGER1_MPPT = myPowerFeatherSettings.PF_CHARGER1_MPPT;
 
-  myFeatherSharedSettings.PF_BATT2_SOC = myPowerFeatherSettings.PF_BATT2_SOC;
-  myFeatherSharedSettings.PF_BATT2_V = myPowerFeatherSettings.PF_BATT2_V;
-  myFeatherSharedSettings.PF_BATT2_CHARGE_I = myPowerFeatherSettings.PF_BATT2_CHARGE_I;
+  myFeatherSharedSettings.PF_CHARGER2_PID  = myPowerFeatherSettings.PF_CHARGER2_PID ;
+  myFeatherSharedSettings.PF_CHARGER2_FW   = myPowerFeatherSettings.PF_CHARGER2_FW  ;
+  myFeatherSharedSettings.PF_CHARGER2_V    = myPowerFeatherSettings.PF_CHARGER2_V   ;
+  myFeatherSharedSettings.PF_CHARGER2_I    = myPowerFeatherSettings.PF_CHARGER2_I   ;
+  myFeatherSharedSettings.PF_CHARGER2_VPV  = myPowerFeatherSettings.PF_CHARGER2_VPV ;
+  myFeatherSharedSettings.PF_CHARGER2_PPV  = myPowerFeatherSettings.PF_CHARGER2_PPV ;
+  myFeatherSharedSettings.PF_CHARGER2_CS   = myPowerFeatherSettings.PF_CHARGER2_CS  ;
+  myFeatherSharedSettings.PF_CHARGER2_ERR  = myPowerFeatherSettings.PF_CHARGER2_ERR ;
+  myFeatherSharedSettings.PF_CHARGER2_LOAD = myPowerFeatherSettings.PF_CHARGER2_LOAD;
+  myFeatherSharedSettings.PF_CHARGER2_IL   = myPowerFeatherSettings.PF_CHARGER2_IL  ;
+  myFeatherSharedSettings.PF_CHARGER2_H19  = myPowerFeatherSettings.PF_CHARGER2_H19 ;
+  myFeatherSharedSettings.PF_CHARGER2_H20  = myPowerFeatherSettings.PF_CHARGER2_H20 ;
+  myFeatherSharedSettings.PF_CHARGER2_H21  = myPowerFeatherSettings.PF_CHARGER2_H21 ;
+  myFeatherSharedSettings.PF_CHARGER2_H22  = myPowerFeatherSettings.PF_CHARGER2_H22 ;
+  myFeatherSharedSettings.PF_CHARGER2_H23  = myPowerFeatherSettings.PF_CHARGER2_H23 ;
+  myFeatherSharedSettings.PF_CHARGER2_HSDS = myPowerFeatherSettings.PF_CHARGER2_HSDS;
+  myFeatherSharedSettings.PF_CHARGER2_MPPT = myPowerFeatherSettings.PF_CHARGER2_MPPT;
 
   myFeatherSharedSettings.AP_GPSTIMESTAMP = myFeatherMxSettings.AP_GPSTIMESTAMP;
   myFeatherSharedSettings.AP_LAT = myFeatherMxSettings.AP_LAT;

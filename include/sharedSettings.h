@@ -30,6 +30,52 @@ typedef struct // FeatherSharedSettings
     int16_t     FMX_AMBIENTLIGHT;   // Ambient light reading in lux
     uint32_t    FMX_UPTIME_S;        // Uptime in seconds
     
+    // PowerFeather data - received via CAN (all of this can be copied directly from PowerFeatherSettings.h)
+    uint16_t    PF_BATT_V;         // The battery (Batt socket LiPo) voltage in V * 100
+    int16_t     PF_TEMP;           // The air temperature in degrees C * 100
+    int16_t     PF_RH;             // The relative humidity in %RH * 100
+    uint32_t    PF_UPTIME_S;       // Uptime in seconds
+    // CHARGER 1
+    // storage for values read from charger
+    uint16_t    PF_CHARGER1_PID;                // Victron Product ID (stored as 0xXXXX)
+    uint16_t    PF_CHARGER1_FW;                 // Firmware version (16 bit)
+    //char        PF_CHARGER1_SER[12];            // Serial number (string of 11 alpha + /0)    // Not using, too awkward and not needed.
+    uint16_t    PF_CHARGER1_V;                  // Main or channel 1 battery voltage (mV)
+    uint16_t    PF_CHARGER1_I;                  // Main or channel 1 battery current (mA)
+    uint16_t    PF_CHARGER1_VPV;                // Panel voltage (mV)
+    uint16_t    PF_CHARGER1_PPV;                // Panel power (W)
+    uint8_t     PF_CHARGER1_CS;                 // State of operation (enum)
+    uint8_t     PF_CHARGER1_ERR;                // Error code (enum)
+    uint8_t     PF_CHARGER1_LOAD;               // Load output state (ON/OFF)
+    uint16_t    PF_CHARGER1_IL;                 // Load current (mA)
+    uint16_t    PF_CHARGER1_H19;                // Yield total, user resettable counter (0.01kWh)
+    uint16_t    PF_CHARGER1_H20;                // Yield today (0.01kWh)
+    uint16_t    PF_CHARGER1_H21;                // Maximum power today (W)
+    uint16_t    PF_CHARGER1_H22;                // Yield yesterday (0.01kWh)
+    uint16_t    PF_CHARGER1_H23;                // Maximum power yesterday (W)
+    uint16_t    PF_CHARGER1_HSDS;               // Day sequence number (0..364)
+    uint8_t     PF_CHARGER1_MPPT;               // Tracker operation mode (enum)
+    // CHARGER 2
+    // storage for values read from charger
+    uint16_t    PF_CHARGER2_PID;                // Victron Product ID (stored as 0xXXXX)
+    uint16_t    PF_CHARGER2_FW;                 // Firmware version (16 bit)
+    //char        PF_CHARGER2_SER[12];            // Serial number (string of 11 alpha + /0)    // Not using, too awkward and not needed.
+    uint16_t    PF_CHARGER2_V;                  // Main or channel 1 battery voltage (mV)
+    uint16_t    PF_CHARGER2_I;                  // Main or channel 1 battery current (mA)
+    uint16_t    PF_CHARGER2_VPV;                // Panel voltage (mV)
+    uint16_t    PF_CHARGER2_PPV;                // Panel power (W)
+    uint8_t     PF_CHARGER2_CS;                 // State of operation (enum)
+    uint8_t     PF_CHARGER2_ERR;                // Error code (enum)
+    uint8_t     PF_CHARGER2_LOAD;               // Load output state (ON/OFF)
+    uint16_t    PF_CHARGER2_IL;                 // Load current (mA)
+    uint16_t    PF_CHARGER2_H19;                // Yield total, user resettable counter (0.01kWh)
+    uint16_t    PF_CHARGER2_H20;                // Yield today (0.01kWh)
+    uint16_t    PF_CHARGER2_H21;                // Maximum power today (W)
+    uint16_t    PF_CHARGER2_H22;                // Yield yesterday (0.01kWh)
+    uint16_t    PF_CHARGER2_H23;                // Maximum power yesterday (W)
+    uint16_t    PF_CHARGER2_HSDS;               // Day sequence number (0..364)
+    uint8_t     PF_CHARGER2_MPPT;               // Tracker operation mode (enum)
+
     // position data from the MAVLINK_MSG_ID_GPS_RAW_INT packets the FeatherMx has received from the AutoPilot.
     uint64_t    AP_GPSTIMESTAMP;   // Fix taken time in Unix epoch time in mSec
     uint8_t     AP_FIX;            // The gps fix type as defined in the u-blox PVT message
@@ -41,19 +87,6 @@ typedef struct // FeatherSharedSettings
     // status data from the MAVLINK_MSG_ID_HEARTBEAT packets the FeatherMx has received from the AutoPilot.
     uint32_t    AP_CUSTOMMODE;      // A bitfield for use for autopilot-specific flags
     uint8_t     AP_SYSTEMSTATUS;     // Autopilot System status flag
-
-    // PowerFeather data received via CAN
-    uint16_t    PF_BATT_V;         // The battery (Batt socket LiPo) voltage in V * 100
-    int16_t     PF_TEMP;           // The air temperature in degrees C * 100
-    int16_t     PF_RH;             // The relative humidity in %RH * 100
-    uint32_t    PF_UPTIME_S;       // Uptime in seconds
-
-    uint16_t    PF_BATT1_SOC;       // Batt SOC (+%)
-    uint16_t    PF_BATT1_V;         // Battery Voltage (stored as +V * 100)
-    int16_t     PF_BATT1_CHARGE_I;  // Battery charge current (stored as +/- I * 100)
-    uint16_t    PF_BATT2_SOC;       // Batt SOC (+%)
-    uint16_t    PF_BATT2_V;         // Battery Voltage (stored as +V * 100)
-    int16_t     PF_BATT2_CHARGE_I;  // Battery charge current (stored as +/- I * 100)
 
 } FeatherSharedSettings;
 //----------------------------------------------------

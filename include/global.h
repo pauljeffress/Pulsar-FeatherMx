@@ -38,6 +38,8 @@
 
 #define HOST_IS_FEATHERMX    // used to select what CAN/CBP packets to decode
 
+#define STROBE_LIGHT_PIN   14 // The pin the FMX controls the Strobe light with
+
 // These define's must be placed at the beginning before #include "SAMDTimerInterrupt.h"
 // _TIMERINTERRUPT_LOGLEVEL_ from 0 to 4
 // Don't define _TIMERINTERRUPT_LOGLEVEL_ > 0. Only for special ISR debugging only. Can hang the system.
@@ -173,5 +175,8 @@ uint16_t int32_to_int16_b(int32_t input_int32);
 uint16_t int32_to_int16_c(int32_t input_int32);
 
 String my64toString(uint64_t x);
+
+void actuatorStrobeOn();
+void actuatorStrobeOff();
 
 #endif
