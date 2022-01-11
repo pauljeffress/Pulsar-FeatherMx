@@ -13,6 +13,8 @@
 
 void case_loop_init()
 {
+  setupPins();  // Setup assorted GPIOs that are not setup elsewhere.
+  
   serialSetup();  // Setup all Serial ports
 
   enableDebugging(Serial); // THIS LINE IS RIGHT HERE FOR A REASON. Because we re issue Serial.begin() for the console/debug port
@@ -40,9 +42,9 @@ void case_loop_init()
 
   timerSetup();
 
-  sensorsSetup();
+  actuatorsSetup();
 
-  tftSetup();
+  sensorsSetup();
 
   mavlink_request_datastream();
 

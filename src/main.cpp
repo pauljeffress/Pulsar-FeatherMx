@@ -12,7 +12,7 @@
 /*============================*/
 /* Global object declarations */
 /*============================*/
-Adafruit_HX8357 tft = Adafruit_HX8357(TFT_CS, TFT_DC, TFT_RST); // Create TFT instance
+//Adafruit_HX8357 tft = Adafruit_HX8357(TFT_CS, TFT_DC, TFT_RST); // Create TFT instance
 Adafruit_SHT31 sht31 = Adafruit_SHT31();                        // Create SHT31 instance using default i2c addr of 0x44
 // Create Ambient Light Sensor instance
 // EN = 13, SDA = 5, SCL = 6 - I am not using EN, its actually hard wired high.

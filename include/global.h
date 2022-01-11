@@ -38,8 +38,6 @@
 
 #define HOST_IS_FEATHERMX    // used to select what CAN/CBP packets to decode
 
-#define STROBE_LIGHT_PIN   14 // The pin the FMX controls the Strobe light with
-
 // These define's must be placed at the beginning before #include "SAMDTimerInterrupt.h"
 // _TIMERINTERRUPT_LOGLEVEL_ from 0 to 4
 // Don't define _TIMERINTERRUPT_LOGLEVEL_ > 0. Only for special ISR debugging only. Can hang the system.
@@ -49,22 +47,27 @@
 // xxxx #include "SAMDTimerInterrupt.h"             // https://github.com/khoih-prog/SAMD_TimerInterrupt
 #define TIMER0_INTERVAL_MS        1000
 
-#define TFT_CONNECTED // toggles code depending on whether I want to use teh TFT or not. 
-                      // Will make it easier to test with/without it and ultimatetly disconnect before a voyage.
-// defs for Adafruit 3.5" 480x320 TFT Featherwing - https://learn.adafruit.com/adafruit-3-5-tft-featherwing?view=all
-// I have removed the pin defs for other boards.  See original example "graphicstest_featherwing.ino" for them.
-// Anything else!
-#if defined(__AVR_ATmega32U4__) || defined(ARDUINO_SAMD_FEATHER_M0) || defined(__AVR_ATmega328P__) || \
-    defined(ARDUINO_SAMD_ZERO) || defined(__SAMD51__) || defined(__SAM3X8E__) || defined(ARDUINO_NRF52840_FEATHER)
-//#define STMPE_CS 6   // Touchscreen overlay controller CS pin - not in use in this project
-#define TFT_CS 9 // Default TFT_CS = D9 (I was using D14/A0 previously)
-#define TFT_DC 10 // Default TFT_DC = D10 (I was using D15/A1 previously)
-//#define SD_CS    5   // SD slot CS pin - not in use in this project
-#endif
-#define TFT_RST -1
+// #define TFT_CONNECTED // toggles code depending on whether I want to use teh TFT or not. 
+//                       // Will make it easier to test with/without it and ultimatetly disconnect before a voyage.
+// // defs for Adafruit 3.5" 480x320 TFT Featherwing - https://learn.adafruit.com/adafruit-3-5-tft-featherwing?view=all
+// // I have removed the pin defs for other boards.  See original example "graphicstest_featherwing.ino" for them.
+// // Anything else!
+// #if defined(__AVR_ATmega32U4__) || defined(ARDUINO_SAMD_FEATHER_M0) || defined(__AVR_ATmega328P__) || \
+//     defined(ARDUINO_SAMD_ZERO) || defined(__SAMD51__) || defined(__SAM3X8E__) || defined(ARDUINO_NRF52840_FEATHER)
+// //#define STMPE_CS 6   // Touchscreen overlay controller CS pin - not in use in this project
+// #define TFT_CS 9 // Default TFT_CS = D9 (I was using D14/A0 previously)
+// #define TFT_DC 10 // Default TFT_DC = D10 (I was using D15/A1 previously)
+// //#define SD_CS    5   // SD slot CS pin - not in use in this project
+// #endif
+// #define TFT_RST -1
 
 // DS18B20 sensor - Data wire is plugged into port 2 on the Arduino
 #define ONE_WIRE_BUS 4
+
+// 12v switched power outputs
+#define PI_PWR_PIN              23 // The pin the FMX controls the power supply to the Pi on.
+#define STROBE_LIGHT_PWR_PIN    24 // The pin the FMX controls the power supply to the Strobe light on.
+#define POWER_FEATHER_PWR_PIN   25 // The pin the FMX controls the power supply to the Power Feather on.
 
 // Loop Steps - these are used by the switch/case in the main loop()
 #define loop_init           0   // Send the welcome message, check the battery voltage
@@ -125,10 +128,7 @@ extern Stream *_logSerial;
 
 
 /* function pre defines */
-void tftSetup();
-void tftdiags();
-unsigned long testText();
-
+void actuatorsSetup();
 void sensorsSetup();
 void sensorsTest();
 
@@ -178,5 +178,8 @@ String my64toString(uint64_t x);
 
 void actuatorStrobeOn();
 void actuatorStrobeOff();
-
+void actuatorPiOn();
+void actuatorPiOff();
+void actuatorPowerFeatherOn();
+void actuatorPowerFeatherOff();
 #endif

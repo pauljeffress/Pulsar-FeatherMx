@@ -10,46 +10,19 @@
 
 void setupPins()
 {
-  debugPrintln("setupPins() - CODE STILL TO BE DONE IN HERE!!!!!!!!!");
+  debugPrintln("setupPins()");
 
   pinMode(LED_BUILTIN, OUTPUT); // Make the LED pin an output
 
-  // pinMode(geofencePin, INPUT); // Configure the geofence pin as an input
+  // setup the 12v switched power output GPIO control pins.
+  pinMode(PI_PWR_PIN, OUTPUT);
+  digitalWrite(PI_PWR_PIN, LOW);
+  pinMode(STROBE_LIGHT_PWR_PIN, OUTPUT);
+  digitalWrite(STROBE_LIGHT_PWR_PIN, LOW);
+  pinMode(POWER_FEATHER_PWR_PIN, OUTPUT);
+  digitalWrite(POWER_FEATHER_PWR_PIN, LOW);
 
-  // pinMode(iridiumPwrEN, OUTPUT); // Configure the Iridium Power Pin (connected to the ADM4210 ON pin)
-  // digitalWrite(iridiumPwrEN, LOW); // Disable Iridium Power (HIGH = enable; LOW = disable)
-
-  // pinMode(superCapChgEN, OUTPUT); // Configure the super capacitor charger enable pin (connected to LTC3225 !SHDN)
-  // digitalWrite(superCapChgEN, LOW); // Disable the super capacitor charger (HIGH = enable; LOW = disable)
-
-  // pinMode(iridiumSleep, OUTPUT); // Iridium 9603N On/Off (Sleep) pin
-  // digitalWrite(iridiumSleep, LOW); // Put the Iridium 9603N to sleep (HIGH = on; LOW = off/sleep)
-
-  // pinMode(iridiumRI, INPUT); // Configure the Iridium Ring Indicator as an input
-  // pinMode(iridiumNA, INPUT); // Configure the Iridium Network Available as an input
-
-  // pinMode(superCapPGOOD, INPUT); // Configure the super capacitor charger PGOOD input
-
-  // pinMode(busVoltageMonEN, OUTPUT); // Make the Bus Voltage Monitor Enable an output
-  // digitalWrite(busVoltageMonEN, LOW); // Set it low to disable the measurement to save power
-
-  // control pins for serial connection to Feather
-    //pinMode(FEATHER_READY_TO_RX_PIN, OUTPUT);
-    //pinMode(AGT_WANTS_TO_TX_PIN, INPUT);
-    //digitalWrite(FEATHER_READY_TO_RX_PIN, LOW); // set initial state of this pin.
 }
-
-// help manage the control pins for serial connection to Feather
-//void setFEATHER_READY_TO_RX_PINhigh(){
-//  digitalWrite(FEATHER_READY_TO_RX_PIN, HIGH);
-//  digitalWrite(LED_BUILTIN, HIGH);
-//}
-//void setFEATHER_READY_TO_RX_PINlow(){
-//  digitalWrite(FEATHER_READY_TO_RX_PIN, LOW);
-//  digitalWrite(LED_BUILTIN, LOW);
-//}
-
-
 
 // Beacuse Arduino print can't handle uint64_t I found this here https://forum.arduino.cc/t/printing-uint64_t/364646
 // and it works well.
