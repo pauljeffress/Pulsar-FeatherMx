@@ -31,5 +31,5 @@ void case_write_to_tft()
 
     //debugPrintln("case_write_to_tft() - done");
 
-    assess_step = rx_from_autopilot; // Set next state
+
 }

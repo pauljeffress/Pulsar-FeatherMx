@@ -9,19 +9,17 @@
 bool sendSharedSettings_to_AGT(void)    // xxx - do we need to return anything here, if not get rid of the bool.
 {
 
-    debugPrintln("sendSharedSettings_to_AGT() - STARTING --------------------------------------------");
+    debugPrintln("sendSharedSettings_to_AGT() - starting");
 
     bool success = false;
 
     preptosendFeatherSharedSettings();    // gets myFeatherSharedSettings fresh and ready to TX to AGT. 
 
-    debugPrintln("sendSharedSettings_to_AGT() - about to SerialTransfer sendDatum()");
+    debugPrintln("sendSharedSettings_to_AGT() - FMX about to SerialTransfer sendDatum() to AGT");
     // Send the Datum to peer
     uint8_t numbytessent = STdriverF2A.sendDatum(myFeatherSharedSettings);
-    debugPrint("sendSharedSettings_to_AGT() - SerialTransfer sendDatum() finished - numbytessent:");
+    debugPrint("sendSharedSettings_to_AGT() - FMX to AGT transfer finished - numbytessent:");
     Serial.println(numbytessent);  //debugPrintlnInt(numbytessent);
-
-    seconds_since_last_agt_tx =  0; // reset this counter as we have sent....even though AGT may not have received.
 
     return(success);
 }   // END - sendSharedSettings_to_AGT
@@ -82,7 +80,6 @@ void initFeatherSharedSettings(void) // Initialises the myFeatherSharedSettings 
   myFeatherSharedSettings.AP_COG = myFeatherMxSettings.AP_COG;
   myFeatherSharedSettings.AP_SATS = myFeatherMxSettings.AP_SATS;
   myFeatherSharedSettings.AP_FIX = myFeatherMxSettings.AP_FIX;
-
   myFeatherSharedSettings.AP_CUSTOMMODE = myFeatherMxSettings.AP_CUSTOMMODE;
   myFeatherSharedSettings.AP_SYSTEMSTATUS = myFeatherMxSettings.AP_SYSTEMSTATUS;
 
@@ -92,6 +89,9 @@ void initFeatherSharedSettings(void) // Initialises the myFeatherSharedSettings 
   myFeatherSharedSettings.FMX_WATERTEMP = myFeatherMxSettings.FMX_WATERTEMP;
   myFeatherSharedSettings.FMX_AMBIENTLIGHT = myFeatherMxSettings.FMX_AMBIENTLIGHT;
   myFeatherSharedSettings.FMX_UPTIME_S = seconds(); // xxx - should this be coming from myFeatherMxSettings.FMX_UPTIME_S ???
+
+  myFeatherSharedSettings.FMX_LAST_AP_HEARTBEAT_S = myFeatherMxSettings.FMX_LAST_AP_HEARTBEAT_S;
+
 
   //debugPrintln("initFeatherSharedSettings: RAM settings initialised");
 }   // END - initFeatherSharedSettings()

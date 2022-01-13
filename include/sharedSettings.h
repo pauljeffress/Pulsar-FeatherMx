@@ -29,6 +29,8 @@ typedef struct // FeatherSharedSettings
     int16_t     FMX_WATERTEMP;      // The water temperature in degrees C * 100
     int16_t     FMX_AMBIENTLIGHT;   // Ambient light reading in lux
     uint32_t    FMX_UPTIME_S;        // Uptime in seconds
+
+    uint32_t    FMX_LAST_AP_HEARTBEAT_S;   // Seconds - How many seconds ago the FMX last received a MAVLKink HEARTBEAT from the AP.
     
     // PowerFeather data - received via CAN (all of this can be copied directly from PowerFeatherSettings.h)
     uint16_t    PF_BATT_V;         // The battery (Batt socket LiPo) voltage in V * 100

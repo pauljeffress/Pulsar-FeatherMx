@@ -13,7 +13,8 @@ void case_read_sensors()
     // is it time to do a routine sensor read?
     if (seconds_since_last_sensors_read > SENSORPERIODSECONDS)
     {
-
+        seconds_since_last_sensors_read = 0;    // Reset this timer.
+        
         if (sensor_sht31_status)    // don't try to read the sensor once its marked bad.  The flag will be reset when Feather is reset/power-cycled.
         {
             /*

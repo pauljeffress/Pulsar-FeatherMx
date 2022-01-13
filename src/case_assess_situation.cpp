@@ -94,18 +94,22 @@ while (loop_step == assess_situation)   // Stay in this state machine or is it t
     // Update the tft display
     case write_to_tft:
       //Serial.println("case_write_to_tft()===============================");
-      case_write_to_tft(); 
-      //assess_step = rx_from_agt;  
-      //debugPrintln("Skipping write_to_tft"); 
+      //case_write_to_tft();  // TFT no longer connected to FMX.
+      assess_step = heartbeat_to_autopilot;  // Set next state here because we don't run the TFT function anymore.
+    break;
+
+    // ************************************************************************************************
+    // Send a MAVLink HEARTBEAT to the Autopilot.
+    case heartbeat_to_autopilot:
+      case_heartbeat_to_autopilot(); 
+      assess_step = rx_from_autopilot;  // Set next state here because we always go to same next function.
     break;
 
     // ************************************************************************************************
     // Read Mavlink stream from the Autopilot.
+    //  - records HEARTBEATS from AP, if nothing else.
     case rx_from_autopilot:
-      //Serial.println("case_rx_from_autopilot()+++++++++++++++++++++++++++");
-      case_rx_from_autopilot();
-      //assess_step = check_power;  // temorary short cut back to start of state machine.  
-      //delay(500);  
+      case_rx_from_autopilot(); 
     break;
 
     // ************************************************************************************************

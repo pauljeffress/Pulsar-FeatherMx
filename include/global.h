@@ -47,6 +47,8 @@
 // xxxx #include "SAMDTimerInterrupt.h"             // https://github.com/khoih-prog/SAMD_TimerInterrupt
 #define TIMER0_INTERVAL_MS        1000
 
+
+
 // #define TFT_CONNECTED // toggles code depending on whether I want to use teh TFT or not. 
 //                       // Will make it easier to test with/without it and ultimatetly disconnect before a voyage.
 // // defs for Adafruit 3.5" 480x320 TFT Featherwing - https://learn.adafruit.com/adafruit-3-5-tft-featherwing?view=all
@@ -77,23 +79,36 @@
 #define wake                3   // Wake from deep sleep, restore the processor clock speed
 
 // Assess Steps - these are used by the switch/case in assess_situation()
-#define check_power         1   // Check Feather's power source status.
-#define read_sensors        2   // Read the various sensors attached to the Feather.
-#define tx_to_CANbus        3   // send data out onto CANbus
-#define check_CANbus        4   // check if any packets received via CAN bus.
-#define write_to_tft        5   // Update the tft display
-#define rx_from_autopilot   6   // Read Mavlink stream from the Autopilot.
-#define process_autopilot   7   // Review/action the recently received Mavlink data from the Autopilot.
-#define tx_to_autopilot     8   // Send Mavlink data to the autopilot.
-#define rx_from_agt         9   // Check if the AGT has sent us a datum,
-#define process_agt         10  // process it if it has and set appropriate flags
-#define tx_to_agt           11  // If we need to, send a datum to the AGT
+#define check_power             1   // Check Feather's power source status.
+#define read_sensors            2   // Read the various sensors attached to the Feather.
+#define tx_to_CANbus            3   // send data out onto CANbus
+#define check_CANbus            4   // check if any packets received via CAN bus.
+#define write_to_tft            5   // Update the tft display
+#define heartbeat_to_autopilot  6   // Send a MAVLink HEARTBEAT to the AutoPilot.
+#define rx_from_autopilot       7   // Read Mavlink stream from the Autopilot.
+#define process_autopilot       8   // Review/action the recently received Mavlink data from the Autopilot.
+#define tx_to_autopilot         9   // Send Mavlink data to the autopilot.
+#define rx_from_agt             10   // Check if the AGT has sent us a datum,
+#define process_agt             11  // process it if it has and set appropriate flags
+#define tx_to_agt               12  // If we need to, send a datum to the AGT
 
-#define tx_to_logger        20  // Decide and write to the Logger.
-#define tickle_watchdog     21  // Tickle the watchdog so it knows we are ok.
-#define sleep_yet           22  // Look at flags, should we be going to SLEEP?
+#define tx_to_logger            20  // Decide and write to the Logger.
+#define tickle_watchdog         21  // Tickle the watchdog so it knows we are ok.
+#define sleep_yet               22  // Look at flags, should we be going to SLEEP?
 
-#define SENSORPERIODSECONDS 30  // seconds - how often should we read the sensors?
+// Various Timers
+#define SENSORPERIODSECONDS             30  // seconds - how often should we read the sensors?
+#define MAVLINKHEARTBEATPERIODSECONDS   30  // seconds - how often should we send a MAVLink HEARTBEAT to the AutoPilot
+
+// MAVLink stuff
+// MAVLink IDs - https://ardupilot.org/dev/docs/mavlink-basics.html
+#define FMX_SYS_ID  1       // MAVLink System ID of this device. For example a companion computer (Arduino, RasPi etc) which is sending a heartbeat.
+                            // I am setting this to 1, as all electronics on the drone itself should have the same SystemID as
+                            // the AutoPilot, and it has sysID = 1.
+#define FMX_COMP_ID  100    // MAVLink Component ID of this device. For example a companion computer (Arduino, RasPi etc) which is sending a heartbeat.
+                            // I am setting this to 100, as it can be from 1 to 255 but the AutoPilot has compID = 1 so can't use that.
+#define AP_SYS_ID  1        // MAVLink System ID of the autopilot.
+#define AP_COMP_ID  100     // MAVLink Component ID of the autopilot.
 
 
 /* define any enums */
@@ -136,6 +151,7 @@ void setupPins();
 
 void serialSetup();
 
+void mavlink_fmx_send_heartbeat_to_ap();
 void mavlink_receive();
 void mavlink_request_datastream();
 
@@ -146,6 +162,7 @@ void case_assess_situation();
 void case_read_sensors();
 void case_tx_to_CANbus();
 void case_write_to_tft();
+void case_heartbeat_to_autopilot();
 void case_rx_from_autopilot();
 void case_process_autopilot();
 void case_tx_to_autopilot();
@@ -182,4 +199,6 @@ void actuatorPiOn();
 void actuatorPiOff();
 void actuatorPowerFeatherOn();
 void actuatorPowerFeatherOff();
+
+
 #endif
