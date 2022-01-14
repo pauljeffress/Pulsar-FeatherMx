@@ -23,11 +23,12 @@ void case_rx_from_autopilot()
     // if its time to do a routine read of AutoPilot MAVlink data?
     if (seconds_since_last_ap_rx > myFeatherMxSettings.FMX_RXAPINT)
     {
-        //debugPrintln(" - ATTEMPTING RX");
+        debugPrint("case_rx_from_autopilot() - ATTEMPTING RX - starting at Millis:"); Serial.println(millis());
         uint32_t start = millis();  // xxx - need to review how I'm timing this loop...seems clunky. Also need to take any contants and set the as #defines.
-        while ((millis() < (start + 3000)) && (millis() > 4000))  // keep doing it for 3 seconds
+        while ((millis() < (start + 3000)) && (millis() > 4000))  // For 3 seconds, see if we can assemble received msgs and if so process them.
             mavlink_receive(); 
         seconds_since_last_ap_rx = 0;    // reset counter
+        debugPrint("case_rx_from_autopilot() - Done RX - ending at Millis:"); Serial.println(millis());
     }
     else
     {

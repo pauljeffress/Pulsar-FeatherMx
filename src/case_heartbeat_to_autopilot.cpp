@@ -16,8 +16,6 @@ void case_heartbeat_to_autopilot()
 
         mavlink_fmx_send_heartbeat_to_ap();
 
-
-
         seconds_since_last_mavlink_heartbeat_tx = 0;  // reset the counter
     }
     else
@@ -26,8 +24,5 @@ void case_heartbeat_to_autopilot()
             //debugPrintln("case_heartbeat_to_autopilot() - NOT NOW");
         #endif
     }
-
-
-
 
 }

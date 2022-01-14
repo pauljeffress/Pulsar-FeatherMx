@@ -95,19 +95,30 @@ while (loop_step == assess_situation)   // Stay in this state machine or is it t
     case write_to_tft:
       //Serial.println("case_write_to_tft()===============================");
       //case_write_to_tft();  // TFT no longer connected to FMX.
-      assess_step = heartbeat_to_autopilot;  // Set next state here because we don't run the TFT function anymore.
+      assess_step = params_from_autopilot;  // Set next state here because we don't run the TFT function anymore.
     break;
 
     // ************************************************************************************************
     // Send a MAVLink HEARTBEAT to the Autopilot.
     case heartbeat_to_autopilot:
       case_heartbeat_to_autopilot(); 
+      assess_step = params_from_autopilot;  // Set next state here because we always go to same next function.
+    break;
+
+    // ************************************************************************************************
+    // Request and get params from AutoPilot via MAVLink.
+    case params_from_autopilot:
+      case_params_from_autopilot(); 
       assess_step = rx_from_autopilot;  // Set next state here because we always go to same next function.
     break;
 
     // ************************************************************************************************
     // Read Mavlink stream from the Autopilot.
-    //  - records HEARTBEATS from AP, if nothing else.
+    //  - used to be my main way of getting data from the AutoPilot. I would subscribe to stream(s) in setup()
+    //    and then spend a bit of time digesting them here every so often.  I have since discovered its considered better
+    //    to explicitly request each param I want and get it individually at the time I want it.
+    //  - I have left this procedure here as it receives & records HEARTBEATS from AP, and has the side benefit
+    //    of being handy to see whatelse the AutoPilot is sprouting all by itself.
     case rx_from_autopilot:
       case_rx_from_autopilot(); 
     break;

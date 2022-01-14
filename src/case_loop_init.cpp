@@ -46,7 +46,7 @@ void case_loop_init()
 
   sensorsSetup();
 
-  //mavlink_request_datastream(); // this was the original method I was using, but switched away from it Jan 2022.  
+  mavlink_unrequest_datastream(); // I am trying to hush the AutoPilot (see my other mavlink stuff for explaination)  
 
   loop_step = assess_situation; // Set next state
   assess_step = check_power;    // Ensure assess_situation() starts at correct first step.

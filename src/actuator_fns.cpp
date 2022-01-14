@@ -27,7 +27,7 @@ void actuatorsSetup()
   debugPrintln("actuatorsSetup() - Pi ON");
   // turn Pi on for a few seconds so I can see its working at powerup.
   actuatorPiOn();
-  delay(1000);
+  // delay(1000);
   // actuatorPiOff();  // xxx - temporarily not turning it off here until I get additional code in.
   // debugPrintln("actuatorsSetup() - Pi OFF");
 
@@ -39,9 +39,9 @@ void actuatorsSetup()
   // turn Strobe Light on for a few seconds so I can see its working at powerup.
   // Note: its a self flashing strobe, once it has power it just flashes itself at about 1Hz.
   actuatorStrobeOn();
-  delay(8000);
-  actuatorStrobeOff();
-  debugPrintln("actuatorsSetup() - Strobe Light OFF");
+  //delay(8000);
+  //actuatorStrobeOff();
+  //debugPrintln("actuatorsSetup() - Strobe Light OFF");
 
 
   /*
@@ -50,7 +50,7 @@ void actuatorsSetup()
   debugPrintln("actuatorsSetup() - PowerFeather ON");
   // turn PowerFeather on for a few seconds so I can see its working at powerup.
   actuatorPowerFeatherOn();
-  delay(1000);
+  //delay(1000);
   //actuatorPowerFeatherOff();  // xxx - temporarily not turning it off here until I get additional code in.
   //debugPrintln("actuatorsSetup() - PowerFeather OFF");
 
