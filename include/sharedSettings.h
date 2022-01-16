@@ -22,15 +22,15 @@ typedef struct // FeatherSharedSettings
 {
     uint8_t FMX_MAGICNUM;           // sequence number incremented just before sending to AGT. Wraps at 240.
     
-    // The following are populated by the sensors directly connected to the FeatherMx
-    uint16_t    FMX_BATT_V;         // The battery (Batt socket LiPo) voltage in V * 100
-    int16_t     FMX_TEMP;           // The air temperature in degrees C * 100
-    int16_t     FMX_RH;             // The relative humidity in %RH * 100
-    int16_t     FMX_WATERTEMP;      // The water temperature in degrees C * 100
-    int16_t     FMX_AMBIENTLIGHT;   // Ambient light reading in lux
-    uint32_t    FMX_UPTIME_S;        // Uptime in seconds
-
-    uint32_t    FMX_LAST_AP_HEARTBEAT_S;   // Seconds - How many seconds ago the FMX last received a MAVLKink HEARTBEAT from the AP.
+    // The following are from the FMX itself
+    uint16_t    FMX_BATT_V;             // The battery (Batt socket LiPo) voltage in V * 100
+    int16_t     FMX_TEMP;               // The air temperature in degrees C * 100
+    int16_t     FMX_RH;                 // The relative humidity in %RH * 100
+    uint32_t    FMX_UPTIME_S;           // Uptime in seconds
+    uint16_t    FMX_PRESS;              // presure in mbar
+    int16_t     FMX_WATERTEMP;          // The water temperature in degrees C * 100
+    int16_t     FMX_AMBIENTLIGHT;       // Ambient light reading in lux
+    uint32_t    FMX_LAST_AP_HEARTBEAT_S; // Seconds - How many seconds ago the FMX last received a MAVLKink HEARTBEAT from the AP.
     
     // PowerFeather data - received via CAN (all of this can be copied directly from PowerFeatherSettings.h)
     uint16_t    PF_BATT_V;         // The battery (Batt socket LiPo) voltage in V * 100
@@ -78,17 +78,54 @@ typedef struct // FeatherSharedSettings
     uint16_t    PF_CHARGER2_HSDS;               // Day sequence number (0..364)
     uint8_t     PF_CHARGER2_MPPT;               // Tracker operation mode (enum)
 
-    // position data from the MAVLINK_MSG_ID_GPS_RAW_INT packets the FeatherMx has received from the AutoPilot.
-    uint64_t    AP_GPSTIMESTAMP;   // Fix taken time in Unix epoch time in mSec
-    uint8_t     AP_FIX;            // The gps fix type as defined in the u-blox PVT message
-    int32_t     AP_LAT;            // Lat  in Degrees * 10^7
-    int32_t     AP_LON;            // Lon  in Degrees * 10^7
-    int32_t     AP_SPEED;          // Ground speed in cm/s
-    int32_t     AP_COG;            // The heading in Degrees * 100
-    uint8_t     AP_SATS;           // The number of satellites (space vehicles) used in the solution
-    // status data from the MAVLINK_MSG_ID_HEARTBEAT packets the FeatherMx has received from the AutoPilot.
+
+    // the following relate to MAVLINK_MSG_ID_HEARTBEAT (#0) packets
+    uint8_t     AP_BASEMODE;         // System mode bitmap.
     uint32_t    AP_CUSTOMMODE;      // A bitfield for use for autopilot-specific flags
-    uint8_t     AP_SYSTEMSTATUS;     // Autopilot System status flag
+    uint8_t     AP_SYSTEMSTATUS;    //  System status flag.
+    
+    // the following relate to AP data via MAVLINK_MSG_ID_GLOBAL_POSITION_INT ( #33 )
+    uint32_t    AP_POSITIONTIMESTAMP;       //  Timestamp (time since system boot).
+    int32_t     AP_LAT;     //  Latitude, expressed
+    int32_t     AP_LON;     //  Longitude, expressed
+    int16_t     AP_VX;      //  Ground X Speed (Latitude, positive north)
+    int16_t     AP_VY;      //  Ground Y Speed (Longitude, positive east)
+    uint16_t    AP_HDG;     //  Vehicle heading (yaw angle), 0.0..359.99 degrees. If unknown, set to: UINT16_MAX
+
+    // the following relate to AP data via MAVLINK_MSG_ID_GPS_RAW_INT ( #24 )
+    uint8_t     AP_SATS;     //  Number of satellites visible. If unknown, set to UINT8_MAX
+    uint16_t    AP_VEL;      //  GPS ground speed. If unknown, set to: UINT16_MAX
+    uint16_t    AP_COG;      //  Course over ground (NOT heading, but direction of movement) in degrees * 100, 0.0..359.99 degrees. If unknown, set to: UINT16_MAX
+
+    // the following relate to AP data via MAVLINK_MSG_ID_POWER_STATUS ( #125 )
+    uint16_t    AP_VCC;          //  5V rail voltage.
+    uint16_t    AP_VSERVO;       //  Servo rail voltage.
+    uint16_t    AP_POWERFLAGS;   //  Bitmap of power supply status flags.
+
+    // the following relate to AP data via MAVLINK_MSG_ID_SYS_STATUS ( #1 )
+    uint32_t    AP_SENSORSPRESENT;       //  Bitmap showing which onboard controllers and sensors are present. Value of 0: not present. Value of 1: present.
+    uint32_t    AP_SENSORSENABLED;       //  Bitmap showing which onboard controllers and sensors are enabled: Value of 0: not enabled. Value of 1: enabled.
+    uint32_t    AP_SENSORSHEALTH;        //  Bitmap showing which onboard controllers and sensors have an error (or are operational). Value of 0: error. Value of 1: healthy.
+    uint16_t    AP_LOAD;                 //  Maximum usage in percent of the mainloop time. Values: [0-1000] - should always be below 1000
+
+    // the following relate to AP data via MAVLINK_MSG_ID_SYSTEM_TIME ( #2 )
+    uint64_t    AP_TIMEUNIXUSEC;     //  Timestamp (UNIX epoch time). The system time is the time of the master clock, typically the computer clock of the main onboard computer.
+    uint32_t    AP_TIMEBOOTMS;       //  Timestamp (time since system boot).
+
+    // the following relate to AP data via MAVLINK_MSG_ID_NAV_CONTROLLER_OUTPUT ( #62 )
+    int16_t     AP_NAVBEARING;       //  Nav controller - Current desired heading
+    int16_t     AP_TARGETBEARING;    //  Nav controller - Bearing to current waypoint/target
+    uint16_t    AP_WPDIST;           //  Nav controller - Distance to active waypoint
+
+    // the following relate to AP data via MAVLINK_MSG_ID_BATTERY_STATUS ( #147 )
+    uint16_t        AP_VOLTAGES[10];             //  Battery voltage of cells 1 to 10 (see voltages_ext for cells 11-14). Cells in this field above the valid cell count for this battery should have the UINT16_MAX value. If individual cell voltages are unknown or not measured for this battery, then the overall battery voltage should be filled in cell 0, with all others set to UINT16_MAX. If the voltage of the battery is greater than (UINT16_MAX - 1), then cell 0 should be set to (UINT16_MAX - 1), and cell 1 to the remaining voltage. This can be extended to multiple cells if the total voltage is greater than 2 * (UINT16_MAX - 1).
+    int16_t         AP_CURRENTBATTERY;       //  Battery current, -1: autopilot does not measure the current
+
+    // the following relate to AP data via MAVLINK_MSG_ID_AUTOPILOT_VERSION ( #148 )
+    uint16_t    AP_VENDORID;     // ID of the board vendor
+    uint16_t    AP_PRODUCTID;    // ID of the product
+
+
 
 } FeatherSharedSettings;
 //----------------------------------------------------

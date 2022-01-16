@@ -104,6 +104,13 @@ void case_params_from_autopilot()
         Serial1.write(buf, len); //Write data to serial port byte by byte.
         delay(500);
 
+        // Request MAVLINK_MSG_ID_SYSTEM_TIME (#2) - https://mavlink.io/en/messages/common.html#SYSTEM_TIME
+        _cl_param1 = MAVLINK_MSG_ID_SYSTEM_TIME;   // MAVLink Message ID
+        mavlink_msg_command_long_pack(_system_id, _component_id, &msg, _target_system, _target_component, _cl_command, _cl_confirmation, _cl_param1, _cl_param2, _cl_param3, _cl_param4, _cl_param5, _cl_param6, _cl_param7);
+        len = mavlink_msg_to_send_buffer(buf, &msg); // put message into our send buffer and also get it's size in bytes.
+        Serial1.write(buf, len); //Write data to serial port byte by byte.
+        delay(500);
+
         // Request MAVLINK_MSG_ID_NAV_CONTROLLER_OUTPUT (#62) - https://mavlink.io/en/messages/common.html#NAV_CONTROLLER_OUTPUT
         _cl_param1 = MAVLINK_MSG_ID_NAV_CONTROLLER_OUTPUT;   // MAVLink Message ID
         mavlink_msg_command_long_pack(_system_id, _component_id, &msg, _target_system, _target_component, _cl_command, _cl_confirmation, _cl_param1, _cl_param2, _cl_param3, _cl_param4, _cl_param5, _cl_param6, _cl_param7);
@@ -113,6 +120,13 @@ void case_params_from_autopilot()
 
         // Request MAVLINK_MSG_ID_BATTERY_STATUS (#147) - https://mavlink.io/en/messages/common.html#BATTERY_STATUS
         _cl_param1 = MAVLINK_MSG_ID_BATTERY_STATUS;   // MAVLink Message ID
+        mavlink_msg_command_long_pack(_system_id, _component_id, &msg, _target_system, _target_component, _cl_command, _cl_confirmation, _cl_param1, _cl_param2, _cl_param3, _cl_param4, _cl_param5, _cl_param6, _cl_param7);
+        len = mavlink_msg_to_send_buffer(buf, &msg); // put message into our send buffer and also get it's size in bytes.
+        Serial1.write(buf, len); //Write data to serial port byte by byte.
+        delay(500);
+
+        // Request MAVLINK_MSG_ID_AUTOPILOT_VERSION (#148) - https://mavlink.io/en/messages/common.html#AUTOPILOT_VERSION
+        _cl_param1 = MAVLINK_MSG_ID_AUTOPILOT_VERSION;   // MAVLink Message ID
         mavlink_msg_command_long_pack(_system_id, _component_id, &msg, _target_system, _target_component, _cl_command, _cl_confirmation, _cl_param1, _cl_param2, _cl_param3, _cl_param4, _cl_param5, _cl_param6, _cl_param7);
         len = mavlink_msg_to_send_buffer(buf, &msg); // put message into our send buffer and also get it's size in bytes.
         Serial1.write(buf, len); //Write data to serial port byte by byte.

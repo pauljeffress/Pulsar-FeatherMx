@@ -21,7 +21,7 @@ void mavlink_request_datastream()
   uint8_t _component_id = FMX_COMP_ID;    // MAVLink Component ID of this device.
   uint8_t _target_system = AP_SYS_ID;     // MAVLink System ID of the autopilot.
   uint8_t _target_component = AP_COMP_ID; // MAVLink Component ID of the autopilot.
-  
+
   uint8_t _req_stream_id = MAV_DATA_STREAM_RAW_SENSORS; // MAV_DATA_STREAM_ALL;
   uint16_t _req_message_rate = 0x01; //number of times per second to request the data in hex
   uint8_t _start_stop = 1;           //1 = start, 0 = stop
@@ -176,19 +176,20 @@ void mavlink_receive()
 
   if (gotFullMsg) // if we do then lets process it
     {
-      #ifdef MAVLINK_DEBUG
-        // debugs to show the msg # of the ones I'm seeing but not interested in.
-        debugPrint("mavlink_receive() - MSG RCVD -");
-        debugPrint(" magic:");debugPrintInt(msg.magic);
-        debugPrint(" seq:");debugPrintInt(msg.seq);
-        debugPrint(" src sysid:");debugPrintInt(msg.sysid);
-        debugPrint(" src compid:");debugPrintInt(msg.compid);
-        debugPrint(" msgid#:");debugPrintInt(msg.msgid);
-      #endif
-      //Decode new message from autopilot
-      switch (msg.msgid)
+    #ifdef MAVLINK_DEBUG
+      // debugs to show the msg # of the ones I'm seeing but not interested in.
+      debugPrint("mavlink_receive() - MSG RCVD -");
+      debugPrint(" magic:");debugPrintInt(msg.magic);
+      debugPrint(" seq:");debugPrintInt(msg.seq);
+      debugPrint(" src sysid:");debugPrintInt(msg.sysid);
+      debugPrint(" src compid:");debugPrintInt(msg.compid);
+      debugPrint(" msgid#:");debugPrintInt(msg.msgid);
+    #endif
+    //Decode new message from autopilot
+    switch (msg.msgid)
       {
-      //handle heartbeat message
+      
+      //============================
       case MAVLINK_MSG_ID_HEARTBEAT:
       {
         mavlink_heartbeat_t hb;
@@ -204,6 +205,8 @@ void mavlink_receive()
           Serial.print(hb.autopilot);
           Serial.print(" BaseMode:");
           Serial.print(hb.base_mode);
+          Serial.print(" CustomMode:");
+          Serial.print(hb.custom_mode);
           Serial.print(" SystemStatus:");
           Serial.print(hb.system_status);
           Serial.print(" MavlinkVersion:");
@@ -213,20 +216,26 @@ void mavlink_receive()
         seconds_since_last_mavlink_heartbeat_rx = 0;  // reset this timer as we just got a HEARTBEAT from the AP.
 
         // Save things I'm interested in to FeatherMx data structure for use later.
-        myFeatherMxSettings.AP_CUSTOMMODE = hb.custom_mode;
-        myFeatherMxSettings.AP_SYSTEMSTATUS = hb.system_status;
+        // Note, because the GCS and even the ADSB sub controller in the Cube baseboard are seperate MAVLink "Components", they emit
+        // their own HEARTBEAT msgs. SO below I need to check that I ONLY copy data from the AUtoPilot HEARTBEATS, and not the GCS
+        // or ADSB node HEARTBEATS.
+        if (hb.type == MAV_TYPE_SURFACE_BOAT)
+        {
+          myFeatherMxSettings.AP_BASEMODE = hb.base_mode;
+          myFeatherMxSettings.AP_CUSTOMMODE = hb.custom_mode;
+          myFeatherMxSettings.AP_SYSTEMSTATUS = hb.system_status;
+        }
         break;
       }
 
+      //============================
       case MAVLINK_MSG_ID_GPS_RAW_INT:
       {
-        //debugPrintln("Its a GPS RAW");
         mavlink_gps_raw_int_t packet;
         mavlink_msg_gps_raw_int_decode(&msg, &packet);
         time_t t = packet.time_usec / 1000000;  // time from GPS in mavlink is uint64_t in microseconds
                                                 // so I divide by 1,000,000 to get it in seconds
                                                 // which is what the hour(), minute() etc functions expect
-
         #ifdef MAVLINK_DEBUG
           debugPrint("=GPS_RAW_INT");
           Serial.print(" Time:");
@@ -250,31 +259,211 @@ void mavlink_receive()
         #endif
 
         // Save things I'm interested in to FeatherMx data structure for use later.
-        myFeatherMxSettings.AP_GPSTIMESTAMP = packet.time_usec;
-        // myFeatherMxSettings.FMX_GPSHOUR = year(t);
-        // myFeatherMxSettings.FMX_GPSHOUR = month(t);
-        // myFeatherMxSettings.FMX_GPSHOUR = day(t);
-        // myFeatherMxSettings.FMX_GPSHOUR = hour(t);
-        // myFeatherMxSettings.FMX_GPSMIN = minute(t);
-        // myFeatherMxSettings.FMX_GPSHOUR = second(t);
-        // myFeatherMxSettings.FMX_GPSMSEC = 666;  // xxx - I'm not sure how to extract millis from t yet.
-        myFeatherMxSettings.AP_FIX = packet.fix_type;
-        myFeatherMxSettings.AP_LAT = packet.lat;
-        myFeatherMxSettings.AP_LON = packet.lon;
-        myFeatherMxSettings.AP_SPEED = packet.vel;
+        myFeatherMxSettings.AP_VEL = packet.vel;
         myFeatherMxSettings.AP_COG = packet.cog;
         myFeatherMxSettings.AP_SATS = packet.satellites_visible;
-
         break;
       }
 
-      // ************************************************************************************************
+      //============================
+      case MAVLINK_MSG_ID_HWSTATUS:   // https://mavlink.io/en/messages/ardupilotmega.html#HWSTATUS
+        {
+          mavlink_hwstatus_t packet;
+          mavlink_msg_hwstatus_decode(&msg, &packet);
+
+          #ifdef MAVLINK_DEBUG
+            debugPrint("=HWSTATUS");
+            debugPrint(" Vcc:");
+            Serial.print(packet.Vcc);
+            debugPrint("mV I2Cerr:");
+            Serial.print(packet.I2Cerr);
+            debugPrint("errors");
+          #endif
+
+          break;
+        }
+
+      //============================
+      case MAVLINK_MSG_ID_POWER_STATUS:   // https://mavlink.io/en/messages/common.html#POWER_STATUS
+        {
+          mavlink_power_status_t packet;
+          mavlink_msg_power_status_decode(&msg, &packet);
+
+          #ifdef MAVLINK_DEBUG
+            debugPrint("=POWER_STATUS");
+            debugPrint(" Vcc:");
+            Serial.print(packet.Vcc);
+            debugPrint("mV Vservo:");
+            Serial.print(packet.Vservo);
+            debugPrint("mV flags:");
+            Serial.print(packet.flags);
+          #endif
+
+          // Save things I'm interested in to FeatherMx data structure for use later.
+          myFeatherMxSettings.AP_VCC = packet.Vcc;
+          myFeatherMxSettings.AP_VSERVO = packet.Vservo;
+          myFeatherMxSettings.AP_POWERFLAGS = packet.flags;
+        
+          break;
+        }
+
+      //============================
+      case MAVLINK_MSG_ID_GLOBAL_POSITION_INT:   // https://mavlink.io/en/messages/common.html#GLOBAL_POSITION_INT
+        {
+          mavlink_global_position_int_t packet;
+          mavlink_msg_global_position_int_decode(&msg, &packet);
+
+          #ifdef MAVLINK_DEBUG
+            debugPrint("=GLOBAL_POSITION_INT");
+            debugPrint(" TimeSinceBoot:");Serial.print(packet.time_boot_ms);
+            debugPrint("mS LAT:");Serial.print(packet.lat);
+            debugPrint("degE7 LON:");Serial.print(packet.lon);
+            debugPrint("degE7 MSL_ALT:");Serial.print(packet.alt);
+            debugPrint("mm REL_ALT:");Serial.print(packet.relative_alt);
+            debugPrint("mm VelX:");Serial.print(packet.vx);
+            debugPrint("cm/s VelY:");Serial.print(packet.vy);
+            debugPrint("cm/s VelZ:");Serial.print(packet.vz);
+            debugPrint("cm/s Heading:");Serial.print(packet.hdg);
+            debugPrint("cdeg");
+          #endif
+
+          // Save things I'm interested in to FeatherMx data structure for use later.
+          myFeatherMxSettings.AP_POSITIONTIMESTAMP = packet.time_boot_ms;
+          myFeatherMxSettings.AP_LAT = packet.lat;
+          myFeatherMxSettings.AP_LON = packet.lon;
+          myFeatherMxSettings.AP_VX = packet.vx;
+          myFeatherMxSettings.AP_VY = packet.vy;
+          myFeatherMxSettings.AP_HDG = packet.hdg;
+
+          break;
+        }
+
+      //============================
+      case MAVLINK_MSG_ID_SYS_STATUS:   // https://mavlink.io/en/messages/common.html#SYS_STATUS
+        {
+          mavlink_sys_status_t packet;
+          mavlink_msg_sys_status_decode(&msg, &packet);
+
+          #ifdef MAVLINK_DEBUG
+            debugPrint("=SYS_STATUS");
+            debugPrint(" onboard_control_sensors_present:");
+            Serial.print(packet.onboard_control_sensors_present);
+            debugPrint(" onboard_control_sensors_enabled:");
+            Serial.print(packet.onboard_control_sensors_enabled);
+            debugPrint(" onboard_control_sensors_health:");
+            Serial.print(packet.onboard_control_sensors_health);
+            debugPrint(" load:");
+            Serial.print(packet.load);
+          #endif
+
+          // Save things I'm interested in to FeatherMx data structure for use later.
+          myFeatherMxSettings.AP_SENSORSPRESENT = packet.onboard_control_sensors_present;
+          myFeatherMxSettings.AP_SENSORSENABLED = packet.onboard_control_sensors_enabled;
+          myFeatherMxSettings.AP_SENSORSHEALTH = packet.onboard_control_sensors_health;
+          myFeatherMxSettings.AP_LOAD = packet.load;
+        
+          break;
+        }
+
+      //============================
+      case MAVLINK_MSG_ID_SYSTEM_TIME:   // https://mavlink.io/en/messages/common.html#SYSTEM_TIME
+        {
+          mavlink_system_time_t packet;
+          mavlink_msg_system_time_decode(&msg, &packet);
+
+          #ifdef MAVLINK_DEBUG
+            debugPrint("=SYSTEM_TIME");
+            debugPrint(" time_unix_usec:");
+            Serial.print("I can't print uint64_t's here");
+            debugPrint(" time_boot_ms:");
+            Serial.print(packet.time_boot_ms);
+          #endif
+
+          // Save things I'm interested in to FeatherMx data structure for use later.
+          myFeatherMxSettings.AP_TIMEUNIXUSEC = packet.time_unix_usec;
+          myFeatherMxSettings.AP_TIMEBOOTMS = packet.time_boot_ms;
+        
+          break;
+        }
+
+      //============================
+      case MAVLINK_MSG_ID_NAV_CONTROLLER_OUTPUT:   // https://mavlink.io/en/messages/common.html#NAV_CONTROLLER_OUTPUT
+        {
+          mavlink_nav_controller_output_t packet;
+          mavlink_msg_nav_controller_output_decode(&msg, &packet);
+
+          #ifdef MAVLINK_DEBUG
+            debugPrint("=NAV_CONTROLLER_OUTPUT");
+            debugPrint(" nav_bearing:");
+            Serial.print(packet.nav_bearing);
+            debugPrint(" target_bearing:");
+            Serial.print(packet.target_bearing);
+            debugPrint(" wp_dist:");
+            Serial.print(packet.wp_dist);
+          #endif
+
+          // Save things I'm interested in to FeatherMx data structure for use later.
+          myFeatherMxSettings.AP_NAVBEARING = packet.nav_bearing;
+          myFeatherMxSettings.AP_TARGETBEARING = packet.target_bearing;
+          myFeatherMxSettings.AP_WPDIST = packet.wp_dist;
+
+          break;
+        }
+
+      //============================
+      case MAVLINK_MSG_ID_BATTERY_STATUS:   // https://mavlink.io/en/messages/common.html#BATTERY_STATUS
+        {
+          mavlink_battery_status_t packet;
+          mavlink_msg_battery_status_decode(&msg, &packet);
+
+          #ifdef MAVLINK_DEBUG
+            debugPrint("=BATTERY_STATUS");
+            debugPrint(" voltages[0]:");
+            Serial.print(packet.voltages[0]);
+            debugPrint(" voltages[1]:");
+            Serial.print(packet.voltages[1]);
+            debugPrint(" current_battery:");
+            Serial.print(packet.current_battery);
+          #endif
+
+          // Save things I'm interested in to FeatherMx data structure for use later.
+          myFeatherMxSettings.AP_VOLTAGES[0] = packet.voltages[0];
+          myFeatherMxSettings.AP_VOLTAGES[1] = packet.voltages[1];
+          myFeatherMxSettings.AP_CURRENTBATTERY = packet.current_battery;
+        
+          break;
+        }
+
+      //============================
+      case MAVLINK_MSG_ID_AUTOPILOT_VERSION:   // https://mavlink.io/en/messages/common.html#AUTOPILOT_VERSION
+        {
+          mavlink_autopilot_version_t packet;
+          mavlink_msg_autopilot_version_decode(&msg, &packet);
+
+          #ifdef MAVLINK_DEBUG
+            debugPrint("=AUTOPILOT_VERSION");
+            debugPrint(" vendor_id:");
+            Serial.print(packet.vendor_id);
+            debugPrint(" product_id:");
+            Serial.print(packet.product_id);
+          #endif
+
+          // Save things I'm interested in to FeatherMx data structure for use later.
+          myFeatherMxSettings.AP_VENDORID = packet.vendor_id;
+          myFeatherMxSettings.AP_PRODUCTID = packet.product_id;
+        
+          break;
+        }
+
+
+      //============================
       // DEFAULT - should not happen, but programing it defensively
       default:
         //Serial.println("we hit the default: in mavlink packet decode switch");
         break;
 
       } // END - of msg decoder switch
+
       #ifdef MAVLINK_DEBUG
         debugPrintln("");
       #endif

@@ -32,6 +32,16 @@ void initFeatherSharedSettings(void) // Initialises the myFeatherSharedSettings 
   // myFeatherSharedSettings.MAGICNUM = 0;   // do not reset this, the SharedSetting is the source of truth!!!!
   
   // initialise based on the correct source of truth. This is the same for both initial boot up AND when we need to refresh!
+  
+  myFeatherSharedSettings.FMX_BATT_V = myFeatherMxSettings.FMX_BATT_V;
+  myFeatherSharedSettings.FMX_TEMP = myFeatherMxSettings.FMX_TEMP;
+  myFeatherSharedSettings.FMX_RH = myFeatherMxSettings.FMX_RH;
+  myFeatherSharedSettings.FMX_UPTIME_S = seconds(); // xxx - should this be coming from myFeatherMxSettings.FMX_UPTIME_S ???
+  myFeatherSharedSettings.FMX_PRESS = myFeatherMxSettings.FMX_PRESS;
+  myFeatherSharedSettings.FMX_WATERTEMP = myFeatherMxSettings.FMX_WATERTEMP;
+  myFeatherSharedSettings.FMX_AMBIENTLIGHT = myFeatherMxSettings.FMX_AMBIENTLIGHT;
+  myFeatherSharedSettings.FMX_LAST_AP_HEARTBEAT_S = myFeatherMxSettings.FMX_LAST_AP_HEARTBEAT_S;
+  
   myFeatherSharedSettings.PF_BATT_V = myPowerFeatherSettings.PF_BATT_V;
   myFeatherSharedSettings.PF_TEMP = myPowerFeatherSettings.PF_TEMP;
   myFeatherSharedSettings.PF_RH = myPowerFeatherSettings.PF_RH;
@@ -73,25 +83,42 @@ void initFeatherSharedSettings(void) // Initialises the myFeatherSharedSettings 
   myFeatherSharedSettings.PF_CHARGER2_HSDS = myPowerFeatherSettings.PF_CHARGER2_HSDS;
   myFeatherSharedSettings.PF_CHARGER2_MPPT = myPowerFeatherSettings.PF_CHARGER2_MPPT;
 
-  myFeatherSharedSettings.AP_GPSTIMESTAMP = myFeatherMxSettings.AP_GPSTIMESTAMP;
-  myFeatherSharedSettings.AP_LAT = myFeatherMxSettings.AP_LAT;
-  myFeatherSharedSettings.AP_LON = myFeatherMxSettings.AP_LON;
-  myFeatherSharedSettings.AP_SPEED = myFeatherMxSettings.AP_SPEED;
-  myFeatherSharedSettings.AP_COG = myFeatherMxSettings.AP_COG;
-  myFeatherSharedSettings.AP_SATS = myFeatherMxSettings.AP_SATS;
-  myFeatherSharedSettings.AP_FIX = myFeatherMxSettings.AP_FIX;
-  myFeatherSharedSettings.AP_CUSTOMMODE = myFeatherMxSettings.AP_CUSTOMMODE;
-  myFeatherSharedSettings.AP_SYSTEMSTATUS = myFeatherMxSettings.AP_SYSTEMSTATUS;
+  myFeatherSharedSettings.AP_BASEMODE             = myFeatherMxSettings.AP_BASEMODE;
+  myFeatherSharedSettings.AP_CUSTOMMODE           = myFeatherMxSettings.AP_CUSTOMMODE;
+  myFeatherSharedSettings.AP_SYSTEMSTATUS         = myFeatherMxSettings.AP_SYSTEMSTATUS;
 
-  myFeatherSharedSettings.FMX_BATT_V = myFeatherMxSettings.FMX_BATT_V;
-  myFeatherSharedSettings.FMX_TEMP = myFeatherMxSettings.FMX_TEMP;
-  myFeatherSharedSettings.FMX_RH = myFeatherMxSettings.FMX_RH;
-  myFeatherSharedSettings.FMX_WATERTEMP = myFeatherMxSettings.FMX_WATERTEMP;
-  myFeatherSharedSettings.FMX_AMBIENTLIGHT = myFeatherMxSettings.FMX_AMBIENTLIGHT;
-  myFeatherSharedSettings.FMX_UPTIME_S = seconds(); // xxx - should this be coming from myFeatherMxSettings.FMX_UPTIME_S ???
+  myFeatherSharedSettings.AP_POSITIONTIMESTAMP    = myFeatherMxSettings.AP_POSITIONTIMESTAMP;
+  myFeatherSharedSettings.AP_LAT                  = myFeatherMxSettings.AP_LAT;
+  myFeatherSharedSettings.AP_LON                  = myFeatherMxSettings.AP_LON;
+  myFeatherSharedSettings.AP_VX                   = myFeatherMxSettings.AP_VX;
+  myFeatherSharedSettings.AP_VY                   = myFeatherMxSettings.AP_VY;
+  myFeatherSharedSettings.AP_HDG                  = myFeatherMxSettings.AP_HDG;
 
-  myFeatherSharedSettings.FMX_LAST_AP_HEARTBEAT_S = myFeatherMxSettings.FMX_LAST_AP_HEARTBEAT_S;
+  myFeatherSharedSettings.AP_SATS                 = myFeatherMxSettings.AP_SATS;
+  myFeatherSharedSettings.AP_VEL                  = myFeatherMxSettings.AP_VEL;
+  myFeatherSharedSettings.AP_COG                  = myFeatherMxSettings.AP_COG;
 
+  myFeatherSharedSettings.AP_VCC                  = myFeatherMxSettings.AP_VCC;
+  myFeatherSharedSettings.AP_VSERVO               = myFeatherMxSettings.AP_VSERVO;
+  myFeatherSharedSettings.AP_POWERFLAGS           = myFeatherMxSettings.AP_POWERFLAGS;
+
+  myFeatherSharedSettings.AP_SENSORSPRESENT       = myFeatherMxSettings.AP_SENSORSPRESENT;
+  myFeatherSharedSettings.AP_SENSORSENABLED       = myFeatherMxSettings.AP_SENSORSENABLED;
+  myFeatherSharedSettings.AP_SENSORSHEALTH        = myFeatherMxSettings.AP_SENSORSHEALTH;
+  myFeatherSharedSettings.AP_LOAD                 = myFeatherMxSettings.AP_LOAD;
+
+  myFeatherSharedSettings.AP_TIMEUNIXUSEC         = myFeatherMxSettings.AP_TIMEUNIXUSEC;
+  myFeatherSharedSettings.AP_TIMEBOOTMS           = myFeatherMxSettings.AP_TIMEBOOTMS;
+
+  myFeatherSharedSettings.AP_NAVBEARING           = myFeatherMxSettings.AP_NAVBEARING;
+  myFeatherSharedSettings.AP_TARGETBEARING        = myFeatherMxSettings.AP_TARGETBEARING;
+  myFeatherSharedSettings.AP_WPDIST               = myFeatherMxSettings.AP_WPDIST;
+
+  myFeatherSharedSettings.AP_VOLTAGES[0]               = myFeatherMxSettings.AP_VOLTAGES[0];
+  myFeatherSharedSettings.AP_CURRENTBATTERY         = myFeatherMxSettings.AP_CURRENTBATTERY;
+
+  myFeatherSharedSettings.AP_VENDORID               = myFeatherMxSettings.AP_VENDORID;
+  myFeatherSharedSettings.AP_PRODUCTID              = myFeatherMxSettings.AP_PRODUCTID;
 
   //debugPrintln("initFeatherSharedSettings: RAM settings initialised");
 }   // END - initFeatherSharedSettings()
