@@ -1,0 +1,1712 @@
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+| CBP_PACKETTYPE = CBP_PF_CHARGER1_PPV
+| Value = 0
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+| CBP_PACKETTYPE = CBP_PF_CHARGER2_V
+| Value = 13130
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+| CBP_PACKETTYPE = CBP_PF_CHARGER1_VPV
+| Value = 46
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+| CBP_PACKETTYPE = CBP_PF_CHARGER2_H20
+| Value = 0
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+ERROR - we hit the default: in assess_situation state machine
+case_assess_situation() finishing
+setupPins()

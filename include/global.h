@@ -89,13 +89,12 @@
 #define check_CANbus            4   // check if any packets received via CAN bus.
 #define write_to_tft            5   // Update the tft display
 #define heartbeat_to_autopilot  6   // Send a MAVLink HEARTBEAT to the AutoPilot.
-#define params_from_autopilot   7   // Individually request and get params from AutoPilot
-#define rx_from_autopilot       8   // Read Mavlink stream from the Autopilot.
-#define process_autopilot       9   // Review/action the recently received Mavlink data from the Autopilot.
-#define tx_to_autopilot         10   // Send Mavlink data to the autopilot.
-#define rx_from_agt             11   // Check if the AGT has sent us a datum,
-#define process_agt             12  // process it if it has and set appropriate flags
-#define tx_to_agt               13  // If we need to, send a datum to the AGT
+#define rx_from_autopilot       7   // Read Mavlink stream from the Autopilot.
+#define process_autopilot       8   // Review/action the recently received Mavlink data from the Autopilot.
+#define tx_to_autopilot         9   // Send Mavlink data to the autopilot.
+#define rx_from_agt             10   // Check if the AGT has sent us a datum,
+#define process_agt             11  // process it if it has and set appropriate flags
+#define tx_to_agt               12  // If we need to, send a datum to the AGT
 
 #define tx_to_logger            20  // Decide and write to the Logger.
 #define tickle_watchdog         21  // Tickle the watchdog so it knows we are ok.
@@ -162,6 +161,7 @@ void mavlink_fmx_send_heartbeat_to_ap();
 void mavlink_receive();
 void mavlink_request_datastream();
 void mavlink_unrequest_datastream();
+void mavlink_request_streaming_params_from_ap();
 
 void case_loop_init();
 void case_zzz();
@@ -171,7 +171,6 @@ void case_read_sensors();
 void case_tx_to_CANbus();
 void case_write_to_tft();
 void case_heartbeat_to_autopilot();
-void case_params_from_autopilot();
 void case_rx_from_autopilot();
 void case_process_autopilot();
 void case_tx_to_autopilot();
