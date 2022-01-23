@@ -180,9 +180,13 @@ void mavlink_request_streaming_params_from_ap()
     // Request just the messages I am interested in and at a suitable interval
     // =======================================================================
 
-    // I tried to use the MAV_CMD_REQUEST_MESSAGE method in a COMMAND_LONG (#76) (https://mavlink.io/en/messages/common.html#COMMAND_LONG) but I never
+    // ORIGINALLY I tried to use the MAV_CMD_REQUEST_MESSAGE method in a COMMAND_LONG (#76) (https://mavlink.io/en/messages/common.html#COMMAND_LONG) but I never
     // seemed to get a response, or even a COMMAND_ACK (#77) https://mavlink.io/en/messages/common.html#COMMAND_ACK back.
-        // components of the MAVLink COMMAND_LONG message - https://mavlink.io/en/messages/common.html#COMMAND_LONG
+    // This was the method suggested in the ArduPilot doco at https://ardupilot.org/dev/docs/mavlink-requesting-data.html#using-request-message 
+    // but it either did not work or I was doing something wrong???? 
+    //
+        // The code I tried to use....
+        // Create components of the MAVLink COMMAND_LONG message - https://mavlink.io/en/messages/common.html#COMMAND_LONG
         //uint16_t _cl_command      = MAV_CMD_REQUEST_MESSAGE; // MAV_CMD_SET_MESSAGE_INTERVAL; // https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_MESSAGE
         //uint8_t _cl_confirmation  = 0; // always 0 for first transmission, then incremented. https://mavlink.io/en/services/command.html#COMMAND_LONG
         //float   _cl_param1 = MAVLINK_MSG_ID_POWER_STATUS;   // MAVLink Message ID
@@ -192,10 +196,16 @@ void mavlink_request_streaming_params_from_ap()
         //float   _cl_param5 = 0; // Not used, so set to zero.
         //float   _cl_param6 = 0; // Not used, so set to zero.
         //float   _cl_param7 = 0; // Not used, so set to zero.
-    // So insted I switched to using the MAV_CMD_SET_MESSAGE_INTERVAL method in a COMMAND_LONG (#76) (https://mavlink.io/en/messages/common.html#COMMAND_LONG) 
-    // as it seemed to work.  The nominated messages would start flowing and I would also get the correct 
-    // COMMAND_ACK (#77) https://mavlink.io/en/messages/common.html#COMMAND_ACK back from the AutoPilot, acknowledging the command.
-    
+    //
+    // SO INSTEAD I fell back to using the streaming method (AP streams messages at regular intervals) and 
+    // used MAV_CMD_SET_MESSAGE_INTERVAL method in a COMMAND_LONG (#76) (https://mavlink.io/en/messages/common.html#COMMAND_LONG) 
+    // to ask the AP to stream the messages I wanted at a regular interval, and that seemed to work.  
+    // The nominated messages would start flowing and I would also get the correct 
+    // COMMAND_ACK (#77) https://mavlink.io/en/messages/common.html#COMMAND_ACK back from the AutoPilot, acknowledging the COMMAND_LONG's
+    // I sent it to set those message intervals.
+
+    // The code below places all those requests...
+
     // Build 1st COMMAND_LONG / MAV_CMD_SET_MESSAGE_INTERVAL message.
     // components of the MAVLink COMMAND_LONG message - https://mavlink.io/en/messages/common.html#COMMAND_LONG
     uint16_t _cl_command      = MAV_CMD_SET_MESSAGE_INTERVAL; // https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_MESSAGE
@@ -277,6 +287,31 @@ void mavlink_request_streaming_params_from_ap()
     delay(500);
 
 } // END - request_streaming_params_from_ap()
+
+
+
+void request_one_param_from_ap()
+{
+    // Initialize the required buffers
+    mavlink_message_t msg;
+    uint8_t buf[MAVLINK_MAX_PACKET_LEN];
+  
+    uint16_t len;
+
+    // MAV_TYPE
+    // BATT_ARM_VOLT
+    const char param_i_want[16] = "BATT_ARM_VOLT";
+
+    debugPrintln("request_one_param_from_ap() - START");
+
+    mavlink_msg_param_request_read_pack(FMX_SYS_ID, FMX_COMP_ID, &msg, AP_SYS_ID, AP_COMP_ID, param_i_want, -1);
+
+    len = mavlink_msg_to_send_buffer(buf, &msg); // put message into our send buffer and also get it's size in bytes.
+    Serial1.write(buf, len); //Write data to serial port byte by byte.
+    
+    debugPrintln("request_one_param_from_ap() - END");
+
+}
 
 
 
@@ -371,7 +406,42 @@ void mavlink_receive()
       }
 
       //============================
-      case MAVLINK_MSG_ID_GPS_RAW_INT:
+      case MAVLINK_MSG_ID_PARAM_VALUE:    // https://mavlink.io/en/messages/common.html#PARAM_VALUE
+      {
+        mavlink_param_value_t param_value;
+        mavlink_msg_param_value_decode(&msg, &param_value);
+
+        #ifdef MAVLINK_DEBUG
+          debugPrint("=PARAM_VALUE");
+          Serial.print(" param_id:");
+          Serial.print(param_value.param_id);
+          Serial.print(" param_value:");
+          Serial.print(param_value.param_value);
+          Serial.print(" param_type:");
+          Serial.print(param_value.param_type);
+          Serial.print(" param_count");
+          Serial.print(param_value.param_count);
+          Serial.print(" param_index");
+          Serial.print(param_value.param_index);
+        #endif
+
+        // Save things I'm interested in to FeatherMx data structure for use later.
+
+        // if (hb.type == MAV_TYPE_SURFACE_BOAT)
+        // {
+        //   myFeatherMxSettings.AP_BASEMODE = hb.base_mode;
+        //   myFeatherMxSettings.AP_CUSTOMMODE = hb.custom_mode;
+        //   myFeatherMxSettings.AP_SYSTEMSTATUS = hb.system_status;
+        // }
+
+        break;
+      }
+
+
+
+
+      //============================
+      case MAVLINK_MSG_ID_GPS_RAW_INT:    // https://mavlink.io/en/messages/common.html#GPS_RAW_INT
       {
         mavlink_gps_raw_int_t packet;
         mavlink_msg_gps_raw_int_decode(&msg, &packet);

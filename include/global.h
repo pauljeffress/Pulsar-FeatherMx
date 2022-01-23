@@ -163,6 +163,8 @@ void mavlink_request_datastream();
 void mavlink_unrequest_datastream();
 void mavlink_request_streaming_params_from_ap();
 
+void request_one_param_from_ap();
+
 void case_loop_init();
 void case_zzz();
 void case_wake();
