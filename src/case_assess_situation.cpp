@@ -125,6 +125,7 @@ while (loop_step == assess_situation)   // Stay in this state machine or is it t
     // Send Mavlink data to the autopilot.
     case tx_to_autopilot:
       case_tx_to_autopilot();
+      assess_step = rx_from_agt; // Set next state here because we always go to same next function.
     break;
 
     // ************************************************************************************************

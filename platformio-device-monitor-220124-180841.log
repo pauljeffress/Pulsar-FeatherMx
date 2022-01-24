@@ -1,0 +1,1377 @@
+================================================
+************************************************
+================================================
+case_loop_init() - Pulsar FeatherMx (Re)starting
+Starting: CAN OK
+timerSetup() - executing
+actuatorsSetup() - executing
+actuatorsSetup() - Pi ON
+actuatorsSetup() - Strobe Light ON
+actuatorsSetup() - PowerFeather ON
+actuatorsSetup() - complete
+sensorsSetup() - executing
+sensorsSetup() - SHT31 initialising
+sensorsSetup() - OK
+sensorsSetup() - Heater DISABLED
+sensorsSetup() - AmbientLight initialising
+sensorsSetup() - OK
+sensorsSetup() - DS18B20 Temp initialising
+sensorsSetup() - OK
+sensorsSetup() - Parasite Power DISABLED
+mavlink_unrequest_datastream() - Executing
+case_heartbeat_to_autopilot() - Time to execute.
+mavlink_fmx_send_heartbeat_to_ap() - Executing
+case_heartbeat_to_autopilot() - Time to execute.
+mavlink_fmx_send_heartbeat_to_ap() - Executing
+case_rx_from_autopilot() - Time to execute.
+mavlink_unrequest_datastream() - Executing
+request_one_param_from_ap() - START
+request_one_param_from_ap() - END
+case_rx_from_autopilot() - ATTEMPTING RX - starting at Millis:66367
+mavlink_receive() - MSG RCVD - magic:254 seq:98 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:100 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:101 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:102 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:103 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:104 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85298871mS LAT:0degE7 LON:0degE7 MSL_ALT:34230mm REL_ALT:34236mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16751cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:105 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:72
+mavlink_receive() - MSG RCVD - magic:254 seq:106 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5117mV Vservo:5017mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:107 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:108 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85298872
+mavlink_receive() - MSG RCVD - magic:254 seq:109 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5117mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:110 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13115 voltages[1]:65535 current_battery:55
+mavlink_receive() - MSG RCVD - magic:254 seq:194 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85354871mS LAT:0degE7 LON:0degE7 MSL_ALT:34110mm REL_ALT:34117mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16759cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:195 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:72
+mavlink_receive() - MSG RCVD - magic:254 seq:196 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5122mV Vservo:5022mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:197 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:198 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85354871
+mavlink_receive() - MSG RCVD - magic:254 seq:199 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5122mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:200 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13155 voltages[1]:65535 current_battery:53
+mavlink_receive() - MSG RCVD - magic:254 seq:201 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:202 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:203 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:204 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:212 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:205 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:206 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:207 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:208 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:209 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85355871mS LAT:0degE7 LON:0degE7 MSL_ALT:34160mm REL_ALT:34162mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16763cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:210 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:72
+mavlink_receive() - MSG RCVD - magic:254 seq:211 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5118mV Vservo:5017mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:212 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:213 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85355872
+mavlink_receive() - MSG RCVD - magic:254 seq:214 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5118mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:215 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13027 voltages[1]:65535 current_battery:0
+mavlink_receive() - MSG RCVD - magic:254 seq:216 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:241 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:217 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:218 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:219 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:214 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:220 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:221 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:222 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:223 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:224 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85356871mS LAT:0degE7 LON:0degE7 MSL_ALT:33840mm REL_ALT:33846mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16758cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:225 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:72
+mavlink_receive() - MSG RCVD - magic:254 seq:226 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5123mV Vservo:5027mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:227 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:228 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85356871
+mavlink_receive() - MSG RCVD - magic:254 seq:229 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5123mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:230 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13134 voltages[1]:65535 current_battery:57
+mavlink_receive() - MSG RCVD - magic:254 seq:231 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:243 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:232 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:233 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:234 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:216 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:235 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:236 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:237 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:238 src sysid:1 src compid:1 msgid#:35
+case_rx_from_autopilot() - Done RX - ending at Millis:69367
+case_rx_from_agt() - FMX received a Datum from the AGT
+case_heartbeat_to_autopilot() - Time to execute.
+mavlink_fmx_send_heartbeat_to_ap() - Executing
+case_heartbeat_to_autopilot() - Time to execute.
+mavlink_fmx_send_heartbeat_to_ap() - Executing
+case_heartbeat_to_autopilot() - Time to execute.
+mavlink_fmx_send_heartbeat_to_ap() - Executing
+case_tx_to_autopilot() - Periodic TX - Time to execute.
+case_tx_to_autopilot() - Periodic TX - calling set_one_param_from_ap()
+set_one_param_from_ap() - START
+set_one_param_from_ap() - END
+case_tx_to_autopilot() - Periodic TX - do quick and dirty mavlink_receive() to check for response to param_set
+mavlink_receive() - MSG RCVD - magic:254 seq:239 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85357871mS LAT:0degE7 LON:0degE7 MSL_ALT:33970mm REL_ALT:33970mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16761cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:240 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:72
+mavlink_receive() - MSG RCVD - magic:254 seq:241 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5119mV Vservo:5017mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:242 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:243 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85357872
+mavlink_receive() - MSG RCVD - magic:254 seq:244 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5119mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:245 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13019 voltages[1]:65535 current_battery:0
+mavlink_receive() - MSG RCVD - magic:254 seq:246 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:245 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:247 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:30 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:31 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:32 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:33 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85411871mS LAT:0degE7 LON:0degE7 MSL_ALT:33930mm REL_ALT:33939mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16769cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:34 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:72
+mavlink_receive() - MSG RCVD - magic:254 seq:35 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5120mV Vservo:5017mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:36 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:37 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85411871
+mavlink_receive() - MSG RCVD - magic:254 seq:38 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5109mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:39 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13019 voltages[1]:65535 current_battery:0
+mavlink_receive() - MSG RCVD - magic:254 seq:40 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:160 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:41 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:42 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:43 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:70 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:44 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:45 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:46 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:47 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:48 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85412871mS LAT:0degE7 LON:0degE7 MSL_ALT:34080mm REL_ALT:34089mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16772cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:49 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:71
+mavlink_receive() - MSG RCVD - magic:254 seq:50 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5126mV Vservo:5022mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:51 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:52 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85412872
+mavlink_receive() - MSG RCVD - magic:254 seq:53 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5126mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:54 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13181 voltages[1]:65535 current_battery:51
+mavlink_receive() - MSG RCVD - magic:254 seq:55 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:56 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:57 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:58 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:72 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:162 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:59 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:60 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:61 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:62 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:63 src sysid:1 src compid:1 msgid#:111
+mavlink_receive() - MSG RCVD - magic:254 seq:64 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85413871mS LAT:0degE7 LON:0degE7 MSL_ALT:33900mm REL_ALT:33902mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16773cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:65 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:72
+mavlink_receive() - MSG RCVD - magic:254 seq:66 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5115mV Vservo:5020mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:67 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:68 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85413871
+mavlink_receive() - MSG RCVD - magic:254 seq:69 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5115mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:70 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13020 voltages[1]:65535 current_battery:0
+mavlink_receive() - MSG RCVD - magic:254 seq:71 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:165 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:72 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:73 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:74 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:74 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+case_tx_to_autopilot() - Periodic TX - Finished.
+case_rx_from_autopilot() - Time to execute.
+mavlink_unrequest_datastream() - Executing
+request_one_param_from_ap() - START
+request_one_param_from_ap() - END
+case_rx_from_autopilot() - ATTEMPTING RX - starting at Millis:130838
+mavlink_receive() - MSG RCVD - magic:254 seq:75 src sysid:1 src compid:1 msgid#:77
+mavlink_receive() - MSG RCVD - magic:254 seq:76 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:77 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:78 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:79 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:80 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85414871mS LAT:0degE7 LON:0degE7 MSL_ALT:33930mm REL_ALT:33934mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16765cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:81 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:72
+mavlink_receive() - MSG RCVD - magic:254 seq:82 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5120mV Vservo:5017mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:83 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:84 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85414871
+mavlink_receive() - MSG RCVD - magic:254 seq:85 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5120mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:86 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13120 voltages[1]:65535 current_battery:59
+mavlink_receive() - MSG RCVD - magic:254 seq:158 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:159 src sysid:1 src compid:1 msgid#:22=PARAM_VALUE param_id:BATT_ARM_VOLT param_value:12.00 param_type:9 param_count893 param_index65535
+mavlink_receive() - MSG RCVD - magic:254 seq:84 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:160 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:161 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:162 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:163 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:164 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85419871mS LAT:0degE7 LON:0degE7 MSL_ALT:33950mm REL_ALT:33959mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16767cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:165 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:72
+mavlink_receive() - MSG RCVD - magic:254 seq:166 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5120mV Vservo:5017mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:167 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:168 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85419872
+mavlink_receive() - MSG RCVD - magic:254 seq:169 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5120mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:170 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13020 voltages[1]:65535 current_battery:0
+mavlink_receive() - MSG RCVD - magic:254 seq:171 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:177 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:172 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:173 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:174 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:178 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:179 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:180 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:181 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:182 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:183 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:184 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:185 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:186 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:187 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:188 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:189 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:190 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:191 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:86 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:175 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:176 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:177 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:178 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:179 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85420871mS LAT:0degE7 LON:0degE7 MSL_ALT:33940mm REL_ALT:33948mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16762cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:180 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:72
+mavlink_receive() - MSG RCVD - magic:254 seq:181 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5123mV Vservo:4998mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:182 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:183 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85420871
+mavlink_receive() - MSG RCVD - magic:254 seq:184 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5123mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:185 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13106 voltages[1]:65535 current_battery:61
+mavlink_receive() - MSG RCVD - magic:254 seq:186 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:193 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:187 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:188 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:189 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:88 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:190 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:191 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:192 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:193 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:195 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:194 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85421872mS LAT:0degE7 LON:0degE7 MSL_ALT:34000mm REL_ALT:34001mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16754cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:195 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:319848751 load:72
+mavlink_receive() - MSG RCVD - magic:254 seq:196 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5120mV Vservo:5024mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:197 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:198 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85421872
+mavlink_receive() - MSG RCVD - magic:254 seq:199 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5120mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:200 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13028 voltages[1]:65535 current_battery:0
+mavlink_receive() - MSG RCVD - magic:254 seq:201 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+case_rx_from_autopilot() - Done RX - ending at Millis:133838
+case_tx_to_agt() - Time to execute
+sendSharedSettings_to_AGT() - starting
+sendSharedSettings_to_AGT() - FMX about to SerialTransfer sendDatum() to AGT
+sendSharedSettings_to_AGT() - FMX to AGT transfer finished - numbytessent:208
+case_tx_to_agt() - finished
+case_heartbeat_to_autopilot() - Time to execute.
+mavlink_fmx_send_heartbeat_to_ap() - Executing
+case_heartbeat_to_autopilot() - Time to execute.
+mavlink_fmx_send_heartbeat_to_ap() - Executing
+case_heartbeat_to_autopilot() - Time to execute.
+mavlink_fmx_send_heartbeat_to_ap() - Executing
+case_rx_from_agt() - FMX received a Datum from the AGT
+case_rx_from_autopilot() - Time to execute.
+mavlink_unrequest_datastream() - Executing
+request_one_param_from_ap() - START
+request_one_param_from_ap() - END
+case_rx_from_autopilot() - ATTEMPTING RX - starting at Millis:192592
+mavlink_receive() - MSG RCVD - magic:254 seq:202 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:203 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:204 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:90 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:205 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:206 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:207 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:208 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:209 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85422871mS LAT:0degE7 LON:0degE7 MSL_ALT:34010mm REL_ALT:34010mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16754cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:210 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:72
+mavlink_receive() - MSG RCVD - magic:254 seq:211 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5117mV Vservo:5032mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:73 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85480871mS LAT:0degE7 LON:0degE7 MSL_ALT:33840mm REL_ALT:33840mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16765cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:74 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:73
+mavlink_receive() - MSG RCVD - magic:254 seq:75 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5117mV Vservo:5027mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:76 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:77 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85480872
+mavlink_receive() - MSG RCVD - magic:254 seq:78 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5117mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:79 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13112 voltages[1]:65535 current_battery:60
+mavlink_receive() - MSG RCVD - magic:254 seq:80 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:125 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:81 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:82 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:83 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:208 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:84 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:85 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:86 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:87 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:127 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:88 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85481871mS LAT:0degE7 LON:0degE7 MSL_ALT:34010mm REL_ALT:34016mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16773cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:89 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:73
+mavlink_receive() - MSG RCVD - magic:254 seq:90 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5122mV Vservo:5022mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:91 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:92 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85481871
+mavlink_receive() - MSG RCVD - magic:254 seq:93 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5122mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:94 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13038 voltages[1]:65535 current_battery:0
+mavlink_receive() - MSG RCVD - magic:254 seq:95 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:96 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:97 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:98 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:210 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:99 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:100 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:101 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:102 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:103 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85482871mS LAT:0degE7 LON:0degE7 MSL_ALT:33870mm REL_ALT:33871mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16771cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:104 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:72
+mavlink_receive() - MSG RCVD - magic:254 seq:105 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5030mV Vservo:5000mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:106 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:107 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85482871
+mavlink_receive() - MSG RCVD - magic:254 seq:108 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5030mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:109 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13158 voltages[1]:65535 current_battery:52
+mavlink_receive() - MSG RCVD - magic:254 seq:110 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:129 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:111 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:112 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:113 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:212 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:114 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:115 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:116 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:117 src sysid:1 src compid:1 msgid#:35
+case_rx_from_autopilot() - Done RX - ending at Millis:195592
+CANsendHello()
+case_heartbeat_to_autopilot() - Time to execute.
+mavlink_fmx_send_heartbeat_to_ap() - Executing
+case_heartbeat_to_autopilot() - Time to execute.
+mavlink_fmx_send_heartbeat_to_ap() - Executing
+case_heartbeat_to_autopilot() - Time to execute.
+mavlink_fmx_send_heartbeat_to_ap() - Executing
+case_tx_to_autopilot() - Periodic TX - Time to execute.
+case_tx_to_autopilot() - Periodic TX - calling set_one_param_from_ap()
+set_one_param_from_ap() - START
+set_one_param_from_ap() - END
+case_tx_to_autopilot() - Periodic TX - do quick and dirty mavlink_receive() to check for response to param_set
+mavlink_receive() - MSG RCVD - magic:254 seq:118 src sysid:1 src compid:1 msgid#:111
+mavlink_receive() - MSG RCVD - magic:254 seq:119 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85483871mS LAT:0degE7 LON:0degE7 MSL_ALT:33960mm REL_ALT:33965mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16769cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:120 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:72
+mavlink_receive() - MSG RCVD - magic:254 seq:121 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5105mV Vservo:5017mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:122 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:123 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85483871
+mavlink_receive() - MSG RCVD - magic:254 seq:124 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5105mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:125 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13018 voltages[1]:65535 current_battery:0
+mavlink_receive() - MSG RCVD - magic:254 seq:126 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:124 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85534871mS LAT:0degE7 LON:0degE7 MSL_ALT:34000mm REL_ALT:34004mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16762cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:125 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:73
+mavlink_receive() - MSG RCVD - magic:254 seq:126 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5063mV Vservo:5022mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:127 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:128 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85534871
+mavlink_receive() - MSG RCVD - magic:254 seq:129 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5063mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:130 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13158 voltages[1]:65535 current_battery:54
+mavlink_receive() - MSG RCVD - magic:254 seq:131 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:45 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:132 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:133 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:134 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:60 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:135 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:136 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:137 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:138 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:139 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85535871mS LAT:0degE7 LON:0degE7 MSL_ALT:34010mm REL_ALT:34016mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16763cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:140 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:73
+mavlink_receive() - MSG RCVD - magic:254 seq:141 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5119mV Vservo:5020mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:142 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:143 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85535872
+mavlink_receive() - MSG RCVD - magic:254 seq:144 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5119mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:145 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13014 voltages[1]:65535 current_battery:0
+mavlink_receive() - MSG RCVD - magic:254 seq:146 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:47 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:147 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:148 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:149 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:62 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:150 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:151 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:152 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:153 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:49 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:154 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85536871mS LAT:0degE7 LON:0degE7 MSL_ALT:33890mm REL_ALT:33897mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16764cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:155 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:73
+mavlink_receive() - MSG RCVD - magic:254 seq:156 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5106mV Vservo:5024mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:157 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:158 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85536872
+mavlink_receive() - MSG RCVD - magic:254 seq:159 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5106mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:160 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13173 voltages[1]:65535 current_battery:51
+mavlink_receive() - MSG RCVD - magic:254 seq:161 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:162 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:163 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:164 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:64 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:165 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:166 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:167 src sysid:1 src compid:1 msgid#:65
+case_tx_to_autopilot() - Periodic TX - Finished.
+case_rx_from_autopilot() - Time to execute.
+mavlink_unrequest_datastream() - Executing
+request_one_param_from_ap() - START
+request_one_param_from_ap() - END
+case_rx_from_autopilot() - ATTEMPTING RX - starting at Millis:255014
+mavlink_receive() - MSG RCVD - magic:254 seq:168 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:169 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85537871mS LAT:0degE7 LON:0degE7 MSL_ALT:33850mm REL_ALT:33854mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16762cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:170 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:72
+mavlink_receive() - MSG RCVD - magic:254 seq:171 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5079mV Vservo:5022mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:172 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:173 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85537871
+mavlink_receive() - MSG RCVD - magic:254 seq:174 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5079mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:175 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13036 voltages[1]:65535 current_battery:0
+mavlink_receive() - MSG RCVD - magic:254 seq:176 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:51 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:177 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:9 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:10 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:11 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:12 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:13 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85543871mS LAT:0degE7 LON:0degE7 MSL_ALT:34010mm REL_ALT:34018mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16770cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:14 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:72
+mavlink_receive() - MSG RCVD - magic:254 seq:15 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5119mV Vservo:5020mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:16 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:17 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85543871
+mavlink_receive() - MSG RCVD - magic:254 seq:18 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5119mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:19 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13028 voltages[1]:65535 current_battery:0
+mavlink_receive() - MSG RCVD - magic:254 seq:20 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:21 src sysid:1 src compid:1 msgid#:111
+mavlink_receive() - MSG RCVD - magic:254 seq:73 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:22 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:23 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:24 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:78 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:25 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:26 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:27 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:28 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:29 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85544871mS LAT:0degE7 LON:0degE7 MSL_ALT:33900mm REL_ALT:33902mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16765cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:30 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:73
+mavlink_receive() - MSG RCVD - magic:254 seq:31 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5085mV Vservo:5022mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:32 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:33 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85544871
+mavlink_receive() - MSG RCVD - magic:254 seq:34 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5085mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:35 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13122 voltages[1]:65535 current_battery:58
+mavlink_receive() - MSG RCVD - magic:254 seq:36 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:76 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:37 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:38 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:39 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:80 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:40 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:41 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:42 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:43 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:44 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85545871mS LAT:0degE7 LON:0degE7 MSL_ALT:34030mm REL_ALT:34030mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16765cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:45 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:72
+mavlink_receive() - MSG RCVD - magic:254 seq:46 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5026mV Vservo:5022mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:47 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:48 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85545871
+mavlink_receive() - MSG RCVD - magic:254 seq:49 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5026mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:50 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13012 voltages[1]:65535 current_battery:0
+mavlink_receive() - MSG RCVD - magic:254 seq:51 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:78 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:52 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:53 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:54 src sysid:1 src compid:1 msgid#:35
+case_rx_from_autopilot() - Done RX - ending at Millis:258014
+case_heartbeat_to_autopilot() - Time to execute.
+mavlink_fmx_send_heartbeat_to_ap() - Executing
+case_tx_to_agt() - Time to execute
+sendSharedSettings_to_AGT() - starting
+sendSharedSettings_to_AGT() - FMX about to SerialTransfer sendDatum() to AGT
+sendSharedSettings_to_AGT() - FMX to AGT transfer finished - numbytessent:208
+case_tx_to_agt() - finished
+case_heartbeat_to_autopilot() - Time to execute.
+mavlink_fmx_send_heartbeat_to_ap() - Executing
+case_heartbeat_to_autopilot() - Time to execute.
+mavlink_fmx_send_heartbeat_to_ap() - Executing
+case_rx_from_agt() - FMX received a Datum from the AGT
+case_rx_from_autopilot() - Time to execute.
+mavlink_unrequest_datastream() - Executing
+request_one_param_from_ap() - START
+request_one_param_from_ap() - END
+case_rx_from_autopilot() - ATTEMPTING RX - starting at Millis:316768
+mavlink_receive() - MSG RCVD - magic:254 seq:82 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:55 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:56 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:57 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:58 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:59 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85546871mS LAT:0degE7 LON:0degE7 MSL_ALT:34040mm REL_ALT:34044mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16768cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:60 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:72
+mavlink_receive() - MSG RCVD - magic:254 seq:61 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5108mV Vservo:5017mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:62 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:63 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85546871
+mavlink_receive() - MSG RCVD - magic:254 seq:64 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5108mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:65 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13137 voltages[1]:65535 current_battery:56
+mavlink_receive() - MSG RCVD - magic:254 seq:180 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:72
+mavlink_receive() - MSG RCVD - magic:254 seq:181 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5122mV Vservo:5022mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:182 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:183 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85604871
+mavlink_receive() - MSG RCVD - magic:254 seq:184 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5122mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:185 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13143 voltages[1]:65535 current_battery:56
+mavlink_receive() - MSG RCVD - magic:254 seq:186 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:6 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:187 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:188 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:189 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:200 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:190 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:191 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:192 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:193 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:8 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:194 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85605872mS LAT:0degE7 LON:0degE7 MSL_ALT:33960mm REL_ALT:33967mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16764cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:195 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:72
+mavlink_receive() - MSG RCVD - magic:254 seq:196 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5109mV Vservo:5017mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:197 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:198 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85605872
+mavlink_receive() - MSG RCVD - magic:254 seq:199 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5109mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:200 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13029 voltages[1]:65535 current_battery:0
+mavlink_receive() - MSG RCVD - magic:254 seq:201 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:202 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:203 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:204 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:202 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:205 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:206 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:207 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:208 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:10 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:209 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85606871mS LAT:0degE7 LON:0degE7 MSL_ALT:33950mm REL_ALT:33951mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16764cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:210 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:72
+mavlink_receive() - MSG RCVD - magic:254 seq:211 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5117mV Vservo:5020mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:212 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:213 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85606872
+mavlink_receive() - MSG RCVD - magic:254 seq:214 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5117mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:215 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13145 voltages[1]:65535 current_battery:56
+mavlink_receive() - MSG RCVD - magic:254 seq:216 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:217 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:218 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:219 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:204 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:220 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:221 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:222 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:223 src sysid:1 src compid:1 msgid#:35
+case_rx_from_autopilot() - Done RX - ending at Millis:319768
+case_heartbeat_to_autopilot() - Time to execute.
+mavlink_fmx_send_heartbeat_to_ap() - Executing
+case_heartbeat_to_autopilot() - Time to execute.
+mavlink_fmx_send_heartbeat_to_ap() - Executing
+case_heartbeat_to_autopilot() - Time to execute.
+mavlink_fmx_send_heartbeat_to_ap() - Executing
+case_tx_to_autopilot() - Periodic TX - Time to execute.
+case_tx_to_autopilot() - Periodic TX - calling set_one_param_from_ap()
+set_one_param_from_ap() - START
+set_one_param_from_ap() - END
+case_tx_to_autopilot() - Periodic TX - do quick and dirty mavlink_receive() to check for response to param_set
+mavlink_receive() - MSG RCVD - magic:254 seq:224 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85607871mS LAT:0degE7 LON:0degE7 MSL_ALT:33990mm REL_ALT:33996mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16766cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:225 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:72
+mavlink_receive() - MSG RCVD - magic:254 seq:226 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5125mV Vservo:5022mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:227 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:228 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85607871
+mavlink_receive() - MSG RCVD - magic:254 seq:229 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5125mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:230 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13016 voltages[1]:65535 current_battery:0
+mavlink_receive() - MSG RCVD - magic:254 seq:231 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:12 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:232 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:215 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:72
+mavlink_receive() - MSG RCVD - magic:254 seq:216 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5123mV Vservo:5017mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:217 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:218 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85657871
+mavlink_receive() - MSG RCVD - magic:254 seq:219 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5123mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:220 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13026 voltages[1]:65535 current_battery:0
+mavlink_receive() - MSG RCVD - magic:254 seq:221 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:189 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:222 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:223 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:224 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:50 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:225 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:226 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:227 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:228 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:191 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:229 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85658872mS LAT:0degE7 LON:0degE7 MSL_ALT:34040mm REL_ALT:34044mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16770cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:230 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:72
+mavlink_receive() - MSG RCVD - magic:254 seq:231 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5097mV Vservo:5022mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:232 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:233 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85658872
+mavlink_receive() - MSG RCVD - magic:254 seq:234 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5097mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:235 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13140 voltages[1]:65535 current_battery:55
+mavlink_receive() - MSG RCVD - magic:254 seq:236 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:237 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:238 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:239 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:52 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:240 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:241 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:242 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:243 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:244 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85659871mS LAT:0degE7 LON:0degE7 MSL_ALT:34220mm REL_ALT:34222mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16768cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:245 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:72
+mavlink_receive() - MSG RCVD - magic:254 seq:246 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5103mV Vservo:5022mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:247 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:248 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85659872
+mavlink_receive() - MSG RCVD - magic:254 seq:249 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5103mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:250 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13025 voltages[1]:65535 current_battery:0
+mavlink_receive() - MSG RCVD - magic:254 seq:251 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:193 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:252 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:253 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:254 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:54 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:255 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:0 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:1 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:2 src sysid:1 src compid:1 msgid#:35
+case_tx_to_autopilot() - Periodic TX - Finished.
+case_rx_from_autopilot() - Time to execute.
+mavlink_unrequest_datastream() - Executing
+request_one_param_from_ap() - START
+request_one_param_from_ap() - END
+case_rx_from_autopilot() - ATTEMPTING RX - starting at Millis:379190
+mavlink_receive() - MSG RCVD - magic:254 seq:3 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85660871mS LAT:0degE7 LON:0degE7 MSL_ALT:33990mm REL_ALT:33996mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16778cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:4 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:72
+mavlink_receive() - MSG RCVD - magic:254 seq:5 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5121mV Vservo:4988mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:6 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:7 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85660871
+mavlink_receive() - MSG RCVD - magic:254 seq:8 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5121mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:9 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13136 voltages[1]:65535 current_battery:56
+mavlink_receive() - MSG RCVD - magic:254 seq:10 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:195 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:11 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:115 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:116 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:117 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:118 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:119 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85667871mS LAT:0degE7 LON:0degE7 MSL_ALT:34300mm REL_ALT:34304mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16771cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:120 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:72
+mavlink_receive() - MSG RCVD - magic:254 seq:121 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5108mV Vservo:5022mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:122 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:123 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85667871
+mavlink_receive() - MSG RCVD - magic:254 seq:124 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5108mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:125 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13028 voltages[1]:65535 current_battery:0
+mavlink_receive() - MSG RCVD - magic:254 seq:126 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:210 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:127 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:128 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:129 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:70 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:130 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:131 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:132 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:133 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:211 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:212 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:213 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:214 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:215 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:216 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:217 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:218 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:219 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:220 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:221 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:222 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:223 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:224 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:134 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85668871mS LAT:0degE7 LON:0degE7 MSL_ALT:34180mm REL_ALT:34188mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16774cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:135 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:72
+mavlink_receive() - MSG RCVD - magic:254 seq:136 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5122mV Vservo:5027mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:137 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:138 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85668872
+mavlink_receive() - MSG RCVD - magic:254 seq:139 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5122mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:140 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13170 voltages[1]:65535 current_battery:55
+mavlink_receive() - MSG RCVD - magic:254 seq:141 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:227 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:142 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:143 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:144 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:72 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:145 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:146 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:147 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:148 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:230 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:149 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85669872mS LAT:0degE7 LON:0degE7 MSL_ALT:34200mm REL_ALT:34205mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16773cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:150 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:72
+mavlink_receive() - MSG RCVD - magic:254 seq:151 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5105mV Vservo:5017mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:152 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:153 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85669872
+mavlink_receive() - MSG RCVD - magic:254 seq:154 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5105mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:155 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13033 voltages[1]:65535 current_battery:0
+mavlink_receive() - MSG RCVD - magic:254 seq:156 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:157 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:158 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:159 src sysid:1 src compid:1 msgid#:35
+case_rx_from_autopilot() - Done RX - ending at Millis:382190
+CANsendHello()
+case_heartbeat_to_autopilot() - Time to execute.
+mavlink_fmx_send_heartbeat_to_ap() - Executing
+case_tx_to_agt() - Time to execute
+sendSharedSettings_to_AGT() - starting
+sendSharedSettings_to_AGT() - FMX about to SerialTransfer sendDatum() to AGT
+sendSharedSettings_to_AGT() - FMX to AGT transfer finished - numbytessent:208
+case_tx_to_agt() - finished
+case_heartbeat_to_autopilot() - Time to execute.
+mavlink_fmx_send_heartbeat_to_ap() - Executing
+case_rx_from_agt() - FMX received a Datum from the AGT
+case_heartbeat_to_autopilot() - Time to execute.
+mavlink_fmx_send_heartbeat_to_ap() - Executing
+case_rx_from_autopilot() - Time to execute.
+mavlink_unrequest_datastream() - Executing
+request_one_param_from_ap() - START
+request_one_param_from_ap() - END
+case_rx_from_autopilot() - ATTEMPTING RX - starting at Millis:440944
+mavlink_receive() - MSG RCVD - magic:254 seq:74 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:160 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:161 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:162 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:163 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:164 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85670871mS LAT:0degE7 LON:0degE7 MSL_ALT:34230mm REL_ALT:34236mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16774cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:165 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:72
+mavlink_receive() - MSG RCVD - magic:254 seq:166 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5121mV Vservo:5024mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:167 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:168 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85670871
+mavlink_receive() - MSG RCVD - magic:254 seq:169 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5121mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:170 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13143 voltages[1]:65535 current_battery:56
+mavlink_receive() - MSG RCVD - magic:254 seq:154 src sysid:1 src compid:1 msgid#:22=PARAM_VALUE param_id:BATT_ARM_VOLT param_value:12.00 param_type:9 param_count893 param_index65535
+mavlink_receive() - MSG RCVD - magic:254 seq:155 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:156 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:157 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:192 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:158 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:159 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:160 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:161 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85729552mS LAT:0degE7 LON:0degE7 MSL_ALT:34080mm REL_ALT:34081mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16742cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:162 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:74
+mavlink_receive() - MSG RCVD - magic:254 seq:163 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5121mV Vservo:5017mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:164 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:165 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85729552
+mavlink_receive() - MSG RCVD - magic:254 seq:166 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5121mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:167 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13032 voltages[1]:65535 current_battery:0
+mavlink_receive() - MSG RCVD - magic:254 seq:168 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:169 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:207 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:170 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:171 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:172 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:194 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:173 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:174 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:175 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:176 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85730552mS LAT:0degE7 LON:0degE7 MSL_ALT:33970mm REL_ALT:33973mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16735cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:177 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:73
+mavlink_receive() - MSG RCVD - magic:254 seq:178 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5101mV Vservo:5024mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:179 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:180 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85730552
+mavlink_receive() - MSG RCVD - magic:254 seq:181 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5101mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:182 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13145 voltages[1]:65535 current_battery:52
+mavlink_receive() - MSG RCVD - magic:254 seq:183 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:184 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:209 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:185 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:186 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:187 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:196 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:188 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:189 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:190 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:191 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85731552mS LAT:0degE7 LON:0degE7 MSL_ALT:34210mm REL_ALT:34213mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16731cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:192 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:72
+mavlink_receive() - MSG RCVD - magic:254 seq:193 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5121mV Vservo:5022mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:194 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:195 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85731552
+mavlink_receive() - MSG RCVD - magic:254 seq:196 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5121mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:197 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13034 voltages[1]:65535 current_battery:0
+mavlink_receive() - MSG RCVD - magic:254 seq:198 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:199 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+case_rx_from_autopilot() - Done RX - ending at Millis:443944
+case_heartbeat_to_autopilot() - Time to execute.
+mavlink_fmx_send_heartbeat_to_ap() - Executing
+case_heartbeat_to_autopilot() - Time to execute.
+mavlink_fmx_send_heartbeat_to_ap() - Executing
+case_tx_to_autopilot() - Periodic TX - Time to execute.
+case_tx_to_autopilot() - Periodic TX - calling set_one_param_from_ap()
+set_one_param_from_ap() - START
+set_one_param_from_ap() - END
+case_tx_to_autopilot() - Periodic TX - do quick and dirty mavlink_receive() to check for response to param_set
+mavlink_receive() - MSG RCVD - magic:254 seq:211 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:200 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:201 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:202 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:198 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:203 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:204 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:205 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:206 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85732552mS LAT:0degE7 LON:0degE7 MSL_ALT:34200mm REL_ALT:34205mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16724cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:207 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:73
+mavlink_receive() - MSG RCVD - magic:254 seq:180 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:181 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85781552mS LAT:0degE7 LON:0degE7 MSL_ALT:33930mm REL_ALT:33934mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16751cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:182 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:73
+mavlink_receive() - MSG RCVD - magic:254 seq:183 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5112mV Vservo:5027mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:184 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:185 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85781552
+mavlink_receive() - MSG RCVD - magic:254 seq:186 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5112mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:187 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13023 voltages[1]:65535 current_battery:0
+mavlink_receive() - MSG RCVD - magic:254 seq:188 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:189 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:106 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:190 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:191 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:192 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:42 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:193 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:194 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:195 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:196 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85782552mS LAT:0degE7 LON:0degE7 MSL_ALT:34100mm REL_ALT:34103mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16750cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:197 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:72
+mavlink_receive() - MSG RCVD - magic:254 seq:198 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5050mV Vservo:5017mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:199 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:200 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85782552
+mavlink_receive() - MSG RCVD - magic:254 seq:201 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5050mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:202 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13170 voltages[1]:65535 current_battery:52
+mavlink_receive() - MSG RCVD - magic:254 seq:203 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:204 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:107 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:108 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:109 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:110 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:111 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:112 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:113 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:114 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:115 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:116 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:117 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:118 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:119 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:120 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:122 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:205 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:206 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:207 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:44 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:208 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:209 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:210 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:211 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85783552mS LAT:0degE7 LON:0degE7 MSL_ALT:34100mm REL_ALT:34109mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16756cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:212 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:73
+mavlink_receive() - MSG RCVD - magic:254 seq:213 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5110mV Vservo:5008mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:214 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:215 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85783552
+mavlink_receive() - MSG RCVD - magic:254 seq:216 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5110mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:217 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13022 voltages[1]:65535 current_battery:0
+mavlink_receive() - MSG RCVD - magic:254 seq:218 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:219 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+case_tx_to_autopilot() - Periodic TX - Finished.
+case_heartbeat_to_autopilot() - Time to execute.
+mavlink_fmx_send_heartbeat_to_ap() - Executing
+case_rx_from_autopilot() - Time to execute.
+mavlink_unrequest_datastream() - Executing
+request_one_param_from_ap() - START
+request_one_param_from_ap() - END
+case_rx_from_autopilot() - ATTEMPTING RX - starting at Millis:503365
+mavlink_receive() - MSG RCVD - magic:254 seq:124 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:220 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:221 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:222 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:223 src sysid:1 src compid:1 msgid#:111
+mavlink_receive() - MSG RCVD - magic:254 seq:46 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:224 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:225 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:226 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:60 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:83 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:84 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:85 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:86 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85791552mS LAT:0degE7 LON:0degE7 MSL_ALT:33880mm REL_ALT:33880mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16752cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:87 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:73
+mavlink_receive() - MSG RCVD - magic:254 seq:88 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5106mV Vservo:5020mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:89 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:90 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85791552
+mavlink_receive() - MSG RCVD - magic:254 seq:91 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5106mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:92 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13021 voltages[1]:65535 current_battery:0
+mavlink_receive() - MSG RCVD - magic:254 seq:93 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:94 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:143 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:95 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:96 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:97 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:62 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:98 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:99 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:100 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:101 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85792552mS LAT:0degE7 LON:0degE7 MSL_ALT:33890mm REL_ALT:33891mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16752cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:102 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:74
+mavlink_receive() - MSG RCVD - magic:254 seq:103 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5119mV Vservo:5022mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:104 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:105 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85792552
+mavlink_receive() - MSG RCVD - magic:254 seq:106 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5119mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:107 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13165 voltages[1]:65535 current_battery:52
+mavlink_receive() - MSG RCVD - magic:254 seq:108 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:109 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:145 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:110 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:111 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:112 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:64 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:113 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:114 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:115 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:116 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85793552mS LAT:0degE7 LON:0degE7 MSL_ALT:33910mm REL_ALT:33914mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16750cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:117 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:73
+mavlink_receive() - MSG RCVD - magic:254 seq:118 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5123mV Vservo:5017mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:119 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:120 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85793552
+mavlink_receive() - MSG RCVD - magic:254 seq:121 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5123mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:122 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13032 voltages[1]:65535 current_battery:0
+mavlink_receive() - MSG RCVD - magic:254 seq:123 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:124 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:147 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:125 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:126 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:127 src sysid:1 src compid:1 msgid#:35
+case_rx_from_autopilot() - Done RX - ending at Millis:506365
+case_heartbeat_to_autopilot() - Time to execute.
+mavlink_fmx_send_heartbeat_to_ap() - Executing
+case_tx_to_agt() - Time to execute
+sendSharedSettings_to_AGT() - starting
+sendSharedSettings_to_AGT() - FMX about to SerialTransfer sendDatum() to AGT
+sendSharedSettings_to_AGT() - FMX to AGT transfer finished - numbytessent:208
+case_tx_to_agt() - finished
+case_heartbeat_to_autopilot() - Time to execute.
+mavlink_fmx_send_heartbeat_to_ap() - Executing
+case_rx_from_agt() - FMX received a Datum from the AGT
+case_heartbeat_to_autopilot() - Time to execute.
+mavlink_fmx_send_heartbeat_to_ap() - Executing
+case_rx_from_autopilot() - Time to execute.
+mavlink_unrequest_datastream() - Executing
+request_one_param_from_ap() - START
+request_one_param_from_ap() - END
+case_rx_from_autopilot() - ATTEMPTING RX - starting at Millis:565119
+mavlink_receive() - MSG RCVD - magic:254 seq:128 src sysid:1 src compid:1 msgid#:111
+mavlink_receive() - MSG RCVD - magic:254 seq:66 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:129 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:130 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:131 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:132 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85794552mS LAT:0degE7 LON:0degE7 MSL_ALT:33910mm REL_ALT:33919mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16742cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:133 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:73
+mavlink_receive() - MSG RCVD - magic:254 seq:134 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5113mV Vservo:5022mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:135 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:136 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85794552
+mavlink_receive() - MSG RCVD - magic:254 seq:137 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5113mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:3 src sysid:1 src compid:1 msgid#:22=PARAM_VALUE param_id:BATT_ARM_VOLT param_value:12.00 param_type:9 param_count893 param_index65535
+mavlink_receive() - MSG RCVD - magic:254 seq:4 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:5 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:6 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:184 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:7 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:8 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:9 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:10 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85853552mS LAT:0degE7 LON:0degE7 MSL_ALT:33750mm REL_ALT:33750mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16747cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:11 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:73
+mavlink_receive() - MSG RCVD - magic:254 seq:12 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5115mV Vservo:5020mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:13 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:14 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85853552
+mavlink_receive() - MSG RCVD - magic:254 seq:15 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5115mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:16 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13018 voltages[1]:65535 current_battery:0
+mavlink_receive() - MSG RCVD - magic:254 seq:17 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:18 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:81 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:19 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:20 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:21 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:186 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:22 src sysid:1 src compid:1 msgid#:111
+mavlink_receive() - MSG RCVD - magic:254 seq:23 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:24 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:25 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:26 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85854552mS LAT:0degE7 LON:0degE7 MSL_ALT:33740mm REL_ALT:33747mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16744cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:27 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:73
+mavlink_receive() - MSG RCVD - magic:254 seq:28 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5083mV Vservo:5017mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:29 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:30 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85854552
+mavlink_receive() - MSG RCVD - magic:254 seq:31 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5083mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:32 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13149 voltages[1]:65535 current_battery:59
+mavlink_receive() - MSG RCVD - magic:254 seq:33 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:34 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:84 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:35 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:36 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:37 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:188 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:38 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:39 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:40 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:41 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85855552mS LAT:0degE7 LON:0degE7 MSL_ALT:33950mm REL_ALT:33953mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16742cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:42 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:73
+mavlink_receive() - MSG RCVD - magic:254 seq:43 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5124mV Vservo:5022mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:44 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:45 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85855552
+mavlink_receive() - MSG RCVD - magic:254 seq:46 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5124mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:47 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13022 voltages[1]:65535 current_battery:0
+mavlink_receive() - MSG RCVD - magic:254 seq:48 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:49 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+case_rx_from_autopilot() - Done RX - ending at Millis:568119
+CANsendHello()
+case_heartbeat_to_autopilot() - Time to execute.
+mavlink_fmx_send_heartbeat_to_ap() - Executing
+case_heartbeat_to_autopilot() - Time to execute.
+mavlink_fmx_send_heartbeat_to_ap() - Executing
+case_tx_to_autopilot() - Periodic TX - Time to execute.
+case_tx_to_autopilot() - Periodic TX - calling set_one_param_from_ap()
+set_one_param_from_ap() - START
+set_one_param_from_ap() - END
+case_tx_to_autopilot() - Periodic TX - do quick and dirty mavlink_receive() to check for response to param_set
+mavlink_receive() - MSG RCVD - magic:254 seq:86 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:50 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:51 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:52 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:190 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:53 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:54 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:55 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:56 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85856552mS LAT:0degE7 LON:0degE7 MSL_ALT:33850mm REL_ALT:33854mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16741cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:57 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:74
+mavlink_receive() - MSG RCVD - magic:254 seq:15 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85904552mS LAT:0degE7 LON:0degE7 MSL_ALT:33780mm REL_ALT:33787mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16755cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:16 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:74
+mavlink_receive() - MSG RCVD - magic:254 seq:17 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5115mV Vservo:5022mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:18 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:19 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85904552
+mavlink_receive() - MSG RCVD - magic:254 seq:20 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5115mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:21 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13160 voltages[1]:65535 current_battery:53
+mavlink_receive() - MSG RCVD - magic:254 seq:22 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:23 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:24 src sysid:1 src compid:1 msgid#:111
+mavlink_receive() - MSG RCVD - magic:254 seq:249 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:25 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:26 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:27 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:32 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:28 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:29 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:30 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:31 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85905552mS LAT:0degE7 LON:0degE7 MSL_ALT:33670mm REL_ALT:33676mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16755cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:32 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:73
+mavlink_receive() - MSG RCVD - magic:254 seq:33 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5034mV Vservo:5024mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:34 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:35 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85905552
+mavlink_receive() - MSG RCVD - magic:254 seq:36 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5034mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:37 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13035 voltages[1]:65535 current_battery:0
+mavlink_receive() - MSG RCVD - magic:254 seq:38 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:39 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:251 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:40 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:41 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:42 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:34 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:43 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:44 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:45 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:46 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85906552mS LAT:0degE7 LON:0degE7 MSL_ALT:33900mm REL_ALT:33902mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16752cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:47 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:73
+mavlink_receive() - MSG RCVD - magic:254 seq:48 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5119mV Vservo:5017mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:49 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:50 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85906552
+mavlink_receive() - MSG RCVD - magic:254 seq:51 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5119mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:52 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13142 voltages[1]:65535 current_battery:52
+mavlink_receive() - MSG RCVD - magic:254 seq:53 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:54 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+case_tx_to_autopilot() - Periodic TX - Finished.
+case_rx_from_autopilot() - Time to execute.
+mavlink_unrequest_datastream() - Executing
+request_one_param_from_ap() - START
+request_one_param_from_ap() - END
+case_rx_from_autopilot() - ATTEMPTING RX - starting at Millis:627541
+mavlink_receive() - MSG RCVD - magic:254 seq:253 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:55 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:56 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:57 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:36 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:58 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:59 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:60 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:61 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85907552mS LAT:0degE7 LON:0degE7 MSL_ALT:33860mm REL_ALT:33866mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16744cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:62 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:73
+mavlink_receive() - MSG RCVD - magic:254 seq:196 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85915552
+mavlink_receive() - MSG RCVD - magic:254 seq:197 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5119mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:198 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13033 voltages[1]:65535 current_battery:0
+mavlink_receive() - MSG RCVD - magic:254 seq:199 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:200 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:32 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:201 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:202 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:203 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:54 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:204 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:205 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:206 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:207 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85916552mS LAT:0degE7 LON:0degE7 MSL_ALT:33860mm REL_ALT:33866mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16757cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:208 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:73
+mavlink_receive() - MSG RCVD - magic:254 seq:209 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5111mV Vservo:5017mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:210 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:211 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85916552
+mavlink_receive() - MSG RCVD - magic:254 seq:212 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5111mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:213 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13126 voltages[1]:65535 current_battery:55
+mavlink_receive() - MSG RCVD - magic:254 seq:214 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:215 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:34 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:216 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:217 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:218 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:56 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:219 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:220 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:221 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:222 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85917552mS LAT:0degE7 LON:0degE7 MSL_ALT:33890mm REL_ALT:33894mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16760cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:223 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:73
+mavlink_receive() - MSG RCVD - magic:254 seq:224 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5114mV Vservo:5022mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:225 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:226 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85917552
+mavlink_receive() - MSG RCVD - magic:254 seq:227 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5114mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:228 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13020 voltages[1]:65535 current_battery:0
+mavlink_receive() - MSG RCVD - magic:254 seq:229 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:230 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:36 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:231 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:232 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:233 src sysid:1 src compid:1 msgid#:35
+case_rx_from_autopilot() - Done RX - ending at Millis:630541
+case_heartbeat_to_autopilot() - Time to execute.
+mavlink_fmx_send_heartbeat_to_ap() - Executing
+case_tx_to_agt() - Time to execute
+sendSharedSettings_to_AGT() - starting
+sendSharedSettings_to_AGT() - FMX about to SerialTransfer sendDatum() to AGT
+sendSharedSettings_to_AGT() - FMX to AGT transfer finished - numbytessent:208
+case_tx_to_agt() - finished
+case_heartbeat_to_autopilot() - Time to execute.
+mavlink_fmx_send_heartbeat_to_ap() - Executing
+case_heartbeat_to_autopilot() - Time to execute.
+mavlink_fmx_send_heartbeat_to_ap() - Executing
+case_rx_from_agt() - FMX received a Datum from the AGT
+case_rx_from_autopilot() - Time to execute.
+mavlink_unrequest_datastream() - Executing
+request_one_param_from_ap() - START
+request_one_param_from_ap() - END
+case_rx_from_autopilot() - ATTEMPTING RX - starting at Millis:689295
+mavlink_receive() - MSG RCVD - magic:254 seq:58 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:234 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:235 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:236 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:237 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85918552mS LAT:0degE7 LON:0degE7 MSL_ALT:33760mm REL_ALT:33767mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16755cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:238 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:73
+mavlink_receive() - MSG RCVD - magic:254 seq:239 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5111mV Vservo:5027mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:240 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:241 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85918552
+mavlink_receive() - MSG RCVD - magic:254 seq:242 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5111mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:243 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13163 voltages[1]:65535 current_battery:52
+mavlink_receive() - MSG RCVD - magic:254 seq:111 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:112 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:176 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:113 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:114 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:115 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:116 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85977552mS LAT:0degE7 LON:0degE7 MSL_ALT:33750mm REL_ALT:33753mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16739cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:117 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:73
+mavlink_receive() - MSG RCVD - magic:254 seq:118 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5015mV Vservo:5017mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:119 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:120 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85977552
+mavlink_receive() - MSG RCVD - magic:254 seq:121 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5015mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:122 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13036 voltages[1]:65535 current_battery:0
+mavlink_receive() - MSG RCVD - magic:254 seq:123 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:124 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:218 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:125 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:126 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:127 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:178 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:128 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:129 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:130 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:131 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85978552mS LAT:0degE7 LON:0degE7 MSL_ALT:33710mm REL_ALT:33716mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16738cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:132 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:73
+mavlink_receive() - MSG RCVD - magic:254 seq:133 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5122mV Vservo:5020mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:134 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:135 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85978552
+mavlink_receive() - MSG RCVD - magic:254 seq:136 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5122mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:137 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13140 voltages[1]:65535 current_battery:52
+mavlink_receive() - MSG RCVD - magic:254 seq:138 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:139 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:220 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:140 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:141 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:142 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:180 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:143 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:144 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:145 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:146 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85979552mS LAT:0degE7 LON:0degE7 MSL_ALT:33760mm REL_ALT:33761mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16746cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:147 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:73
+mavlink_receive() - MSG RCVD - magic:254 seq:148 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5123mV Vservo:5024mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:149 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:150 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:85979552
+mavlink_receive() - MSG RCVD - magic:254 seq:151 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5123mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:152 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13027 voltages[1]:65535 current_battery:0
+mavlink_receive() - MSG RCVD - magic:254 seq:153 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:154 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:222 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+case_rx_from_autopilot() - Done RX - ending at Millis:692295
+case_heartbeat_to_autopilot() - Time to execute.
+mavlink_fmx_send_heartbeat_to_ap() - Executing
+case_heartbeat_to_autopilot() - Time to execute.
+mavlink_fmx_send_heartbeat_to_ap() - Executing
+case_heartbeat_to_autopilot() - Time to execute.
+mavlink_fmx_send_heartbeat_to_ap() - Executing
+case_tx_to_autopilot() - Periodic TX - Time to execute.
+case_tx_to_autopilot() - Periodic TX - calling set_one_param_from_ap()
+set_one_param_from_ap() - START
+set_one_param_from_ap() - END
+case_tx_to_autopilot() - Periodic TX - do quick and dirty mavlink_receive() to check for response to param_set
+mavlink_receive() - MSG RCVD - magic:254 seq:155 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:156 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:157 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:182 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:158 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:159 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:160 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:161 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:85980552mS LAT:0degE7 LON:0degE7 MSL_ALT:33690mm REL_ALT:33696mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16749cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:162 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:72
+mavlink_receive() - MSG RCVD - magic:254 seq:163 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5102mV Vservo:5022mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:111 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:100 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:101 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:102 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:103 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:104 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:105 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:106 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:86027552mS LAT:0degE7 LON:0degE7 MSL_ALT:33570mm REL_ALT:33575mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16760cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:107 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:73
+mavlink_receive() - MSG RCVD - magic:254 seq:108 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5118mV Vservo:5022mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:109 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:110 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:86027552
+mavlink_receive() - MSG RCVD - magic:254 seq:111 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5118mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:112 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13034 voltages[1]:65535 current_battery:0
+mavlink_receive() - MSG RCVD - magic:254 seq:113 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:114 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:113 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:115 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:116 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:117 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:118 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:119 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:120 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:121 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:86028552mS LAT:0degE7 LON:0degE7 MSL_ALT:33540mm REL_ALT:33544mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16763cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:122 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:72
+mavlink_receive() - MSG RCVD - magic:254 seq:123 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5117mV Vservo:5020mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:124 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:125 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:86028552
+mavlink_receive() - MSG RCVD - magic:254 seq:126 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5117mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:127 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13128 voltages[1]:65535 current_battery:56
+mavlink_receive() - MSG RCVD - magic:254 seq:128 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:129 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:116 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:130 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:131 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:132 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:118 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:119 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:120 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:121 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:122 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:123 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:124 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:125 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:126 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:127 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:128 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:129 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:130 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:131 src sysid:255 src compid:190 msgid#:66
+mavlink_receive() - MSG RCVD - magic:254 seq:133 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:134 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:135 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:136 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:86029552mS LAT:0degE7 LON:0degE7 MSL_ALT:33640mm REL_ALT:33648mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16768cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:137 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:74
+mavlink_receive() - MSG RCVD - magic:254 seq:138 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5119mV Vservo:5022mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:139 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:140 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:86029552
+mavlink_receive() - MSG RCVD - magic:254 seq:141 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5119mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:142 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13022 voltages[1]:65535 current_battery:0
+mavlink_receive() - MSG RCVD - magic:254 seq:143 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:144 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+case_tx_to_autopilot() - Periodic TX - Finished.
+case_rx_from_autopilot() - Time to execute.
+mavlink_unrequest_datastream() - Executing
+request_one_param_from_ap() - START
+request_one_param_from_ap() - END
+case_rx_from_autopilot() - ATTEMPTING RX - starting at Millis:751716
+mavlink_receive() - MSG RCVD - magic:254 seq:133 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:145 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:146 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:147 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:148 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:149 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:150 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:151 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:86030552mS LAT:0degE7 LON:0degE7 MSL_ALT:33710mm REL_ALT:33713mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16761cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:152 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:72
+mavlink_receive() - MSG RCVD - magic:254 seq:153 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5122mV Vservo:5022mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:44 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:38 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:39 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:40 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:41 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:86039552mS LAT:0degE7 LON:0degE7 MSL_ALT:33670mm REL_ALT:33674mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16759cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:42 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:72
+mavlink_receive() - MSG RCVD - magic:254 seq:43 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5119mV Vservo:5017mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:44 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:45 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:86039552
+mavlink_receive() - MSG RCVD - magic:254 seq:46 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5119mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:47 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13019 voltages[1]:65535 current_battery:0
+mavlink_receive() - MSG RCVD - magic:254 seq:48 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:49 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:164 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:50 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:51 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:52 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:46 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:53 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:54 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:55 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:56 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:86040552mS LAT:0degE7 LON:0degE7 MSL_ALT:33550mm REL_ALT:33555mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16760cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:57 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:73
+mavlink_receive() - MSG RCVD - magic:254 seq:58 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5054mV Vservo:5022mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:59 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:60 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:86040552
+mavlink_receive() - MSG RCVD - magic:254 seq:61 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5054mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:62 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13171 voltages[1]:65535 current_battery:51
+mavlink_receive() - MSG RCVD - magic:254 seq:63 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:64 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:166 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:65 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:66 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:67 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:48 src sysid:1 src compid:0 msgid#:0=HEARTBEAT FlightMode:0 Type:27 Autopilot:8 BaseMode:4 CustomMode:0 SystemStatus:4 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:68 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:69 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:70 src sysid:1 src compid:1 msgid#:35
+mavlink_receive() - MSG RCVD - magic:254 seq:71 src sysid:1 src compid:1 msgid#:33=GLOBAL_POSITION_INT TimeSinceBoot:86041552mS LAT:0degE7 LON:0degE7 MSL_ALT:33750mm REL_ALT:33758mm VelX:0cm/s VelY:0cm/s VelZ:0cm/s Heading:16759cdeg
+mavlink_receive() - MSG RCVD - magic:254 seq:72 src sysid:1 src compid:1 msgid#:1=SYS_STATUS onboard_control_sensors_present:321969199 onboard_control_sensors_enabled:320864303 onboard_control_sensors_health:303071535 load:73
+mavlink_receive() - MSG RCVD - magic:254 seq:73 src sysid:1 src compid:1 msgid#:125=POWER_STATUS Vcc:5121mV Vservo:5022mV flags:3
+mavlink_receive() - MSG RCVD - magic:254 seq:74 src sysid:1 src compid:1 msgid#:24=GPS_RAW_INT Time:0h:0m:0s FixType:1 Latitude:0 Longitude:0 GroundSpeed:0 CoG(deg):0 SatsVisible:0
+mavlink_receive() - MSG RCVD - magic:254 seq:75 src sysid:1 src compid:1 msgid#:2=SYSTEM_TIME time_unix_usec:I can't print uint64_t's here time_boot_ms:86041552
+mavlink_receive() - MSG RCVD - magic:254 seq:76 src sysid:1 src compid:1 msgid#:165=HWSTATUS Vcc:5121mV I2Cerr:0errors
+mavlink_receive() - MSG RCVD - magic:254 seq:77 src sysid:1 src compid:1 msgid#:147=BATTERY_STATUS voltages[0]:13033 voltages[1]:65535 current_battery:0
+mavlink_receive() - MSG RCVD - magic:254 seq:78 src sysid:1 src compid:1 msgid#:148=AUTOPILOT_VERSION vendor_id:0 product_id:0
+mavlink_receive() - MSG RCVD - magic:254 seq:79 src sysid:1 src compid:1 msgid#:0=HEARTBEAT FlightMode:4 Type:11 Autopilot:3 BaseMode:1 CustomMode:4 SystemStatus:5 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:168 src sysid:255 src compid:190 msgid#:0=HEARTBEAT FlightMode:0 Type:6 Autopilot:8 BaseMode:0 CustomMode:0 SystemStatus:0 MavlinkVersion:3
+mavlink_receive() - MSG RCVD - magic:254 seq:80 src sysid:1 src compid:1 msgid#:36
+mavlink_receive() - MSG RCVD - magic:254 seq:81 src sysid:1 src compid:1 msgid#:65
+mavlink_receive() - MSG RCVD - magic:254 seq:82 src sysid:1 src compid:1 msgid#:35
+case_rx_from_autopilot() - Done RX - ending at Millis:754716
+case_heartbeat_to_autopilot() - Time to execute.
+mavlink_fmx_send_heartbeat_to_ap() - Executing
+CANsendHello()
+case_tx_to_agt() - Time to execute
+sendSharedSettings_to_AGT() - starting
+sendSharedSettings_to_AGT() - FMX about to SerialTransfer sendDatum() to AGT
+sendSharedSettings_to_AGT() - FMX to AGT transfer finished - numbytessent:208
+case_tx_to_agt() - finished
+case_heartbeat_to_autopilot() - Time to execute.
+mavlink_fmx_send_heartbeat_to_ap() - Executing
+case_rx_from_agt() - FMX received a Datum from the AGT
+case_heartbeat_to_autopilot() - Time to execute.
+mavlink_fmx_send_heartbeat_to_ap() - Executing

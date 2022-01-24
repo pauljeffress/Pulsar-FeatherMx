@@ -119,7 +119,7 @@ void mavlink_unrequest_datastream()
  *============================*/
 void mavlink_fmx_send_heartbeat_to_ap()
 {
-  debugPrintln("mavlink_fmx_send_heartbeat_to_ap() - Executing");
+  //debugPrintln("mavlink_fmx_send_heartbeat_to_ap() - Executing");
   // source and dest MAVLink addressing info.
   uint8_t _system_id = FMX_SYS_ID;        // MAVLink System ID of this device.
   uint8_t _component_id = FMX_COMP_ID;    // MAVLink Component ID of this device.
@@ -208,7 +208,7 @@ void mavlink_request_streaming_params_from_ap()
 
     // Build 1st COMMAND_LONG / MAV_CMD_SET_MESSAGE_INTERVAL message.
     // components of the MAVLink COMMAND_LONG message - https://mavlink.io/en/messages/common.html#COMMAND_LONG
-    uint16_t _cl_command      = MAV_CMD_SET_MESSAGE_INTERVAL; // https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_MESSAGE
+    uint16_t _cl_command      = MAV_CMD_SET_MESSAGE_INTERVAL; // https://mavlink.io/en/messages/common.html#MAV_CMD_SET_MESSAGE_INTERVAL
     uint8_t _cl_confirmation  = 0; // always 0 for first transmission, then incremented. https://mavlink.io/en/services/command.html#COMMAND_LONG
     float   _cl_param1 = MAVLINK_MSG_ID_POWER_STATUS;   // MAVLink Message ID
     float   _cl_param2 = 1000000; // Interval (uS) between messages e.g. 1sec interval = 1000000uS
@@ -286,10 +286,118 @@ void mavlink_request_streaming_params_from_ap()
     Serial1.write(buf, len); //Write data to serial port byte by byte.
     delay(500);
 
-} // END - request_streaming_params_from_ap()
+} // END - mavlink_request_streaming_params_from_ap()
+
+
+/*============================
+ * mavlink_unrequest_streaming_params_from_ap()
+ *
+ * Asks the AP to stop streaming certain MAVLink messages, that i had previously requested
+ * 
+ * Reduces noise on the MAVLink connection to the FMX, makes it easier to work with.
+ * 
+ *============================*/
+void mavlink_unrequest_streaming_params_from_ap()
+{
+
+    // Prep source and dest MAVLink addressing info, to be used in below actions.
+    uint8_t _system_id = FMX_SYS_ID;        // MAVLink System ID of this device.
+    uint8_t _component_id = FMX_COMP_ID;    // MAVLink Component ID of this device.
+    uint8_t _target_system = AP_SYS_ID;     // MAVLink System ID of the autopilot.
+    uint8_t _target_component = AP_COMP_ID; // MAVLink Component ID of the autopilot.
 
 
 
+    // Build 1st COMMAND_LONG / MAV_CMD_SET_MESSAGE_INTERVAL message.
+    // components of the MAVLink COMMAND_LONG message - https://mavlink.io/en/messages/common.html#COMMAND_LONG
+    uint16_t _cl_command      = MAV_CMD_SET_MESSAGE_INTERVAL; // https://mavlink.io/en/messages/common.html#MAV_CMD_SET_MESSAGE_INTERVAL
+    uint8_t _cl_confirmation  = 0; // always 0 for first transmission, then incremented. https://mavlink.io/en/services/command.html#COMMAND_LONG
+    float   _cl_param1 = MAVLINK_MSG_ID_POWER_STATUS;   // MAVLink Message ID
+    float   _cl_param2 = -1; // Interval (uS) between messages e.g. 1sec interval = 1000000uS or -1 to disable
+    float   _cl_param3 = 0; // Not used, so set to zero.
+    float   _cl_param4 = 0; // Not used, so set to zero.
+    float   _cl_param5 = 0; // Not used, so set to zero.
+    float   _cl_param6 = 0; // Not used, so set to zero.
+    float   _cl_param7 = 0; // Not used, so set to zero.
+
+    // Initialize the required buffers
+    mavlink_message_t msg;
+    uint8_t buf[MAVLINK_MAX_PACKET_LEN];
+
+    // Pack and send the 1st message
+    // Request MAVLINK_MSG_ID_POWER_STATUS (#125) - https://mavlink.io/en/messages/common.html#POWER_STATUS
+    mavlink_msg_command_long_pack(_system_id, _component_id, &msg, _target_system, _target_component, _cl_command, _cl_confirmation, _cl_param1, _cl_param2, _cl_param3, _cl_param4, _cl_param5, _cl_param6, _cl_param7);
+    uint16_t len = mavlink_msg_to_send_buffer(buf, &msg); // put message into our send buffer and also get it's size in bytes.
+    Serial1.write(buf, len); //Write data to serial port byte by byte.
+    delay(500); // give AP 1/2 sec to process before we send next CMD, don't want to DOS it.
+
+    // Modify the COMMAND_LONG / MAV_CMD_SET_MESSAGE_INTERVAL message for the next message I want to request, then pack and send it.
+    // Request MAVLINK_MSG_ID_HWSTATUS (#165) - https://mavlink.io/en/messages/ardupilotmega.html#HWSTATUS
+    _cl_param1 = MAVLINK_MSG_ID_HWSTATUS;   // MAVLink Message ID
+    mavlink_msg_command_long_pack(_system_id, _component_id, &msg, _target_system, _target_component, _cl_command, _cl_confirmation, _cl_param1, _cl_param2, _cl_param3, _cl_param4, _cl_param5, _cl_param6, _cl_param7);
+    len = mavlink_msg_to_send_buffer(buf, &msg); // put message into our send buffer and also get it's size in bytes.
+    Serial1.write(buf, len); //Write data to serial port byte by byte.
+    delay(500);
+
+    // Request MAVLINK_MSG_ID_GPS_RAW_INT (#24) - https://mavlink.io/en/messages/common.html#GPS_RAW_INT
+    _cl_param1 = MAVLINK_MSG_ID_GPS_RAW_INT;   // MAVLink Message ID
+    mavlink_msg_command_long_pack(_system_id, _component_id, &msg, _target_system, _target_component, _cl_command, _cl_confirmation, _cl_param1, _cl_param2, _cl_param3, _cl_param4, _cl_param5, _cl_param6, _cl_param7);
+    len = mavlink_msg_to_send_buffer(buf, &msg); // put message into our send buffer and also get it's size in bytes.
+    Serial1.write(buf, len); //Write data to serial port byte by byte.
+    delay(500);
+
+    // Request MAVLINK_MSG_ID_GLOBAL_POSITION_INT (#33) - https://mavlink.io/en/messages/common.html#GLOBAL_POSITION_INT
+    _cl_param1 = MAVLINK_MSG_ID_GLOBAL_POSITION_INT;   // MAVLink Message ID
+    mavlink_msg_command_long_pack(_system_id, _component_id, &msg, _target_system, _target_component, _cl_command, _cl_confirmation, _cl_param1, _cl_param2, _cl_param3, _cl_param4, _cl_param5, _cl_param6, _cl_param7);
+    len = mavlink_msg_to_send_buffer(buf, &msg); // put message into our send buffer and also get it's size in bytes.
+    Serial1.write(buf, len); //Write data to serial port byte by byte.
+    delay(500);
+
+    // Request MAVLINK_MSG_ID_SYS_STATUS (#1) - https://mavlink.io/en/messages/common.html#SYS_STATUS
+    _cl_param1 = MAVLINK_MSG_ID_SYS_STATUS;   // MAVLink Message ID
+    mavlink_msg_command_long_pack(_system_id, _component_id, &msg, _target_system, _target_component, _cl_command, _cl_confirmation, _cl_param1, _cl_param2, _cl_param3, _cl_param4, _cl_param5, _cl_param6, _cl_param7);
+    len = mavlink_msg_to_send_buffer(buf, &msg); // put message into our send buffer and also get it's size in bytes.
+    Serial1.write(buf, len); //Write data to serial port byte by byte.
+    delay(500);
+
+    // Request MAVLINK_MSG_ID_SYSTEM_TIME (#2) - https://mavlink.io/en/messages/common.html#SYSTEM_TIME
+    _cl_param1 = MAVLINK_MSG_ID_SYSTEM_TIME;   // MAVLink Message ID
+    mavlink_msg_command_long_pack(_system_id, _component_id, &msg, _target_system, _target_component, _cl_command, _cl_confirmation, _cl_param1, _cl_param2, _cl_param3, _cl_param4, _cl_param5, _cl_param6, _cl_param7);
+    len = mavlink_msg_to_send_buffer(buf, &msg); // put message into our send buffer and also get it's size in bytes.
+    Serial1.write(buf, len); //Write data to serial port byte by byte.
+    delay(500);
+
+    // Request MAVLINK_MSG_ID_NAV_CONTROLLER_OUTPUT (#62) - https://mavlink.io/en/messages/common.html#NAV_CONTROLLER_OUTPUT
+    _cl_param1 = MAVLINK_MSG_ID_NAV_CONTROLLER_OUTPUT;   // MAVLink Message ID
+    mavlink_msg_command_long_pack(_system_id, _component_id, &msg, _target_system, _target_component, _cl_command, _cl_confirmation, _cl_param1, _cl_param2, _cl_param3, _cl_param4, _cl_param5, _cl_param6, _cl_param7);
+    len = mavlink_msg_to_send_buffer(buf, &msg); // put message into our send buffer and also get it's size in bytes.
+    Serial1.write(buf, len); //Write data to serial port byte by byte.
+    delay(500);
+
+    // Request MAVLINK_MSG_ID_BATTERY_STATUS (#147) - https://mavlink.io/en/messages/common.html#BATTERY_STATUS
+    _cl_param1 = MAVLINK_MSG_ID_BATTERY_STATUS;   // MAVLink Message ID
+    mavlink_msg_command_long_pack(_system_id, _component_id, &msg, _target_system, _target_component, _cl_command, _cl_confirmation, _cl_param1, _cl_param2, _cl_param3, _cl_param4, _cl_param5, _cl_param6, _cl_param7);
+    len = mavlink_msg_to_send_buffer(buf, &msg); // put message into our send buffer and also get it's size in bytes.
+    Serial1.write(buf, len); //Write data to serial port byte by byte.
+    delay(500);
+
+    // Request MAVLINK_MSG_ID_AUTOPILOT_VERSION (#148) - https://mavlink.io/en/messages/common.html#AUTOPILOT_VERSION
+    _cl_param1 = MAVLINK_MSG_ID_AUTOPILOT_VERSION;   // MAVLink Message ID
+    mavlink_msg_command_long_pack(_system_id, _component_id, &msg, _target_system, _target_component, _cl_command, _cl_confirmation, _cl_param1, _cl_param2, _cl_param3, _cl_param4, _cl_param5, _cl_param6, _cl_param7);
+    len = mavlink_msg_to_send_buffer(buf, &msg); // put message into our send buffer and also get it's size in bytes.
+    Serial1.write(buf, len); //Write data to serial port byte by byte.
+    delay(500);
+
+} // END - mavlink_unrequest_streaming_params_from_ap()
+
+
+
+/*============================
+ * request_one_param_from_ap()
+ * 
+ * A basic test of reading one param from the AP using the "PARAM_REQUEST_READ" #20 msg method. https://mavlink.io/en/messages/common.html#PARAM_REQUEST_READ 
+ * 
+ *============================*/
 void request_one_param_from_ap()
 {
     // Initialize the required buffers
@@ -314,7 +422,120 @@ void request_one_param_from_ap()
 }
 
 
+/*============================
+ * set_one_param_from_ap()
+ * 
+ * A basic test of setting one param from the AP using the "PARAM_VALUE" #22 msg method. https://mavlink.io/en/messages/common.html#PARAM_VALUE
+ * 
+ *============================*/
+void set_one_param_from_ap()
+{
+    // Initialize the required buffers
+    mavlink_message_t msg;
+    uint8_t buf[MAVLINK_MAX_PACKET_LEN];
+  
+    uint16_t len;
 
+    const char param_i_want_to_set[16] = "BATT_ARM_VOLT";
+    float param_value = 10.5; // as in xx.x volts
+
+    debugPrintln("set_one_param_from_ap() - START");
+
+    mavlink_msg_param_set_pack(FMX_SYS_ID, FMX_COMP_ID, &msg, AP_SYS_ID, AP_COMP_ID, param_i_want_to_set, param_value, MAV_PARAM_TYPE_REAL32);
+
+    len = mavlink_msg_to_send_buffer(buf, &msg); // put message into our send buffer and also get it's size in bytes.
+    Serial1.write(buf, len); //Write data to serial port byte by byte.
+    
+    debugPrintln("set_one_param_from_ap() - END");
+
+}
+
+
+/*============================
+ * set_arm_ap()
+ * 
+ * A basic test of Arming the AP using the MAV_CMD_COMPONENT_ARM_DISARM within COMMAND_LONG
+ * As discussed in ArduPilot doco - https://ardupilot.org/dev/docs/mavlink-arming-and-disarming.html#arming-and-disarming
+ * 
+ *============================*/
+void set_arm_ap()
+{
+    debugPrintln("set_arm_ap() - START");
+
+    // Prep source and dest MAVLink addressing info, to be used in below actions.
+    uint8_t _system_id = FMX_SYS_ID;        // MAVLink System ID of this device.
+    uint8_t _component_id = FMX_COMP_ID;    // MAVLink Component ID of this device.
+    uint8_t _target_system = AP_SYS_ID;     // MAVLink System ID of the autopilot.
+    uint8_t _target_component = AP_COMP_ID; // MAVLink Component ID of the autopilot.
+
+    // Build the COMMAND_LONG / MAV_CMD_COMPONENT_ARM_DISARM message.
+    // components of the MAVLink COMMAND_LONG message - https://mavlink.io/en/messages/common.html#COMMAND_LONG
+    uint16_t _cl_command      = MAV_CMD_COMPONENT_ARM_DISARM; // https://mavlink.io/en/messages/common.html#MAV_CMD_COMPONENT_ARM_DISARM
+    uint8_t _cl_confirmation  = 0; // always 0 for first transmission, then incremented. https://mavlink.io/en/services/command.html#COMMAND_LONG
+    float   _cl_param1 = 1;   // Arm - 0=disarm, 1=arm
+    float   _cl_param2 = 21196; // Force - 0: arm-disarm unless prevented by safety checks (i.e. when landed), 21196: force arming/disarming (e.g. allow arming to override preflight checks and disarming in flight)
+    float   _cl_param3 = 0; // Not used, so set to zero.
+    float   _cl_param4 = 0; // Not used, so set to zero.
+    float   _cl_param5 = 0; // Not used, so set to zero.
+    float   _cl_param6 = 0; // Not used, so set to zero.
+    float   _cl_param7 = 0; // Not used, so set to zero.
+
+    // Initialize the required buffers
+    mavlink_message_t msg;
+    uint8_t buf[MAVLINK_MAX_PACKET_LEN];
+
+    // Pack and send the message
+    mavlink_msg_command_long_pack(_system_id, _component_id, &msg, _target_system, _target_component, _cl_command, _cl_confirmation, _cl_param1, _cl_param2, _cl_param3, _cl_param4, _cl_param5, _cl_param6, _cl_param7);
+    uint16_t len = mavlink_msg_to_send_buffer(buf, &msg); // put message into our send buffer and also get it's size in bytes.
+    Serial1.write(buf, len); //Write data to serial port byte by byte.
+
+        
+    debugPrintln("set_arm_ap() - END");
+
+}
+
+/*============================
+ * set_disarm_ap()
+ * 
+ * A basic test of DISarming the AP using the MAV_CMD_COMPONENT_ARM_DISARM within COMMAND_LONG
+ * As discussed in ArduPilot doco - https://ardupilot.org/dev/docs/mavlink-arming-and-disarming.html#arming-and-disarming
+ * 
+ *============================*/
+void set_disarm_ap()
+{
+    debugPrintln("set_DISarm_ap() - START");
+
+    // Prep source and dest MAVLink addressing info, to be used in below actions.
+    uint8_t _system_id = FMX_SYS_ID;        // MAVLink System ID of this device.
+    uint8_t _component_id = FMX_COMP_ID;    // MAVLink Component ID of this device.
+    uint8_t _target_system = AP_SYS_ID;     // MAVLink System ID of the autopilot.
+    uint8_t _target_component = AP_COMP_ID; // MAVLink Component ID of the autopilot.
+
+    // Build the COMMAND_LONG / MAV_CMD_COMPONENT_ARM_DISARM message.
+    // components of the MAVLink COMMAND_LONG message - https://mavlink.io/en/messages/common.html#COMMAND_LONG
+    uint16_t _cl_command      = MAV_CMD_COMPONENT_ARM_DISARM; // https://mavlink.io/en/messages/common.html#MAV_CMD_COMPONENT_ARM_DISARM
+    uint8_t _cl_confirmation  = 0; // always 0 for first transmission, then incremented. https://mavlink.io/en/services/command.html#COMMAND_LONG
+    float   _cl_param1 = 0;   // Arm - 0=disarm, 1=arm
+    float   _cl_param2 = 21196; // Force - 0: arm-disarm unless prevented by safety checks (i.e. when landed), 21196: force arming/disarming (e.g. allow arming to override preflight checks and disarming in flight)
+    float   _cl_param3 = 0; // Not used, so set to zero.
+    float   _cl_param4 = 0; // Not used, so set to zero.
+    float   _cl_param5 = 0; // Not used, so set to zero.
+    float   _cl_param6 = 0; // Not used, so set to zero.
+    float   _cl_param7 = 0; // Not used, so set to zero.
+
+    // Initialize the required buffers
+    mavlink_message_t msg;
+    uint8_t buf[MAVLINK_MAX_PACKET_LEN];
+
+    // Pack and send the message
+    mavlink_msg_command_long_pack(_system_id, _component_id, &msg, _target_system, _target_component, _cl_command, _cl_confirmation, _cl_param1, _cl_param2, _cl_param3, _cl_param4, _cl_param5, _cl_param6, _cl_param7);
+    uint16_t len = mavlink_msg_to_send_buffer(buf, &msg); // put message into our send buffer and also get it's size in bytes.
+    Serial1.write(buf, len); //Write data to serial port byte by byte.
+
+        
+    debugPrintln("set_DISarm_ap() - END");
+
+}
 
 
 
@@ -367,7 +588,7 @@ void mavlink_receive()
       {
       
       //============================
-      case MAVLINK_MSG_ID_HEARTBEAT:
+      case MAVLINK_MSG_ID_HEARTBEAT:    //  #0  https://mavlink.io/en/messages/common.html#HEARTBEAT
       {
         mavlink_heartbeat_t hb;
         mavlink_msg_heartbeat_decode(&msg, &hb);
@@ -406,7 +627,7 @@ void mavlink_receive()
       }
 
       //============================
-      case MAVLINK_MSG_ID_PARAM_VALUE:    // https://mavlink.io/en/messages/common.html#PARAM_VALUE
+      case MAVLINK_MSG_ID_PARAM_VALUE:    //  #22  https://mavlink.io/en/messages/common.html#PARAM_VALUE
       {
         mavlink_param_value_t param_value;
         mavlink_msg_param_value_decode(&msg, &param_value);
@@ -441,7 +662,7 @@ void mavlink_receive()
 
 
       //============================
-      case MAVLINK_MSG_ID_GPS_RAW_INT:    // https://mavlink.io/en/messages/common.html#GPS_RAW_INT
+      case MAVLINK_MSG_ID_GPS_RAW_INT:    //  #24  https://mavlink.io/en/messages/common.html#GPS_RAW_INT
       {
         mavlink_gps_raw_int_t packet;
         mavlink_msg_gps_raw_int_decode(&msg, &packet);
@@ -478,7 +699,7 @@ void mavlink_receive()
       }
 
       //============================
-      case MAVLINK_MSG_ID_HWSTATUS:   // https://mavlink.io/en/messages/ardupilotmega.html#HWSTATUS
+      case MAVLINK_MSG_ID_HWSTATUS:   //  #165  https://mavlink.io/en/messages/ardupilotmega.html#HWSTATUS
         {
           mavlink_hwstatus_t packet;
           mavlink_msg_hwstatus_decode(&msg, &packet);
@@ -496,7 +717,7 @@ void mavlink_receive()
         }
 
       //============================
-      case MAVLINK_MSG_ID_POWER_STATUS:   // https://mavlink.io/en/messages/common.html#POWER_STATUS
+      case MAVLINK_MSG_ID_POWER_STATUS:   //  #125  https://mavlink.io/en/messages/common.html#POWER_STATUS
         {
           mavlink_power_status_t packet;
           mavlink_msg_power_status_decode(&msg, &packet);
@@ -520,7 +741,7 @@ void mavlink_receive()
         }
 
       //============================
-      case MAVLINK_MSG_ID_GLOBAL_POSITION_INT:   // https://mavlink.io/en/messages/common.html#GLOBAL_POSITION_INT
+      case MAVLINK_MSG_ID_GLOBAL_POSITION_INT:   //  #33  https://mavlink.io/en/messages/common.html#GLOBAL_POSITION_INT
         {
           mavlink_global_position_int_t packet;
           mavlink_msg_global_position_int_decode(&msg, &packet);
@@ -551,7 +772,68 @@ void mavlink_receive()
         }
 
       //============================
-      case MAVLINK_MSG_ID_SYS_STATUS:   // https://mavlink.io/en/messages/common.html#SYS_STATUS
+      case MAVLINK_MSG_ID_RC_CHANNELS_RAW:   //  #35  https://mavlink.io/en/messages/common.html#RC_CHANNELS_RAW
+        {
+          #ifdef MAVLINK_DEBUG
+            debugPrint("=RC_CHANNELS_RAW - undecoded");
+          #endif
+
+          break;
+        }
+
+      //============================
+      case MAVLINK_MSG_ID_SERVO_OUTPUT_RAW:   //  #36  https://mavlink.io/en/messages/common.html#SERVO_OUTPUT_RAW
+        {
+          #ifdef MAVLINK_DEBUG
+            debugPrint("=SERVO_OUTPUT_RAW - undecoded");
+          #endif
+
+          break;
+        }
+
+      //============================
+      case MAVLINK_MSG_ID_RC_CHANNELS:   //  #65  https://mavlink.io/en/messages/common.html#RC_CHANNELS
+        {
+          #ifdef MAVLINK_DEBUG
+            debugPrint("=RC_CHANNELS - undecoded");
+          #endif
+
+          break;
+        }
+
+      //============================
+      case MAVLINK_MSG_ID_REQUEST_DATA_STREAM:   //  #66  https://mavlink.io/en/messages/common.html#REQUEST_DATA_STREAM
+        {
+          mavlink_request_data_stream_t packet;
+          mavlink_msg_request_data_stream_decode(&msg, &packet);
+
+          #ifdef MAVLINK_DEBUG
+            debugPrint("=REQUEST_DATA_STREAM");
+            debugPrint(" target_system:");Serial.print(packet.target_system);
+            debugPrint("target_comp:");Serial.print(packet.target_component);
+            debugPrint("req_stream_id:");Serial.print(packet.req_stream_id);
+            debugPrint("req_message_rate:");Serial.print(packet.req_message_rate);
+            debugPrint("start_stop:");Serial.print(packet.start_stop);
+          #endif
+
+          // Save things I'm interested in to FeatherMx data structure for use later.
+
+          break;
+        }
+
+      //============================
+      case MAVLINK_MSG_ID_TIMESYNC:   //  #111  https://mavlink.io/en/messages/common.html#TIMESYNC
+        {
+          #ifdef MAVLINK_DEBUG
+            debugPrint("=TIMESYNC - undecoded");
+          #endif
+
+          break;
+        }
+
+
+      //============================
+      case MAVLINK_MSG_ID_SYS_STATUS:   //  #1  https://mavlink.io/en/messages/common.html#SYS_STATUS
         {
           mavlink_sys_status_t packet;
           mavlink_msg_sys_status_decode(&msg, &packet);
@@ -578,7 +860,7 @@ void mavlink_receive()
         }
 
       //============================
-      case MAVLINK_MSG_ID_SYSTEM_TIME:   // https://mavlink.io/en/messages/common.html#SYSTEM_TIME
+      case MAVLINK_MSG_ID_SYSTEM_TIME:   //  #2  https://mavlink.io/en/messages/common.html#SYSTEM_TIME
         {
           mavlink_system_time_t packet;
           mavlink_msg_system_time_decode(&msg, &packet);
@@ -623,7 +905,7 @@ void mavlink_receive()
         }
 
       //============================
-      case MAVLINK_MSG_ID_BATTERY_STATUS:   // https://mavlink.io/en/messages/common.html#BATTERY_STATUS
+      case MAVLINK_MSG_ID_BATTERY_STATUS:   //  #147  https://mavlink.io/en/messages/common.html#BATTERY_STATUS
         {
           mavlink_battery_status_t packet;
           mavlink_msg_battery_status_decode(&msg, &packet);
@@ -647,7 +929,7 @@ void mavlink_receive()
         }
 
       //============================
-      case MAVLINK_MSG_ID_AUTOPILOT_VERSION:   // https://mavlink.io/en/messages/common.html#AUTOPILOT_VERSION
+      case MAVLINK_MSG_ID_AUTOPILOT_VERSION:   //  #148  https://mavlink.io/en/messages/common.html#AUTOPILOT_VERSION
         {
           mavlink_autopilot_version_t packet;
           mavlink_msg_autopilot_version_decode(&msg, &packet);
@@ -667,6 +949,24 @@ void mavlink_receive()
           break;
         }
 
+      //============================
+      case MAVLINK_MSG_ID_COMMAND_ACK:    //  #77  https://mavlink.io/en/messages/common.html#COMMAND_ACK
+      {
+        mavlink_command_ack_t ca;
+        mavlink_msg_command_ack_decode(&msg, &ca);
+
+        #ifdef MAVLINK_DEBUG
+          debugPrint("=COMMAND_ACK");
+          Serial.print(" command:");
+          Serial.print(ca.command);
+          Serial.print(" result:");
+          Serial.print(ca.result);
+        #endif
+
+        // Save things I'm interested in to FeatherMx data structure for use later.
+
+        break;
+      }
 
       //============================
       // DEFAULT - should not happen, but programing it defensively

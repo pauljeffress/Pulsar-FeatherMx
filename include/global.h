@@ -103,8 +103,7 @@
 // Various Timers
 #define SENSORPERIODSECONDS             120 // seconds - how often should we read the sensors?
 #define MAVLINKHEARTBEATPERIODSECONDS   20  // seconds - how often should we send a MAVLink HEARTBEAT to the AutoPilot
-#define MAVLINKREQUESTPERIODSECONDS     30  // seconds - how often should we send a MAVLink HEARTBEAT to the AutoPilot
-
+#define TX_TO_AP_PERIOD_SECONDS         120  // seconds - how often should we do periodic TX to AutoPilot
 
 // MAVLink stuff
 // MAVLink IDs - https://ardupilot.org/dev/docs/mavlink-basics.html
@@ -162,8 +161,12 @@ void mavlink_receive();
 void mavlink_request_datastream();
 void mavlink_unrequest_datastream();
 void mavlink_request_streaming_params_from_ap();
+void mavlink_unrequest_streaming_params_from_ap();
 
 void request_one_param_from_ap();
+void set_one_param_from_ap(); 
+void set_arm_ap();
+void set_disarm_ap();
 
 void case_loop_init();
 void case_zzz();

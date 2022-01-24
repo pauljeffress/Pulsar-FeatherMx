@@ -26,7 +26,7 @@ void case_rx_from_autopilot()
         // it is still on.
         mavlink_request_streaming_params_from_ap();
 
-        request_one_param_from_ap();    
+        //request_one_param_from_ap();    
 
         // Collect the messages I am interested in as per requests above
         // =============================================================
@@ -56,6 +56,7 @@ void case_rx_from_autopilot()
         seconds_since_last_ap_rx = 0;    // reset counter
         debugPrint("case_rx_from_autopilot() - Done RX - ending at Millis:"); Serial.println(millis());
 
+        mavlink_unrequest_streaming_params_from_ap();
 
         // see what we got (any magic nums still in place?) and maybe timestamp it.
 
