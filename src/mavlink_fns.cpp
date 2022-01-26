@@ -457,6 +457,7 @@ void set_one_param_from_ap()
  * A basic test of Arming the AP using the MAV_CMD_COMPONENT_ARM_DISARM within COMMAND_LONG
  * As discussed in ArduPilot doco - https://ardupilot.org/dev/docs/mavlink-arming-and-disarming.html#arming-and-disarming
  * 
+ * Note: ArduPilot Pre-arm safety checks may impact this working - https://ardupilot.org/rover/docs/common-prearm-safety-checks.html
  *============================*/
 void set_arm_ap()
 {
@@ -540,6 +541,66 @@ void set_disarm_ap()
 
 
 /*============================
+ * set_flightmode_ap()
+ * 
+ * Change the ArduPilot Flightmode of the AP. 
+ * We issue a COMMAND_LONG containing the command MAV_CMD_DO_SET_MODE (#176) https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_MODE
+ * As discussed in ArduPilot doco - https://ardupilot.org/dev/docs/mavlink-get-set-flightmode.html
+ * 
+ * The Flightmodes are defined in ardupilotmega.h from the MAVLink library.
+ *   ROVER_MODE_MANUAL=0
+ *   ROVER_MODE_ACRO=1
+ *   ROVER_MODE_STEERING=3
+ *   ROVER_MODE_HOLD=4
+ *   ROVER_MODE_LOITER=5
+ *   ROVER_MODE_FOLLOW=6
+ *   ROVER_MODE_SIMPLE=7
+ *   ROVER_MODE_AUTO=10
+ *   ROVER_MODE_RTL=11
+ *   ROVER_MODE_SMART_RTL=12
+ *   ROVER_MODE_GUIDED=15
+ *   ROVER_MODE_INITIALIZING=16
+ *   ROVER_MODE_ENUM_END=17
+ *============================*/
+void set_flightmode_ap(float desired_flightmode)
+{
+    debugPrintln("set_flightmode_ap() - START");
+
+    Serial.print("Desired Flightmode:");Serial.println(desired_flightmode);
+
+    // Prep source and dest MAVLink addressing info, to be used in below actions.
+    uint8_t _system_id = FMX_SYS_ID;        // MAVLink System ID of this device.
+    uint8_t _component_id = FMX_COMP_ID;    // MAVLink Component ID of this device.
+    uint8_t _target_system = AP_SYS_ID;     // MAVLink System ID of the autopilot.
+    uint8_t _target_component = AP_COMP_ID; // MAVLink Component ID of the autopilot.
+
+    // Build the COMMAND_LONG / MAV_CMD_COMPONENT_ARM_DISARM message.
+    // components of the MAVLink COMMAND_LONG message - https://mavlink.io/en/messages/common.html#COMMAND_LONG
+    uint16_t _cl_command      = MAV_CMD_DO_SET_MODE; // https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_MODE
+    uint8_t _cl_confirmation  = 0; // always 0 for first transmission, then incremented. https://mavlink.io/en/services/command.html#COMMAND_LONG
+    float   _cl_param1 = 1;   // always MAV_MODE_FLAG_CUSTOM_MODE_ENABLED=1
+    float   _cl_param2 = desired_flightmode; // Flightmode
+    float   _cl_param3 = 0; // Not used, so set to zero.
+    float   _cl_param4 = 0; // Not used, so set to zero.
+    float   _cl_param5 = 0; // Not used, so set to zero.
+    float   _cl_param6 = 0; // Not used, so set to zero.
+    float   _cl_param7 = 0; // Not used, so set to zero.
+
+    // Initialize the required buffers
+    mavlink_message_t msg;
+    uint8_t buf[MAVLINK_MAX_PACKET_LEN];
+
+    // Pack and send the message
+    mavlink_msg_command_long_pack(_system_id, _component_id, &msg, _target_system, _target_component, _cl_command, _cl_confirmation, _cl_param1, _cl_param2, _cl_param3, _cl_param4, _cl_param5, _cl_param6, _cl_param7);
+    uint16_t len = mavlink_msg_to_send_buffer(buf, &msg); // put message into our send buffer and also get it's size in bytes.
+    Serial1.write(buf, len); //Write data to serial port byte by byte.
+
+        
+    debugPrintln("set_flightmode_ap() - END");
+
+}
+
+/*============================
  * mavlink_receive()
  *
  * Function called by arduino to read any MAVlink messages sent by serial communication from flight controller to arduino.
@@ -595,15 +656,13 @@ void mavlink_receive()
 
         #ifdef MAVLINK_DEBUG
           debugPrint("=HEARTBEAT");
-          Serial.print(" FlightMode:");
-          Serial.print(hb.custom_mode);
           Serial.print(" Type:");
           Serial.print(hb.type);
           Serial.print(" Autopilot:");
           Serial.print(hb.autopilot);
           Serial.print(" BaseMode:");
           Serial.print(hb.base_mode);
-          Serial.print(" CustomMode:");
+          Serial.print(" CustomMode/Flightmode:");
           Serial.print(hb.custom_mode);
           Serial.print(" SystemStatus:");
           Serial.print(hb.system_status);

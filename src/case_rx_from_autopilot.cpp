@@ -26,7 +26,7 @@ void case_rx_from_autopilot()
         // it is still on.
         mavlink_request_streaming_params_from_ap();
 
-        //request_one_param_from_ap();    
+        // request_one_param_from_ap();    // only for testing the initial capability
 
         // Collect the messages I am interested in as per requests above
         // =============================================================

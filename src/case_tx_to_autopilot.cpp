@@ -30,16 +30,17 @@ void case_tx_to_autopilot()
             debugPrintln("case_tx_to_autopilot() - Periodic TX - calling set_disarm_ap()");
         #endif
 
-        // set_one_param_from_ap(); 
-
-        set_disarm_ap();
+        // set_one_param_from_ap();     // only for testing the initial capability
+        // set_arm_ap();       // only for testing the initial capability
+        // set_disarm_ap();    // only for testing the initial capability
+        // set_flightmode_ap(ROVER_MODE_STEERING);
 
 
         #ifdef MAVLINK_DEBUG 
-            debugPrintln("case_tx_to_autopilot() - Periodic TX - do quick and dirty mavlink_receive() to check for response to disarm request");
+            debugPrintln("case_tx_to_autopilot() - Periodic TX - do immediate mavlink_receive() to check for response");
         #endif
 
-        // do a quick and dirty mavlink_receive() to see if the AP responded to me setting the param above.
+        // do an immediate mavlink_receive() to see if the AP responded to me setting the param above.
         uint32_t start = millis();  // xxx - need to review how I'm timing this loop...seems clunky. Also need to take any contants and set the as #defines.
         while ((millis() < (start + 3000)) && (millis() > 4000))  // For 3 seconds, see if we can assemble received msgs and if so process them.
             mavlink_receive(); 

@@ -167,6 +167,7 @@ void request_one_param_from_ap();
 void set_one_param_from_ap(); 
 void set_arm_ap();
 void set_disarm_ap();
+void set_flightmode_ap(float desired_flightmode);
 
 void case_loop_init();
 void case_zzz();

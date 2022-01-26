@@ -9,9 +9,6 @@
 
 void case_tx_to_CANbus()
 {
-    #ifdef CAN_DEBUG 
-        debugPrintln("case_tx_to_CANbus() - executing");
-    #endif
     // if its time to do a routine send (worst case sync method) OR something else has flagged that we should do it then
     if ((CANStatus)  // If the CAN bus is functioning ok and...
             && ((seconds_since_last_CAN_tx > myFeatherMxSettings.FMX_TXCANINT) || (flag_do_CAN_tx)))
@@ -49,9 +46,9 @@ void case_tx_to_CANbus()
     }
     else
     {
-        #ifdef CAN_DEBUG 
-            debugPrintln("case_tx_to_CANbus() - NOT NOW");
-        #endif
+        //#ifdef CAN_DEBUG 
+        //    debugPrintln("case_tx_to_CANbus() - NOT NOW");
+        //#endif
     }
 
     assess_step = check_CANbus; // Set next state
